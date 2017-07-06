@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
 
-inherit eutils qmake-utils readme.gentoo
+inherit eutils qmake-utils readme.gentoo-r1
 
 DESCRIPTION="A nice LaTeX-IDE"
 HOMEPAGE="http://www.xm1math.net/texmaker/"
@@ -11,41 +11,31 @@ SRC_URI="http://www.xm1math.net/texmaker/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux"
-IUSE="qt4 +qt5"
-
-REQUIRED_USE="^^ ( qt4 qt5 )"
+KEYWORDS="~amd64 ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+IUSE=""
 
 COMMON_DEPEND="
 	app-text/hunspell
-	app-text/poppler:=[qt4?,qt5?]
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXext
-	dev-qt/qtsingleapplication[X,qt4?,qt5?]
-	qt4? (
-		dev-qt/qtgui:4
-		dev-qt/qtcore:4
-		dev-qt/qtscript:4
-		dev-qt/qtwebkit:4
-		)
-	qt5? (
-		dev-qt/qtconcurrent:5
-		dev-qt/qtgui:5
-		dev-qt/qtcore:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtscript:5
-		dev-qt/qtwebkit:5[printsupport]
-		dev-qt/qtwidgets:5
-		dev-qt/qtxml:5
-		)
+	app-text/poppler:=[qt5]
+	dev-qt/qtconcurrent:5
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtscript:5
+	dev-qt/qtsingleapplication[X,qt5]
+	dev-qt/qtwebkit:5[printsupport]
+	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
 "
 RDEPEND="${COMMON_DEPEND}
-	virtual/latex-base
-	app-text/psutils
 	app-text/ghostscript-gpl
+	app-text/psutils
 	media-libs/netpbm
-	qt4? ( app-i18n/ibus-qt )"
+	virtual/latex-base"
+
 DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig"
 
@@ -84,11 +74,7 @@ src_configure() {
 		DESKTOPDIR="${EPREFIX}/usr/share/applications"
 		ICONDIR="${EPREFIX}/usr/share/pixmaps"
 		)
-	if use qt4; then
-		eqmake4 ${myeqmakeargs[@]}
-	else
 		eqmake5 ${myeqmakeargs[@]}
-	fi
 }
 
 src_install() {
