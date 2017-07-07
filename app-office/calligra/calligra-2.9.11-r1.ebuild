@@ -1,11 +1,12 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 # note: files that need to be checked for dependencies etc:
 # CMakeLists.txt, kexi/CMakeLists.txt kexi/migration/CMakeLists.txt
 # krita/CMakeLists.txt
 
-EAPI=6
+EAPI=5
 
 CHECKREQS_DISK_BUILD="4G"
 KDE_HANDBOOK="optional"
@@ -15,7 +16,7 @@ WEBKIT_REQUIRED="optional"
 inherit check-reqs kde4-base versionator
 
 DESCRIPTION="KDE Office Suite"
-HOMEPAGE="https://www.calligra.org/"
+HOMEPAGE="http://www.calligra.org/"
 
 case ${PV} in
 	2.[456789].[789]?)
@@ -36,12 +37,13 @@ LICENSE="GPL-2"
 SLOT="4"
 
 if [[ ${KDE_BUILD_TYPE} == release ]] ; then
-	KEYWORDS="amd64 ~arm x86"
+	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
-IUSE="color-management +crypt +eigen +exif fftw +fontconfig freetds +glew +glib
-+gsf gsl import-filter +jpeg jpeg2k +lcms mysql openexr +pdf +pim
-postgres spacenav sybase test tiff +threads +truetype vc xbase +xml"
+IUSE="attica color-management +crypt +eigen +exif fftw +fontconfig freetds
++glew +glib +gsf gsl import-filter +jpeg jpeg2k +kdcraw +lcms marble mysql
++okular openexr +pdf +pim postgres spacenav sybase test tiff +threads
++truetype vc xbase +xml"
 
 # Don't use Active, it's broken on desktops.
 CAL_FTS="author braindump flow gemini karbon kexi krita plan sheets stage words"
@@ -51,7 +53,6 @@ done
 unset cal_ft
 
 REQUIRED_USE="
-	|| ( $(printf 'calligra_features_%s ' ${CAL_FTS[@]}) )
 	calligra_features_author? ( calligra_features_words )
 	calligra_features_gemini? ( opengl )
 	calligra_features_krita? ( eigen exif lcms opengl )
@@ -66,11 +67,12 @@ RDEPEND="
 	dev-lang/perl
 	dev-libs/boost
 	dev-qt/qtcore:4[exceptions]
-	media-libs/libpng:0=
+	media-libs/libpng:0
 	sys-libs/zlib
 	virtual/libiconv
+	attica? ( dev-libs/libattica )
 	color-management? ( media-libs/opencolorio )
-	crypt? ( app-crypt/qca:2[qt4] )
+	crypt? ( app-crypt/qca:2[qt4(+)] )
 	eigen? ( dev-cpp/eigen:3 )
 	exif? ( media-gfx/exiv2:= )
 	fftw? ( sci-libs/fftw:3.0 )
@@ -78,7 +80,7 @@ RDEPEND="
 	freetds? ( dev-db/freetds )
 	glib? ( dev-libs/glib:2 )
 	gsf? ( gnome-extra/libgsf )
-	gsl? ( sci-libs/gsl:= )
+	gsl? ( sci-libs/gsl )
 	import-filter? (
 		app-text/libetonyek
 		app-text/libodfgen
@@ -90,16 +92,19 @@ RDEPEND="
 	)
 	jpeg? ( virtual/jpeg:0 )
 	jpeg2k? ( media-libs/openjpeg:0 )
+	kdcraw? ( $(add_kdeapps_dep libkdcraw) )
 	lcms? (
 		media-libs/lcms:2
 		x11-libs/libX11
 	)
+	marble? ( $(add_kdeapps_dep marble) )
 	mysql? ( virtual/mysql )
-	openexr? ( media-libs/openexr:= )
+	okular? ( >=kde-apps/okular-4.4:4=[aqua=] )
 	opengl? (
 		media-libs/glew:0
 		virtual/glu
 	)
+	openexr? ( media-libs/openexr )
 	pdf? (
 		app-text/poppler:=
 		media-gfx/pstoedit
@@ -116,7 +121,7 @@ RDEPEND="
 	vc? ( <dev-libs/vc-1.0.0 )
 	xbase? ( dev-db/xbase )
 	calligra_features_kexi? (
-		dev-db/sqlite:3[extensions(+)]
+		>=dev-db/sqlite-3.8.7:3[extensions(+)]
 		dev-libs/icu:=
 	)
 	calligra_features_krita? (
@@ -137,11 +142,7 @@ PDEPEND=">=app-office/calligra-l10n-${LANGVERSION}"
 # bug 394273
 RESTRICT=test
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.9.1-no-arch-detection.patch
-	"${FILESDIR}"/${P}-postgresql-9.6.patch
-	"${FILESDIR}"/${P}-libwps-0.4.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-2.9.1-no-arch-detection.patch )
 
 pkg_pretend() {
 	check-reqs_pkg_pretend
@@ -153,10 +154,10 @@ pkg_setup() {
 }
 
 src_prepare() {
-	kde4-base_src_prepare
 	if ! use webkit; then
 		sed -i CMakeLists.txt -e "/^find_package/ s/QtWebKit //" || die
 	fi
+	kde4-base_src_prepare
 }
 
 src_configure() {
@@ -164,64 +165,70 @@ src_configure() {
 
 	# applications
 	for cal_ft in ${CAL_FTS}; do
-		use calligra_features_${cal_ft} && myproducts+=( "${cal_ft^^}" )
+		# Switch to ^^ when we switch to EAPI=6.
+		#local prod=${cal_ft^^}
+		local prod=$(tr '[:lower:]' '[:upper:]' <<<"${cal_ft}")
+		use calligra_features_${cal_ft} && myproducts+=( "${prod}" )
 	done
 
 	local mycmakeargs=( -DPRODUCTSET="${myproducts[*]}" )
 
-	# regular options
+	# first write out things we want to hard-enable
 	mycmakeargs+=(
-		-DCREATIVEONLY=OFF
-		-DPACKAGERS_BUILD=OFF
-		-DWITH_Soprano=OFF
-		-DWITH_KActivities=OFF
-		-DWITH_CalligraMarble=OFF
-		-DWITH_Iconv=ON
-		-DWITH_OCIO=$(usex color-management)
-		-DWITH_QCA2=$(usex crypt)
-		-DWITH_Eigen3=$(usex eigen)
-		-DWITH_Exiv2=$(usex exif)
-		-DWITH_FFTW3=$(usex fftw)
-		-DWITH_Fontconfig=$(usex fontconfig)
-		-DWITH_FreeTDS=$(usex freetds)
-		-DWITH_GLIB2=$(usex glib)
-		-DWITH_GSL=$(usex gsl)
-		-DWITH_LibEtonyek=$(usex import-filter)
-		-DWITH_LibOdfGen=$(usex import-filter)
-		-DWITH_LibRevenge=$(usex import-filter)
-		-DWITH_LibVisio=$(usex import-filter)
-		-DWITH_LibWpd=$(usex import-filter)
-		-DWITH_LibWpg=$(usex import-filter)
-		-DWITH_LibWps=$(usex import-filter)
-		-DWITH_JPEG=$(usex jpeg)
-		-DWITH_OpenJPEG=$(usex jpeg2k)
-		-DWITH_Kdcraw=OFF
-		-DWITH_LCMS2=$(usex lcms)
-		-DWITH_MySQL=$(usex mysql)
-		-DWITH_Okular=OFF
-		-DWITH_OpenEXR=$(usex openexr)
-		-DUSEOPENGL=$(usex opengl)
-		-DWITH_Poppler=$(usex pdf)
-		-DWITH_Pstoedit=$(usex pdf)
-		-DWITH_KdepimLibs=$(usex pim)
-		-DWITH_CalligraPostgreSQL=$(usex postgres)
-		-DWITH_Spnav=$(usex spacenav)
-		-DWITH_FreeTDS=$(usex sybase)
-		-DWITH_Threads=$(usex threads)
-		-DWITH_TIFF=$(usex tiff)
-		-DWITH_Freetype=$(usex truetype)
-		-DWITH_Vc=$(usex vc)
-		-DWITH_XBase=$(usex xbase)
+		"-DWITH_Iconv=ON"            # available on all supported arches and many more
 	)
 
-	use test && mycmakeargs+=( -DENABLE_CSTESTER_TESTING=$(usex test) )
+	# default disablers
+	mycmakeargs+=(
+		"-DCREATIVEONLY=OFF"
+		"-DPACKAGERS_BUILD=OFF"
+		"-DWITH_Soprano=OFF"
+		"-DWITH_KActivities=OFF"	# deprecated Plasma 4 activities integration
+	)
+
+	# regular options
+	mycmakeargs+=(
+		$(cmake-utils_use_with attica LibAttica)
+		$(cmake-utils_use_with color-management OCIO)
+		$(cmake-utils_use_with crypt QCA2)
+		$(cmake-utils_use_with eigen Eigen3)
+		$(cmake-utils_use_with exif Exiv2)
+		$(cmake-utils_use_with fftw FFTW3)
+		$(cmake-utils_use_with fontconfig Fontconfig)
+		$(cmake-utils_use_with freetds FreeTDS)
+		$(cmake-utils_use_with glib GLIB2)
+		$(cmake-utils_use_with gsl GSL)
+		$(cmake-utils_use_with import-filter LibEtonyek)
+		$(cmake-utils_use_with import-filter LibOdfGen)
+		$(cmake-utils_use_with import-filter LibRevenge)
+		$(cmake-utils_use_with import-filter LibVisio)
+		$(cmake-utils_use_with import-filter LibWpd)
+		$(cmake-utils_use_with import-filter LibWpg)
+		$(cmake-utils_use_with import-filter LibWps)
+		$(cmake-utils_use_with jpeg JPEG)
+		$(cmake-utils_use_with jpeg2k OpenJPEG)
+		$(cmake-utils_use_with kdcraw Kdcraw)
+		$(cmake-utils_use_with lcms LCMS2)
+		$(cmake-utils_use_with marble CalligraMarble)
+		$(cmake-utils_use_with mysql MySQL)
+		$(cmake-utils_use_with okular Okular)
+		$(cmake-utils_use_with openexr OpenEXR)
+		$(cmake-utils_use opengl USEOPENGL)
+		$(cmake-utils_use_with pdf Poppler)
+		$(cmake-utils_use_with pdf Pstoedit)
+		$(cmake-utils_use_with pim KdepimLibs)
+		$(cmake-utils_use_with postgres CalligraPostgreSQL)
+		$(cmake-utils_use_build postgres pqxx)
+		$(cmake-utils_use_with spacenav Spnav)
+		$(cmake-utils_use_with sybase FreeTDS)
+		$(cmake-utils_use_with tiff TIFF)
+		$(cmake-utils_use_with threads Threads)
+		$(cmake-utils_use_with truetype Freetype)
+		$(cmake-utils_use_with vc Vc)
+		$(cmake-utils_use_with xbase XBase)
+	)
+
+	mycmakeargs+=( $(cmake-utils_use_build test cstester) )
 
 	kde4-base_src_configure
-}
-
-src_install() {
-	kde4-base_src_install
-
-	# bug 613414
-	QA_DT_NEEDED="usr/lib64/libkoversion.so.14.0.0"
 }

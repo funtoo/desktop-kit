@@ -1,5 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=5
 JAVA_PKG_IUSE="doc source"
@@ -12,29 +13,26 @@ SRC_URI="mirror://sourceforge/${PN}/${P}-src.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
+IUSE=""
 
-CDEPEND="
-	dev-java/jdom:0
-	dev-java/log4j:0
-	dev-java/ant-core:0
-	dev-java/jcommon:1.0"
+COMMON_DEPEND="dev-java/log4j
+		dev-java/jcommon:1.0
+		dev-java/jdom:0"
 
-DEPEND="
-	>=virtual/jdk-1.5
-	${CDEPEND}"
-
-RDEPEND="
-	>=virtual/jre-1.5
-	${CDEPEND}"
+DEPEND=">=virtual/jdk-1.5
+	dev-java/ant-core
+	${COMMON_DEPEND}"
+RDEPEND=">=virtual/jre-1.5
+	${COMMON_DEPEND}"
 
 S="${WORKDIR}/${P}-src"
 
 java_prepare() {
-	echo "jar.log4j=$(java-pkg_getjar log4j log4j.jar)" > conf/local.properties || die
-	echo "jar.jcommon=$(java-pkg_getjar jcommon:1.0 jcommon.jar)" >> conf/local.properties || die
-	echo "jar.jdom=$(java-pkg_getjar jdom jdom.jar)" >> conf/local.properties || die
-	echo "jar.ant=$(java-pkg_getjar --build-only ant-core ant.jar)" >> conf/local.properties || die
+	echo "jar.log4j=$(java-pkg_getjar log4j log4j.jar)" > conf/local.properties
+	echo "jar.jcommon=$(java-pkg_getjar jcommon:1.0 jcommon.jar)" >> conf/local.properties
+	echo "jar.jdom=$(java-pkg_getjar jdom jdom.jar)" >> conf/local.properties
+	echo "jar.ant=$(java-pkg_getjar --build-only ant-core ant.jar)" >> conf/local.properties
 }
 
 EANT_BUILD_TARGET="dist"

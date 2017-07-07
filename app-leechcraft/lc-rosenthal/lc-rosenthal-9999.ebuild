@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="4"
 
 inherit leechcraft
 
@@ -9,9 +10,8 @@ DESCRIPTION="Spellchecking support for LeechCraft"
 
 SLOT="0"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtgui:5
 	app-text/hunspell"
 RDEPEND="${DEPEND}"

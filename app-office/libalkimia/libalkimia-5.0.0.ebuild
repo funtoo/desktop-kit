@@ -1,5 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=6
 
@@ -10,7 +11,7 @@ HOMEPAGE="https://community.kde.org/Alkimia/libalkimia"
 SRC_URI="mirror://kde/stable/${PN/lib/}/${PV}/src/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 SLOT="0/5"
 IUSE=""
 

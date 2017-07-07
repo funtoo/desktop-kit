@@ -1,9 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 #
 # @ECLASS: leechcraft.eclass
 # @MAINTAINER:
-# 0xd34df00d@gmail.com
+# leechcraft@gentoo.org
 # @AUTHOR:
 # 0xd34df00d@gmail.com
 # NightNord@niifaq.ru
@@ -18,27 +19,29 @@
 #
 # Thanks for original eclass to Andrian Nord <NightNord@niifaq.ru>.
 #
-# Only EAPI >4 supported
+# Only EAPI >3 supported
 
 case ${EAPI:-0} in
-	6) ;;
-	*) die "EAPI not supported, bug ebuild mantainer" ;;
+	4|5) ;;
+	0|1|2|3) die "EAPI not supported, bug ebuild mantainer" ;;
+	*) die "Unknown EAPI, bug eclass maintainers" ;;
 esac
 
-inherit cmake-utils
+inherit cmake-utils toolchain-funcs versionator
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="git://github.com/0xd34df00d/leechcraft.git
 	               https://github.com/0xd34df00d/leechcraft.git"
+	EGIT_PROJECT="leechcraft"
 
-	inherit git-r3
+	inherit git-2
 else
 	DEPEND="app-arch/xz-utils"
-	SRC_URI="https://dist.leechcraft.org/LeechCraft/${PV}/leechcraft-${PV}.tar.xz"
+	SRC_URI="http://dist.leechcraft.org/LeechCraft/${PV}/leechcraft-${PV}.tar.xz"
 	S="${WORKDIR}/leechcraft-${PV}"
 fi
 
-HOMEPAGE="https://leechcraft.org/"
+HOMEPAGE="http://leechcraft.org/"
 LICENSE="Boost-1.0"
 
 # @ECLASS-VARIABLE: LEECHCRAFT_PLUGIN_CATEGORY
@@ -54,3 +57,27 @@ elif [[ ${PN} != lc-core ]]; then
 else
 	CMAKE_USE_DIR="${S}"/src
 fi
+
+EXPORT_FUNCTIONS "pkg_pretend"
+
+# @FUNCTION: leechcraft_pkg_pretend
+# @DESCRIPTION:
+# Determine active compiler version and refuse to build
+# if it is not satisfied at least to minimal version,
+# supported by upstream developers
+leechcraft_pkg_pretend() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		# All in-tree versions require at least gcc 4.6
+		[[ $(gcc-major-version) -lt 4 ]] || \
+				( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 6 ]] ) \
+			&& die "Sorry, but gcc 4.6 or higher is required."
+		# 0.6.65 monocle and all later plugins require at least gcc 4.8
+		if version_is_at_least 0.6.66 || ( [[ ${PN} == lc-monocle ]] && version_is_at_least 0.6.65 ); then
+			[[ $(gcc-major-version) -lt 4 ]] || \
+					( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 8 ]] ) \
+				&& die "Sorry, but gcc 4.8 or higher is required."
+		fi
+	fi
+}

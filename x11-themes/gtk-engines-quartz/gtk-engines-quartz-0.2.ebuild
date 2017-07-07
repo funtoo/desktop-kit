@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI=3
 
 inherit autotools
 
@@ -23,6 +24,10 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/${MY_NAME}
 
 src_prepare() {
-	default
 	eautoreconf
+}
+
+src_install() {
+	emake DESTDIR="${D}" install || die "emake install failed"
+	dodoc AUTHORS ChangeLog NEWS README
 }

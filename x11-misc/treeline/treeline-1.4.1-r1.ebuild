@@ -1,5 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=5
 
@@ -22,14 +23,13 @@ for lingua in ${TLLINGUAS[@]}; do
 	SRC_URI+=" l10n_${lingua}? ( mirror://sourceforge/${PN}/${PN}-i18n-${PV}a.tar.gz )"
 done
 unset lingua
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	${PYTHON_DEPS}
 "
 RDEPEND="
 	${DEPEND}
-	dev-python/PyQt4[X,${PYTHON_USEDEP}]
+	dev-python/PyQt4[X]
 "
 
 S="${WORKDIR}/TreeLine"

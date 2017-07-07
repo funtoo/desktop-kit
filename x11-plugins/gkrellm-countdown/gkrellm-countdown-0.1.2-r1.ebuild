@@ -1,5 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=6
 
@@ -11,7 +12,7 @@ HOMEPAGE="http://freecode.com/projects/gkrellm-countdown"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ppc sparc x86"
+KEYWORDS="~ppc ~sparc ~x86 ~amd64"
 IUSE=""
 
 COMMON_DEPEND="app-admin/gkrellm[X]"

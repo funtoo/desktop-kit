@@ -1,5 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=5
 
@@ -7,12 +8,12 @@ EAUTORECONF="yes"
 inherit xfconf
 
 DESCRIPTION="Archive plug-in for the Thunar filemanager"
-HOMEPAGE="https://goodies.xfce.org/projects/thunar-plugins/thunar-archive-plugin"
+HOMEPAGE="http://goodies.xfce.org/projects/thunar-plugins/thunar-archive-plugin"
 SRC_URI="mirror://xfce/src/thunar-plugins/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm ia64 ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm ~ia64 ~ppc ppc64 ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux"
 IUSE="debug"
 
 RDEPEND=">=xfce-base/libxfce4util-4.8:=

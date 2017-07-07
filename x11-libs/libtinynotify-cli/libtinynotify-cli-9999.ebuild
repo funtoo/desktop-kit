@@ -1,44 +1,48 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI=5
 
-EGIT_REPO_URI="https://github.com/mgorny/tinynotify-send.git"
-inherit autotools git-r3
+#if LIVE
+AUTOTOOLS_AUTORECONF=yes
+EGIT_REPO_URI="https://bitbucket.org/mgorny/tinynotify-send.git"
 
-MY_P=tinynotify-send-${PV}
+inherit git-r3
+#endif
+
+inherit autotools-utils
+
+MY_PN=tinynotify-send
+MY_P=${MY_PN}-${PV}
+
 DESCRIPTION="Common CLI routines for tinynotify-send & sw-notify-send"
-HOMEPAGE="https://github.com/mgorny/tinynotify-send/"
-SRC_URI=""
+HOMEPAGE="https://bitbucket.org/mgorny/tinynotify-send/"
+SRC_URI="https://www.bitbucket.org/mgorny/${MY_PN}/downloads/${MY_P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="doc static-libs"
 
 RDEPEND="x11-libs/libtinynotify:0="
 DEPEND="${RDEPEND}
-	>=dev-util/gtk-doc-1.18
 	virtual/pkgconfig
 	doc? ( dev-util/gtk-doc )"
 
-src_prepare() {
-	default
-	eautoreconf
-}
+#if LIVE
+KEYWORDS=
+SRC_URI=
+DEPEND="${DEPEND}
+	>=dev-util/gtk-doc-1.18"
+#endif
 
 src_configure() {
-	local myconf=(
+	local myeconfargs=(
 		$(use_enable doc gtk-doc)
-		$(use_enable static-libs static)
 		--disable-regular
 		--disable-system-wide
 	)
 
-	econf "${myconf[@]}"
-}
-
-src_install() {
-	default
-	find "${D}" -name '*.la' -delete || die
+	autotools-utils_src_configure
 }

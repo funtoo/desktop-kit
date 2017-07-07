@@ -1,5 +1,5 @@
---- a/src/gui.c
-+++ b/src/gui.c
+--- src/gui.c
++++ src/gui.c
 @@ -84,7 +84,7 @@
      while ( *digit ) {
          get_pm_location( *digit, &x, &y, &w );

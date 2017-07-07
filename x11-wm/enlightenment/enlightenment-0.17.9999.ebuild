@@ -1,5 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI="5"
 
@@ -10,7 +11,7 @@ if [[ ${PV} == *9999 ]] ; then
 	EGIT_URI_APPEND="${PN}"
 else
 	SRC_URI="https://download.enlightenment.org/rel/apps/${PN}/${MY_P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x64-solaris ~x86-solaris"
+	EKEY_STATE="snap"
 fi
 
 inherit enlightenment
@@ -33,8 +34,8 @@ __NORM_MODS=(
 	ibar ibox lokker
 	mixer msgbus music-control notification
 	pager packagekit pager-plain policy-mobile quickaccess
-	shot start syscon systray tasks teamwork temperature tiling time
-	winlist wireless wizard wl-desktop-shell wl-drm wl-text-input
+	shot start syscon systray tasks teamwork temperature tiling
+	winlist wizard wl-desktop-shell wl-drm wl-text-input
 	wl-weekeyboard wl-wl wl-x11 xkbswitch xwayland
 )
 IUSE_E_MODULES=(
@@ -49,11 +50,12 @@ RDEPEND="
 	systemd? ( sys-apps/systemd )
 	wayland? (
 		dev-libs/efl[wayland]
-		>=dev-libs/wayland-1.10.0
+		>=dev-libs/wayland-1.2.0
 		>=x11-libs/pixman-0.31.1
 		>=x11-libs/libxkbcommon-0.3.1
 	)
-	>=dev-libs/efl-1.18[X]
+	>=dev-libs/efl-1.17[X]
+	>=media-libs/elementary-1.17
 	x11-libs/xcb-util-keysyms"
 DEPEND="${RDEPEND}"
 

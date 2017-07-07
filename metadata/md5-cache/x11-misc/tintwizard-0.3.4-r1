@@ -1,0 +1,12 @@
+DEFINED_PHASES=install prepare
+DEPEND==dev-lang/python-2*
+DESCRIPTION=GUI wizard which generates config files for tint2 panels
+EAPI=3
+HOMEPAGE=https://code.google.com/p/tintwizard/
+KEYWORDS=amd64 x86
+LICENSE=GPL-3
+RDEPEND=x11-misc/tint2 dev-python/pygtk:2 =dev-lang/python-2*
+SLOT=0
+SRC_URI=https://tintwizard.googlecode.com/files/tintwizard-0.3.4.tar.gz
+_eclasses_=multilib	97f470f374f2e94ccab04a2fb21d811e	python	efc1c55fc44c5b7272fc2ffba73c3e6f	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
+_md5_=644d60467c4d9ee68fe46b41476652f5
