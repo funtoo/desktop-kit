@@ -4,13 +4,13 @@
 
 EAPI=5
 
-inherit eutils
+inherit eutils versionator
 
 MY_PN=${PN/-bin}
 MY_P="${MY_PN}-${PV}"
 DESCRIPTION="A free and open source desktop alternative to Microsoft Project"
 HOMEPAGE="http://www.projectlibre.org/"
-SRC_URI="mirror://sourceforge/${MY_PN}/ProjectLibre/${PV}/${MY_P}.tar.gz
+SRC_URI="mirror://sourceforge/${MY_PN}/ProjectLibre/$(get_version_component_range 1-2)/${MY_P}.tar.gz
 	http://sourceforge.net/p/projectlibre/code/ci/master/tree/openproj_build/resources/${MY_PN}.desktop?format=raw -> ${MY_PN}.desktop
 	http://sourceforge.net/p/projectlibre/code/ci/master/tree/openproj_build/resources/${MY_PN}.png?format=raw -> ${MY_PN}.png"
 
