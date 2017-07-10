@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="5"
 
 inherit leechcraft
 
@@ -12,14 +13,15 @@ KEYWORDS=""
 IUSE="debug"
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtwidgets:5
-	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5[widgets]
-"
+		dev-qt/qtdbus:4"
 RDEPEND="${DEPEND}
-	sys-fs/udisks:2"
+		sys-fs/udisks:2"
 
-mycmakeargs=(
-	-DENABLE_VROOBY_UDISKS=OFF
-	-DENABLE_VROOBY_UDISKS2=ON
-	)
+src_configure() {
+	local mycmakeargs=(
+		-DENABLE_VROOBY_UDISKS=OFF
+		-DENABLE_VROOBY_UDISKS2=ON
+		)
+
+	cmake-utils_src_configure
+}

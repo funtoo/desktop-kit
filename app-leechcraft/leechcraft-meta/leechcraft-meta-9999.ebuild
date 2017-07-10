@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="5"
 
 DESCRIPTION="Metapackage containing all ready-to-use LeechCraft plugins"
 HOMEPAGE="http://leechcraft.org/"
@@ -64,10 +65,6 @@ RDEPEND="
 		~app-leechcraft/lc-nacheku-${PV}
 		~app-leechcraft/lc-xtazy-${PV}
 		~app-leechcraft/lc-htthare-${PV}
-		~app-leechcraft/lc-hotsensors-${PV}
-		~app-leechcraft/lc-sb2-${PV}
-		~app-leechcraft/lc-intermutko-${PV}
-		~app-leechcraft/lc-ooronee-${PV}
 		de? (
 			~app-leechcraft/lc-devmon-${PV}
 			~app-leechcraft/lc-fenet-${PV}

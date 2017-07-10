@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="5"
 
 inherit leechcraft
 
@@ -14,12 +15,7 @@ IUSE="debug +djvu doc +fb2 +mobi +pdf +postscript"
 REQUIRED_USE="postscript? ( pdf )"
 
 CDEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtxml:5
-	pdf? ( app-text/poppler[qt5] )
+	pdf? ( app-text/poppler[qt4] )
 	djvu? ( app-text/djvu )"
 
 RDEPEND="${CDEPEND}
@@ -30,12 +26,12 @@ DEPEND="${CDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DENABLE_MONOCLE_SEEN=$(usex djvu)
-		-DWITH_DOCS=$(usex doc)
-		-DENABLE_MONOCLE_FXB=$(usex fb2)
-		-DENABLE_MONOCLE_DIK=$(usex mobi)
-		-DENABLE_MONOCLE_PDF=$(usex pdf)
-		-DENABLE_MONOCLE_POSTRUS=$(usex postscript)
+		$(cmake-utils_use_enable djvu MONOCLE_SEEN)
+		$(cmake-utils_use_with doc DOCS)
+		$(cmake-utils_use_enable fb2 MONOCLE_FXB)
+		$(cmake-utils_use_enable mobi MONOCLE_DIK)
+		$(cmake-utils_use_enable pdf MONOCLE_PDF)
+		$(cmake-utils_use_enable postscript MONOCLE_POSTRUS)
 	)
 	cmake-utils_src_configure
 }

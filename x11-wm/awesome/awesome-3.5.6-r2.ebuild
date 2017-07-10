@@ -1,5 +1,6 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI="5"
 inherit cmake-utils eutils
@@ -66,6 +67,7 @@ src_prepare() {
 
 src_configure() {
 	mycmakeargs=(
+		-DPREFIX="${EPREFIX}"/usr
 		-DSYSCONFDIR="${EPREFIX}"/etc
 		$(cmake-utils_use_with dbus DBUS)
 		$(cmake-utils_use doc GENERATE_DOC)

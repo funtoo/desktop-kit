@@ -1,5 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=5
 inherit eutils savedconfig toolchain-funcs
@@ -10,13 +11,12 @@ SRC_URI="http://dl.suckless.org/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ppc ppc64 x86 ~x86-fbsd"
+KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
 IUSE="xinerama"
 
 RDEPEND="
-	media-libs/fontconfig
 	x11-libs/libX11
-	x11-libs/libXft
+	media-libs/freetype
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="

@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="4"
 
 inherit eutils leechcraft toolchain-funcs
 
@@ -9,12 +10,8 @@ DESCRIPTION="Provides some cool radio streams to music players like LMP"
 
 SLOT="0"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtxml:5
-"
+	dev-libs/qjson"
 RDEPEND="${DEPEND}"

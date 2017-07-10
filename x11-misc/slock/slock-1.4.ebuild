@@ -1,5 +1,6 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=6
 inherit fcaps savedconfig toolchain-funcs
@@ -10,7 +11,7 @@ SRC_URI="http://dl.suckless.org/tools/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 hppa x86 ~x86-fbsd"
+KEYWORDS="amd64 ~hppa x86 ~x86-fbsd"
 
 RDEPEND="
 	x11-libs/libX11

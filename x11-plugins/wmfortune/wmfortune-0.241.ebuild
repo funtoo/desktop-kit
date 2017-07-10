@@ -1,5 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 inherit eutils multilib toolchain-funcs
 
@@ -9,7 +10,7 @@ SRC_URI="http://dockapps.windowmaker.org/download.php/id/128/${P}.tar.gz"
 
 LICENSE="GPL-1"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ppc sparc x86"
 IUSE=""
 
 RDEPEND="games-misc/fortune-mod

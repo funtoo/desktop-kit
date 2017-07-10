@@ -1,11 +1,12 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=5
 
 inherit eutils multilib toolchain-funcs
 
-DESCRIPTION="Spreadsheet Calculator"
+DESCRIPTION="sc is a free curses-based spreadsheet program that uses key bindings similar to vi and less"
 SRC_URI="ftp://ibiblio.org/pub/Linux/apps/financial/spreadsheet/${P}.tar.gz"
 HOMEPAGE="http://ibiblio.org/pub/Linux/apps/financial/spreadsheet/"
 

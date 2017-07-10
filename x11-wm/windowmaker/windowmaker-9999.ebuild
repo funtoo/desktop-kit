@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI=5
 inherit autotools eutils git-r3
 
 DESCRIPTION="The fast and light GNUstep window manager"
@@ -22,7 +23,7 @@ DEPEND="media-libs/fontconfig
 	x11-libs/libXt
 	x11-libs/libXv
 	gif? ( >=media-libs/giflib-4.1.0-r3 )
-	imagemagick? ( media-gfx/imagemagick:0= )
+	imagemagick? ( media-gfx/imagemagick )
 	jpeg? ( virtual/jpeg:0= )
 	png? ( media-libs/libpng:0= )
 	tiff? ( media-libs/tiff:0 )
@@ -30,7 +31,8 @@ DEPEND="media-libs/fontconfig
 	xinerama? ( x11-libs/libXinerama )
 	xrandr? ( x11-libs/libXrandr )"
 RDEPEND="${DEPEND}
-	nls? ( >=sys-devel/gettext-0.10.39 )"
+	nls? ( >=sys-devel/gettext-0.10.39 )
+	!app-i18n/scim-anthy[gtk3]"
 
 src_unpack() {
 	# wm-extras
@@ -49,11 +51,6 @@ src_prepare() {
 		fi;
 	done;
 
-	if has_version '>=media-gfx/imagemagick-7.0.1.0' ; then
-		eapply "${FILESDIR}/${PN}-0.95.8-imagemagick7.patch"
-	fi
-
-	default
 	eautoreconf
 }
 

@@ -2,8 +2,8 @@ Fixing build with as-needed
 
 https://bugs.gentoo.org/show_bug.cgi?id=248555
 
---- a/configure.in
-+++ b/configure.in
+--- configure.in
++++ configure.in
 @@ -47,14 +47,9 @@
  AC_PATH_X
  AC_PATH_XTRA
@@ -21,8 +21,8 @@ https://bugs.gentoo.org/show_bug.cgi?id=248555
  
  dnl Checks for header files.
  AC_HEADER_STDC
---- a/Makefile.am
-+++ b/Makefile.am
+--- Makefile.am
++++ Makefile.am
 @@ -1,5 +1,4 @@
 -CPPFLAGS =	@CPPFLAGS@ \
 -		-DDEFAULT_CONF=\"$(datadir)/bbtools/bbtime.conf\" \

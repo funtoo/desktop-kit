@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI=5
 inherit flag-o-matic git-r3 toolchain-funcs
 
 DESCRIPTION="A desktop sticky note program for the unix geek"
@@ -29,8 +30,6 @@ DEPEND="
 "
 
 src_prepare() {
-	default
-
 	sed -i -e 's|LICENCE||g' Makefile || die
 
 	append-cflags -std=gnu89
@@ -47,7 +46,6 @@ src_install() {
 		mandir=/usr/share/man \
 		prefix=/usr \
 		install
-
 	if use vim-syntax; then
 		insinto /usr/share/vim/vimfiles/syntax
 		doins etc/xnots.vim

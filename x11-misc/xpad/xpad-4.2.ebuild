@@ -1,10 +1,12 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=5
+inherit eutils
 
 DESCRIPTION="a sticky note application for jotting down things to remember"
-HOMEPAGE="https://launchpad.net/xpad"
+HOMEPAGE="http://mterry.name/xpad"
 SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.bz2"
 
 LICENSE="GPL-3"
@@ -25,3 +27,5 @@ DEPEND="
 	virtual/pkgconfig
 	sys-devel/gettext
 "
+
+DOCS=( AUTHORS ChangeLog NEWS README THANKS TODO )

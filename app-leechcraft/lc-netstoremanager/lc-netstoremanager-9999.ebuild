@@ -1,26 +1,28 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI=4
 
 inherit leechcraft
 
-DESCRIPTION="LeechCraft plugin for supporting cloud data storages like Google Drive"
+DESCRIPTION="LeechCraft plugin for supporting and managing Internet data storages like Yandex.Disk"
 
 SLOT="0"
 KEYWORDS=""
-IUSE="+dropbox +googledrive"
+IUSE="+googledrive +yandexdisk"
 
 DEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-"
+	googledrive? (
+		dev-libs/qjson
+		sys-apps/file
+	)"
 RDEPEND="${DEPEND}"
 
 src_configure(){
 	local mycmakeargs=(
-		-DENABLE_NETSTOREMANAGER_DROPBOX=$(usex dropbox)
-		-DENABLE_NETSTOREMANAGER_GOOGLEDRIVE=$(usex googledrive)
+		$(cmake-utils_use_enable googledrive NETSTOREMANAGER_GOOGLEDRIVE)
+		$(cmake-utils_use_enable yandexdisk NETSTOREMANAGER_YANDEXDISK)
 	)
 
 	cmake-utils_src_configure

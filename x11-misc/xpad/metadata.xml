@@ -7,6 +7,5 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="launchpad">xpad</remote-id>
-		<changelog>https://launchpadlibrarian.net/253130440/ChangeLog</changelog>
 	</upstream>
 </pkgmetadata>

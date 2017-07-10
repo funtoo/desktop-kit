@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="4"
 
 inherit leechcraft
 
@@ -9,23 +10,23 @@ DESCRIPTION="Full-featured RSS/Atom feed reader for LeechCraft"
 
 SLOT="0"
 KEYWORDS=""
-IUSE="debug mysql +sqlite postgres"
+IUSE="debug mysql +sqlite postgres webaccess"
 
-DEPEND="
-	~app-leechcraft/lc-core-${PV}[postgres?,sqlite?]
-	dev-qt/qtcore:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsql:5[sqlite?,postgres?,mysql?]
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5"
+DEPEND="~app-leechcraft/lc-core-${PV}[postgres?,sqlite?]
+	dev-qt/qtwebkit:4"
 RDEPEND="${DEPEND}
 		virtual/leechcraft-downloader-http"
 
 REQUIRED_USE="|| ( mysql sqlite postgres )"
 
-pkg_postinst(){
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use_enale webaccess AGGREGATOR_WEBACCESS)
+	)
+	cmake-utils_src_configure
+}
+
+pkg_setup(){
 	if use mysql; then
 		ewarn "Support for MySQL databases is experimental and is more likely"
 		ewarn "to contain bugs or mishandle your data than other storage"

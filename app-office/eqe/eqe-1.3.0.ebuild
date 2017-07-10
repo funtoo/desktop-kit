@@ -1,5 +1,6 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 inherit eutils
 
@@ -12,7 +13,7 @@ SLOT="0"
 KEYWORDS="amd64 ~ppc x86"
 IUSE=""
 
-DEPEND="dev-perl/Gtk2
+DEPEND="dev-perl/gtk2-perl
 	dev-perl/File-Slurp
 	dev-perl/Template-Toolkit
 	media-gfx/imagemagick

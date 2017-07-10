@@ -1,5 +1,6 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=6
 
@@ -8,7 +9,7 @@ inherit flag-o-matic qmake-utils
 MY_P=QScintilla_gpl-${PV}
 
 DESCRIPTION="A Qt port of Neil Hodgson's Scintilla C++ editor class"
-HOMEPAGE="https://www.riverbankcomputing.com/software/qscintilla/intro"
+HOMEPAGE="http://www.riverbankcomputing.com/software/qscintilla/intro"
 SRC_URI="mirror://sourceforge/pyqt/${MY_P}.tar.gz"
 
 LICENSE="GPL-3"

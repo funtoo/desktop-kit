@@ -2,6 +2,7 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
+app-leechcraft/lc-aggregator:webaccess - Enables web interface submodule for Aggregator
 app-leechcraft/lc-azoth:acetamide - Build Acetamide, the IRC protocol support
 app-leechcraft/lc-azoth:adiumstyles - Build support for Adium styles
 app-leechcraft/lc-azoth:astrality - Build Astrality, support for protocols provided by Telepathy
@@ -22,6 +23,7 @@ app-leechcraft/lc-azoth:metacontacts - Build plugin for metacontacts support
 app-leechcraft/lc-azoth:murm - Build Murm, the VKontakte messaging support via their native API (instead of XMPP)
 app-leechcraft/lc-azoth:nativeemoticons - Build support for native Azoth's emoticons packs
 app-leechcraft/lc-azoth:otroid - Build OTRoid, plugin for the Off-the-Record deniable encryption system
+app-leechcraft/lc-azoth:p100q - Build p100q, plugin for psto.net microblogging service
 app-leechcraft/lc-azoth:sarin - Build Sarin, Tox protocol support module. Please add mva overlay to use net-libs/tox
 app-leechcraft/lc-azoth:shx - Build shell command executor plugin
 app-leechcraft/lc-azoth:standardstyles - Build support for standard Azoth styles engine
@@ -38,6 +40,7 @@ app-leechcraft/lc-blogique:metida - Support for the LiveJournal blogging platfor
 app-leechcraft/lc-core:qwt - Support for QML plotting item through x11-libs/qwt
 app-leechcraft/lc-gmailnotifier:notify - Pull in a plugin to show notifications from GMail Notiifer
 app-leechcraft/lc-gmailnotifier:quark - Pull in a plugin to show GMail Notifier's quark
+app-leechcraft/lc-liznoo:systemd - Pull in correct UPower dependencies for systemd and non-systemd users.
 app-leechcraft/lc-lmp:fradj - Build FrAdj, the equalizer effect module
 app-leechcraft/lc-lmp:graffiti - Build media tags editor plugin
 app-leechcraft/lc-lmp:guess - Enable tags encoding guessing via the libguess library
@@ -46,22 +49,21 @@ app-leechcraft/lc-lmp:mpris - Enable MPRIS support
 app-leechcraft/lc-lmp:potorchu - Enable the projectM-based visualization effects module for LMP
 app-leechcraft/lc-monocle:fb2 - Enable support for FictionBook format
 app-leechcraft/lc-monocle:mobi - Enable support for MOBI format
+app-leechcraft/lc-monocle:spectre - Enable PostScript backend for Monocle using the app-text/libspectre
 app-leechcraft/lc-musiczombie:acoustid - Use media-libs/chromaprint for acoustic fingerprinting
-app-leechcraft/lc-netstoremanager:dropbox - Build Dropbox storage backend
-app-leechcraft/lc-netstoremanager:googledrive - Build Google Drive storage backend
+app-leechcraft/lc-netstoremanager:googledrive - Support Google Drive storage backend
+app-leechcraft/lc-netstoremanager:yandexdisk - Support Yandex.Disk storage backend
 app-leechcraft/lc-poshuku:autosearch - Provide automatic search suggestions for Poshuku.
 app-leechcraft/lc-poshuku:cleanweb - Build CleanWeb for ad blocking compatible with Firefox's AdBlock+.
 app-leechcraft/lc-poshuku:dcac - Build color inverter module providing a night mode.
 app-leechcraft/lc-poshuku:fatape - Build FatApe, GreaseMonkey userscripts support layer.
 app-leechcraft/lc-poshuku:filescheme - Build FileScheme for accessing local URLs.
-app-leechcraft/lc-poshuku:foc - Build FOC for Flash-on-Click functionality.
 app-leechcraft/lc-poshuku:fua - Build FUA for faking user agents for different hosts.
 app-leechcraft/lc-poshuku:keywords - Build Keywords for adjusting search shortcuts.
 app-leechcraft/lc-poshuku:onlinebookmarks - Build OnlineBookmarks for syncing bookmarks with social bookmarking services like Read It Later.
+app-leechcraft/lc-poshuku:pcre - Use dev-libs/libpcre for rules matching in CleanWeb instead of slower QRegExp.
 app-leechcraft/lc-poshuku:qrd - Build module for displaying the QR code of a web page.
-app-leechcraft/lc-poshuku:speeddial - Build SpeedDial module.
-app-leechcraft/lc-poshuku:webengine - Build WebEngine- (that is, Chromium-)based rendering backend.
-app-leechcraft/lc-secman:exposecontents - Build the GUI for viewing the stored data.
+app-leechcraft/lc-poshuku:wyfv - Build WYFV for replacing Flash-based video players on some sites.
 app-leechcraft/leechcraft-meta:de - Install components, that allow using Leechcraft as Desktop Environment
 app-office/abiword:collab - Enable collaborative editing plugin
 app-office/abiword:goffice - Enable goffice plugin
@@ -74,12 +76,22 @@ app-office/abiword:redland - Enables support redland and raptor libs.
 app-office/abiword:thesaurus - Enable thesaurus support
 app-office/abiword:wordperfect - Enable wordperfect file support via app-text/libwpd
 app-office/calligra:activities - Enable kactivities support
+app-office/calligra:attica - Get hot stuff with dev-libs/libattica
+app-office/calligra:color-management - Enable color management via media-libs/opencolorio
+app-office/calligra:eigen - Enable dev-cpp/eigen mathematical templates support
+app-office/calligra:glew - Enable media-libs/glew opengl extension library support
+app-office/calligra:glib - Enable support for C library routines from dev-libs/glib
+app-office/calligra:gsf - Enable support for ODT structures extraction via gnome-extra/libgsf
 app-office/calligra:import-filter - Enable support for various import filter file formats like WordPerfect, Visio and Apple Keynote
+app-office/calligra:kdcraw - Enable support for KDE image manipulating interface via kde-apps/libkdcraw
 app-office/calligra:lcms - Build colorengine plugins using media-libs/lcms
+app-office/calligra:marble - Enable displaying of maps using Marble
 app-office/calligra:okular - Enable bindings for kde-apps/okular
 app-office/calligra:phonon - Build stage/eventplugins and videoshape plugin using media-libs/phonon
 app-office/calligra:pim - Enable support for KDE PIM resources integration
 app-office/calligra:spacenav - Enable support for the 3Dconnexion spacenav input device via dev-libs/libspnav
+app-office/calligra:vc - Enable support for dev-libs/vc, could be a significant speed boost on krita
+app-office/calligra:xbase - Enable support for xbase compatible database formats
 app-office/glabels:barcode - Enable barcode support through external libraries.
 app-office/gnucash:chipcard - Enable support for chipcard reading and processing.
 app-office/gnucash:hbci - Enable HBCI support, for connecting to some internet banks
@@ -118,8 +130,8 @@ app-office/lyx:monolithic-build - This should speed up compilation significantly
 app-office/lyx:rcs - Add support for revision control via dev-vcs/rcs
 app-office/lyx:rtf - Add support for RTF import/export packages
 app-office/magicpoint:contrib - Install additional contributed scripts
-app-office/orage:clock-panel-plugin - Build the clock plugin for the XFCE panel
 app-office/scribus:boost - Enable support for Boost based enhancement
+app-office/scribus:graphicsmagick - Add support for media-gfx/graphicsmagick
 app-office/scribus:hunspell - Enable support for spell checking with app-text/hunspell
 app-office/scribus:minimal - Don't install headers (only required for e.g. plug-in developers)
 app-office/scribus:osg - 3D redering via dev-games/openscenegraph
@@ -127,6 +139,7 @@ app-office/scribus:scripts - Install the scripts
 app-office/scribus:templates - Document tamplates
 app-office/scribus:tk - Install tk based scripts e.g. FontSample.py
 app-office/skrooge:activities - Enable kactivities support
+app-office/skrooge:crypt - Enable encryption using dev-db/sqlcipher
 app-office/skrooge:designer - Build plugins for dev-qt/designer
 app-office/texmacs:netpbm - Add support for media-libs/netpbm
 app-office/texmacs:pdf - Add the experimental native pdf export
@@ -187,7 +200,6 @@ mate-base/mate-control-center:gtk3 - Build with GTK+3 instead of GTK+2
 mate-base/mate-desktop:gtk3 - Build with GTK+3 instead of GTK+2
 mate-base/mate-panel:gtk3 - Build with GTK+3 instead of GTK+2
 mate-base/mate-session-manager:gtk3 - Build with GTK+3 instead of GTK+2
-mate-base/mate-session-manager:xtrans - Build with Xtrans support; WARNING: Disabling this flag will result in ICE binding on all interfaces
 mate-base/mate-settings-daemon:gtk3 - Build with GTK+3 instead of GTK+2
 mate-extra/caja-extensions:cdr - Add an extension to burn files to cds using app-cdr/brasero.
 mate-extra/caja-extensions:gajim - Add an extension to support net-im/gajim.
@@ -246,6 +258,7 @@ x11-misc/cdm:consolekit - Enable native consolekit support
 x11-misc/compton:drm - Enable VSync with DRM_IOCTL_WAIT_VBLANK
 x11-misc/compton:opengl - Enable VSync with SGI_swap_control OpenGL extension
 x11-misc/dunst:dunstify - Experimental replacement for notify-send.
+x11-misc/etm:ical - Enable export of ical format files by depending on dev-python/icalendar
 x11-misc/fbpager:xrender - Enable transparency support via x11-libs/libXrender
 x11-misc/gpaste:applet - Enable gpaste-applet
 x11-misc/gpaste:gnome - Enable proper gnome support and enable gnome shell extension.
@@ -258,18 +271,19 @@ x11-misc/light-locker:dpms - Turn on the display on screensaver deactivation.
 x11-misc/light-locker:gtk3 - Build with GTK+ 3 instead of GTK+ 2.
 x11-misc/light-locker:screensaver - Lock the screen on screensaver activation.
 x11-misc/lightdm:gtk - Pull in the gtk+ greeter
+x11-misc/lightdm:kde - Pull in the kde greeter
 x11-misc/mate-notification-daemon:gtk3 - Build with GTK+3 instead of GTK+2
 x11-misc/mozo:gtk3 - Build with GTK+3 instead of GTK+2
 x11-misc/openbox-menu:icons - Enable support for icons in menus
 x11-misc/openbox-menu:svg - Support SVG icons
-x11-misc/qt5ct:dbus - Enable system tray and global menu support
 x11-misc/qt5ct:systray - Enable system tray support
+x11-misc/rednotebook:libyaml - enable libyaml support
 x11-misc/redshift:appindicator - Enable usage of dev-libs/libappindicator to export menu options in to unity and KDE 5
 x11-misc/redshift:geoclue - Control dependency on app-misc/geoclue
+x11-misc/rodent:experimental - Build experimental plugins (obexfs, curlftpfs, ecryptfs, cifs and samba)
 x11-misc/rofi:windowmode - Enable normal window mode
 x11-misc/rss-glx:quesoglc - Enable support for OpenGL Character Renderer
 x11-misc/sddm:consolekit - Use ck-launch-session from sys-auth/consolekit by default in Xsession (no native support)
-x11-misc/sddm:elogind - Use sys-auth/elogind for session tracking.
 x11-misc/sent:savedconfig - Without a saved config.h, this package depends on media-gfx/farbfeld for image conversions
 x11-misc/shutter:drawing - Enables drawing tool
 x11-misc/slim:consolekit - Enable native consolekit support
@@ -278,6 +292,7 @@ x11-misc/spacefm:gtk3 - Support GTK+ 3.x instead of GTK+ 2.x
 x11-misc/spacefm:video-thumbnails - Support video thumbnails with media-video/ffmpegthumbnailer
 x11-misc/stalonetray:graceful-exit - use non-portable hack to exit gracefuly on signal
 x11-misc/tint2:battery - Enable battery status plugin
+x11-misc/tint2:examples - Install tint2rc examples
 x11-misc/tint2:tint2conf - Build/Install tint2conf as well
 x11-misc/vnc2swf:x11vnc - Install script that depends on x11vnc
 x11-misc/wbar:gtk - Enables the gtk-based wbar-config GUI
@@ -320,6 +335,8 @@ x11-terms/mlterm:uim - Enable app-i18n/uim support
 x11-terms/mlterm:utempter - Enable sys-libs/libutempter support
 x11-terms/mrxvt:menubar - Enable mrxvt menubar
 x11-terms/mrxvt:utempter - REcords user logins. Useful on multi-user systems
+x11-terms/rxvt:linuxkeys - Define LINUX_KEYS (changes Home/End key)
+x11-terms/rxvt:xgetdefault - Enable resources via X instead of rxvt small version
 x11-terms/rxvt-unicode:256-color - Enable 256 color support
 x11-terms/rxvt-unicode:alt-font-width - Calculate the font width using a different method
 x11-terms/rxvt-unicode:blink - Enable blinking text
@@ -359,6 +376,7 @@ x11-themes/redhat-artwork:audacious - Install media-sound/audacious theme
 x11-themes/redhat-artwork:cursors - Install Bluecurve cursors
 x11-themes/redhat-artwork:gdm - Install Bluecurve gnome-base/gdm theme
 x11-themes/redhat-artwork:icons - Install Bluecurve icons
+x11-themes/redhat-artwork:kdm - Install Bluecurve kde-plasma/kdm theme
 x11-themes/redhat-artwork:nautilus - Install Bluecurve gnome-base/nautilus icons
 x11-themes/skinenigmang-logos:dxr3 - Install logos for lower osd color depth on dxr3 cards
 x11-themes/vertex-theme:cinnamon - Install theme for gnome-extra/cinnamon
@@ -369,7 +387,6 @@ x11-themes/zuki-themes:gnome-shell - Install theme for gnome-base/gnome-shell
 x11-themes/zuki-themes:mate - Install Metacity theme for mate-base/mate
 x11-themes/zuki-themes:xfce - Install theme for xfce-base/xfwm4
 x11-themes/zukitwo:gnome-shell - Install theme for gnome-base/gnome-shell
-x11-wm/awesome:luajit - Use dev-lang/luajit instead of dev-lang/lua
 x11-wm/compiz-fusion:emerald - Install the x11-wm/emerald package.
 x11-wm/compiz-fusion:unsupported - Install the x11-plugins/compiz-plugins-unsupported package.
 x11-wm/echinus:xrandr - Enable support for multihead configuration
@@ -420,9 +437,7 @@ x11-wm/enlightenment:enlightenment_modules_tasks - Gadget to allow you to switch
 x11-wm/enlightenment:enlightenment_modules_teamwork - Enable teamwork module
 x11-wm/enlightenment:enlightenment_modules_temperature - Temperature monitor
 x11-wm/enlightenment:enlightenment_modules_tiling - Positions/resizes your windows tilingly
-x11-wm/enlightenment:enlightenment_modules_time - Time related gadgets
 x11-wm/enlightenment:enlightenment_modules_winlist - A module to show the list of client applications presently running
-x11-wm/enlightenment:enlightenment_modules_wireless - WiFi monitoring
 x11-wm/enlightenment:enlightenment_modules_wizard - First Run Wizard
 x11-wm/enlightenment:enlightenment_modules_wl-desktop-shell - Enlightenment Wayland Desktop Shell
 x11-wm/enlightenment:enlightenment_modules_wl-drm - Wayland DRM (Direct Rendering Manager) compositing module
@@ -445,6 +460,7 @@ x11-wm/fvwm:netpbm - Enable NetPBM support (used by FvwmScript-ScreenDump)
 x11-wm/fvwm:rplay - Enable rplay support
 x11-wm/fvwm:stroke - Mouse Gesture support
 x11-wm/i3:doc - Build and install the HTML documentation and regenerate the man pages
+x11-wm/i3:pango - Use x11-libs/pango to render text in order to support fonts which have more glyphs (e.g. Kanji). See RELEASE-NOTES for more information
 x11-wm/marco:gtk3 - Build with GTK+3 instead of GTK+2
 x11-wm/musca:apis - Optionally install the experimental `apis' window manager
 x11-wm/musca:xlisten - Optionally install the xlisten utility
@@ -462,7 +478,6 @@ x11-wm/qtile:widget-mpris - Add support for Mpris and Mpris2 widgets (requires d
 x11-wm/qtile:widget-wlan - Add support for Wlan widget (requires additional dependencies). Will only work with Python 2.7 ABI.
 x11-wm/ratpoison:history - Use sys-libs/readline for history handling
 x11-wm/ratpoison:sloppy - Install sloppy, a focus-follows-mouse implementation for ratpoison
-x11-wm/ratpoison:xrandr - Enable support for XRandR
 x11-wm/stumpwm:clisp - Use CLISP for the runtime
 x11-wm/stumpwm:contrib - Install contrib modules
 x11-wm/stumpwm:doc - Include documentation
@@ -481,30 +496,27 @@ x11-wm/xmonad:no-autorepeat-keys - Allow ignoring of keyboard autorepeat.
 x11-wm/xpra:client - Build client-side code
 x11-wm/xpra:clipboard - Enable clipboard support
 x11-wm/xpra:csc - Enable csc softscaler support
-x11-wm/xpra:dec_avcodec2 - Enable avcodec2 decoder support
-x11-wm/xpra:enc_ffmpeg - Enable advanced ffmpeg/libav encoder support
-x11-wm/xpra:enc_x264 - Enable x264 encoder support
-x11-wm/xpra:enc_x265 - Enable x265 encoder support
+x11-wm/xpra:dec_av - Enable dec_avcodec support
+x11-wm/xpra:dec_av2 - Enable dec_avcodec2 support
 x11-wm/xpra:lz4 - Enable support for lz4 compression
-x11-wm/xpra:pillow - Enable pillow support
+x11-wm/xpra:rencode - Enable rencode support
 x11-wm/xpra:server - Build server-side code
 x11-wm/xpra:vpx - Enable vpx image format support
-x11-wm/xpra:webcam - Enable webcam support via opencv
 x11-wm/xpra:webp - Enable webp image format support
-xfce-base/garcon:gtk2 - Build the garcon-gtk2-1 library (required for xfce-base/xfce4-panel < 4.13 only).
+x11-wm/xpra:x265 - Enable x265 support
 xfce-base/libxfce4ui:glade - Build support for Glade 3's GtkBuilder implementation
-xfce-base/thunar:trash-panel-plugin - Build the trash status indicator plugin for the XFCE panel
+xfce-base/libxfce4ui:gtk3 - Enable gtk3 support
 xfce-base/xfce4-settings:libcanberra - Enable sound event support using media-libs/libcanberra
+xfce-base/xfce4-settings:libinput - Enable libinput Xorg driver (x11-drivers/xf86-input-libinput) support
 xfce-base/xfce4-settings:xklavier - Enable keyboard layout selection support using x11-libs/libxklavier
 xfce-base/xfdesktop:thunar - Build support for desktop icons (for example, launchers and folders)
-xfce-base/xfwm4:xpresent - Enable the XPresent extension for sync to vblank
+xfce-extra/multiload-nandhp:lxpanel - Build the applet for lxde-base/lxpanel, you can set XFCE_PLUGINS="" if you don't want the Xfce dependencies.
 xfce-extra/tumbler:odf - Enable support for .odf thumbnailers by using gnome-extra/libgsf
 xfce-extra/xfce4-clipman-plugin:qrcode - Enable support for media-gfx/qrencode
 xfce-extra/xfce4-mixer:keybinder - Enable shortcut support using dev-libs/keybinder
 xfce-extra/xfce4-mpc-plugin:libmpd - Build using media-libs/libmpd backend, instead of native fallback which is preferred
 xfce-extra/xfce4-playercontrol-plugin:audacious - Enable Audacious support
 xfce-extra/xfce4-playercontrol-plugin:mpd - Enable Music Player Daemon support
-xfce-extra/xfce4-power-manager:panel-plugin - Build the power management plugin for the XFCE panel
 xfce-extra/xfce4-pulseaudio-plugin:keybinder - Enable support for global hotkeys using dev-libs/keybinder.
 xfce-extra/xfce4-soundmenu-plugin:glyr - Enable music metadata searchengine support using media-libs/glyr
 xfce-extra/xfce4-soundmenu-plugin:keybinder - Enable shortcut support using dev-libs/keybinder

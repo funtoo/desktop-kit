@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI=5
 inherit autotools elisp-common eutils git-r3 toolchain-funcs
 
 DESCRIPTION="window manager without mouse dependency"
@@ -11,35 +12,27 @@ EGIT_REPO_URI="git://git.savannah.nongnu.org/ratpoison.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug emacs +history sloppy +xft +xrandr"
+IUSE="debug emacs +history sloppy +xft"
 
 RDEPEND="
 	emacs? ( virtual/emacs )
 	history? ( sys-libs/readline:= )
 	xft? ( x11-libs/libXft )
-	xrandr? ( x11-libs/libXrandr )
 	virtual/perl-Pod-Parser
+	x11-libs/libXinerama
 	x11-libs/libXtst
 "
 DEPEND="
 	${RDEPEND}
+	app-arch/xz-utils
 	virtual/pkgconfig
-	x11-proto/randrproto
-	x11-proto/xproto
 "
 
 SITEFILE=50ratpoison-gentoo.el
-DOCS=(
-	AUTHORS
-	ChangeLog
-	NEWS
-	README
-	TODO
-)
+DOCS=( AUTHORS ChangeLog NEWS README TODO )
 
 src_prepare() {
-	eapply "${FILESDIR}"/ratpoison.el-gentoo.patch
-
+	epatch "${FILESDIR}"/ratpoison.el-gentoo.patch
 	eautoreconf
 }
 
@@ -48,14 +41,13 @@ src_configure() {
 		$(use_enable debug) \
 		$(use_enable history) \
 		$(use_with xft) \
-		$(use_with xrandr) \
 		--without-electric-fence
 }
 
 src_compile() {
 	emake CFLAGS="${CFLAGS}"
 	if use emacs; then
-		elisp-compile contrib/ratpoison.el || die
+		elisp-compile contrib/ratpoison.el || die "elisp-compile failed"
 	fi
 
 	if use sloppy; then

@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="4"
 
 inherit leechcraft
 
@@ -11,11 +12,6 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtsql:5[sqlite]
-"
+DEPEND="~app-leechcraft/lc-core-${PV}"
 RDEPEND="${DEPEND}
-		~virtual/leechcraft-search-show-${PV}"
+		virtual/leechcraft-search-show"

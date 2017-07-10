@@ -1,9 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="2"
 
-inherit autotools fdo-mime git-r3
+WANT_AUTOMAKE="1.9"
+inherit autotools fdo-mime git-2
 
 DESCRIPTION="ObConf is a tool for configuring the Openbox window manager"
 HOMEPAGE="http://openbox.org/wiki/ObConf:About"
@@ -14,20 +16,26 @@ SLOT="0"
 KEYWORDS=""
 IUSE="nls"
 
-RDEPEND="x11-libs/gtk+:3
+RDEPEND="gnome-base/libglade:2.0
+	x11-libs/gtk+:2
 	x11-libs/startup-notification
 	=x11-wm/openbox-9999"
 DEPEND="${RDEPEND}
-	virtual/pkgconfig
-	nls? ( sys-devel/gettext )"
+	nls? ( sys-devel/gettext )
+	virtual/pkgconfig"
 
 src_prepare() {
-	default
+	eautopoint
 	eautoreconf
 }
 
 src_configure() {
 	econf $(use_enable nls)
+}
+
+src_install() {
+	emake DESTDIR="${D}" install || die "emake install failed"
+	dodoc AUTHORS CHANGELOG README || die "dodoc failed"
 }
 
 pkg_postinst() {

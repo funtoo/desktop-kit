@@ -1,7 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="5"
 
 inherit leechcraft
 
@@ -11,29 +12,19 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug +deathnote +rappor +spegnersi +vangog"
 
-DEPEND="
-	~app-leechcraft/lc-core-${PV}
-	dev-qt/qtwidgets:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtdeclarative:5
-	rappor? ( dev-qt/qtxml:5 )
-	deathnote? (
-		dev-qt/qtxml:5
-		dev-qt/qtxmlpatterns:5
-	)
-	spegnersi? (
-		dev-libs/kqoauth
-		dev-qt/qtxml:5
-	)
-	vangog? ( dev-qt/qtxml:5 )"
+DEPEND="~app-leechcraft/lc-core-${PV}
+		deathnote? ( dev-qt/qtxmlpatterns:4 )
+		spegnersi? ( dev-libs/kqoauth )
+		vangog? ( dev-libs/qjson )
+		"
 RDEPEND="${DEPEND}"
 
 src_configure(){
 	local mycmakeargs=(
-		-DENABLE_BLASQ_DEATHNOTE=$(usex deathnote)
-		-DENABLE_BLASQ_RAPPOR=$(usex rappor)
-		-DENABLE_BLASQ_SPEGNERSI=$(usex spegnersi)
-		-DENABLE_BLASQ_VANGOG=$(usex vangog)
+		$(cmake-utils_use_enable deathnote BLASQ_DEATHNOTE)
+		$(cmake-utils_use_enable rappor BLASQ_RAPPOR)
+		$(cmake-utils_use_enable spegnersi BLASQ_SPEGNERSI)
+		$(cmake-utils_use_enable vangog BLASQ_VANGOG)
 	)
 
 	cmake-utils_src_configure

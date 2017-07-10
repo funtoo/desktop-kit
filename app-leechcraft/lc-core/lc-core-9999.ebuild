@@ -1,11 +1,13 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
+EAPI="5"
 
 EGIT_REPO_URI="git://github.com/0xd34df00d/leechcraft.git"
+EGIT_PROJECT="leechcraft-${PV}"
 
-inherit leechcraft
+inherit eutils confutils leechcraft
 
 DESCRIPTION="Core of LeechCraft, the modular network client"
 
@@ -13,25 +15,20 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug doc +sqlite postgres +qwt"
 
-COMMON_DEPEND=">=dev-libs/boost-1.62
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtxml:5
-	dev-qt/qtdeclarative:5
-	dev-qt/qtscript:5
-	dev-qt/qtsql:5[postgres?,sqlite?]
-	dev-qt/qtdbus:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
-	dev-qt/qtconcurrent:5
-	dev-qt/linguist-tools:5
-	qwt? ( x11-libs/qwt:6[qt5] )"
+COMMON_DEPEND=">=dev-libs/boost-1.46
+	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
+	dev-qt/qtdeclarative:4
+	dev-qt/qtgui:4
+	dev-qt/qtscript:4
+	dev-qt/qtsql:4[postgres?,sqlite?]
+	dev-qt/qtwebkit:4
+	dev-qt/qtdbus:4
+	qwt? ( x11-libs/qwt:6 )"
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )"
 RDEPEND="${COMMON_DEPEND}
-	dev-qt/qtsvg:5
+	dev-qt/qtsvg:4
 	|| (
 		kde-frameworks/oxygen-icons
 		x11-themes/kfaenza
@@ -42,8 +39,8 @@ REQUIRED_USE="|| ( postgres sqlite )"
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_PLUGINS=False
-		-DWITH_DOCS=$(usex doc)
-		-DWITH_QWT=$(usex qwt)
+		$(cmake-utils_use_with doc DOCS)
+		$(cmake-utils_use_with qwt QWT)
 	)
 	if [[ ${PV} != 9999 ]]; then
 		mycmakeargs+=( -DLEECHCRAFT_VERSION=${PV} )
