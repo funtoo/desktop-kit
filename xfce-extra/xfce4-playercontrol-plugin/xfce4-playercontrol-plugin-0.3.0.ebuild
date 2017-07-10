@@ -1,12 +1,11 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit multilib xfconf
 
 DESCRIPTION="Audacious and MPD panel plugins"
-HOMEPAGE="http://goodies.xfce.org/projects/panel-plugins/xfce4-xmms-plugin"
+HOMEPAGE="https://goodies.xfce.org/projects/panel-plugins/xfce4-xmms-plugin"
 SRC_URI="http://www.bilimfeneri.gen.tr/ilgar/${P}.tar.bz2"
 
 LICENSE="BSD-2"

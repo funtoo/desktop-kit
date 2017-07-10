@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit eutils multilib savedconfig toolchain-funcs
@@ -11,7 +10,7 @@ SRC_URI="http://dl.suckless.org/st/${P}.tar.gz"
 
 LICENSE="MIT-with-advertising"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="amd64 hppa x86"
 IUSE="savedconfig"
 
 RDEPEND="

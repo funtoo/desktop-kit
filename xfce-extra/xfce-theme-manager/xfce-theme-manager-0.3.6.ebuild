@@ -1,6 +1,5 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit xfconf
@@ -14,7 +13,7 @@ SRC_URI="http://keithhedger.hostingsiteforfree.com/zips/xfcethememanager/${MY_P}
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 x86"
 IUSE=""
 
 RDEPEND=">=dev-libs/glib-2.30

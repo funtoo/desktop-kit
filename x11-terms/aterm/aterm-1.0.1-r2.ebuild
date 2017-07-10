@@ -1,17 +1,16 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=3
 inherit flag-o-matic eutils
 
-DESCRIPTION="A terminal emulator with transparency support as well as rxvt backwards compatibility"
+DESCRIPTION="rxvt compatible terminal emulator with transparency support"
 HOMEPAGE="http://aterm.sourceforge.net"
 SRC_URI="ftp://ftp.afterstep.org/apps/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris"
+KEYWORDS="alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris"
 IUSE="background cjk xgetdefault"
 
 RDEPEND="virtual/jpeg

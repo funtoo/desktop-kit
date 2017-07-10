@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit toolchain-funcs
@@ -11,7 +10,7 @@ SRC_URI="mirror://debian/pool/main/x/${PN}/${P/-/_}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-3"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 
 RDEPEND="
 	x11-libs/libX11

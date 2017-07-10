@@ -1,12 +1,11 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit xfconf
 
 DESCRIPTION="A panel plugin for showing information about cpufreq settings"
-HOMEPAGE="http://goodies.xfce.org/projects/panel-plugins/xfce4-cpufreq-plugin"
+HOMEPAGE="https://goodies.xfce.org/projects/panel-plugins/xfce4-cpufreq-plugin"
 SRC_URI="mirror://xfce/src/panel-plugins/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
