@@ -1,9 +1,8 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI=5
-PYTHON_COMPAT=( python3_4 python3_5 )
+EAPI=6
+PYTHON_COMPAT=( python3_{4,5,6} )
 
 inherit systemd autotools eutils gnome2-utils python-r1
 
@@ -13,7 +12,7 @@ SRC_URI="https://github.com/jonls/redshift/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="appindicator geoclue gtk nls"
 
 COMMON_DEPEND=">=x11-libs/libX11-1.4
@@ -31,15 +30,15 @@ DEPEND="${COMMON_DEPEND}
 	nls? ( sys-devel/gettext )
 	appindicator? ( dev-libs/libappindicator )
 "
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="gtk? ( ${PYTHON_REQUIRED_USE} )"
 
 src_prepare() {
-	epatch_user
+	default
 	eautoreconf
 }
 
 src_configure() {
-	python_export_best
+	use gtk && python_setup
 
 	econf \
 		--disable-silent-rules \

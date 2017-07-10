@@ -1,12 +1,11 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit multilib xfconf
 
 DESCRIPTION="A panel plug-in intended to simplify establishing a ppp connection"
-HOMEPAGE="http://goodies.xfce.org/projects/panel-plugins/xfce4-modemlights-plugin"
+HOMEPAGE="https://goodies.xfce.org/projects/panel-plugins/xfce4-modemlights-plugin"
 SRC_URI="mirror://xfce/src/panel-plugins/${PN}/${PV%.*.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2"

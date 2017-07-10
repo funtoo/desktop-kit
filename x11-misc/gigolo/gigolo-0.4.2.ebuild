@@ -1,6 +1,5 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 #EAUTORECONF=yes (Why was this in 0.4.1 w/o any calls to autotools.eclass again?
@@ -8,7 +7,7 @@ EAPI=5
 inherit xfconf
 
 DESCRIPTION="a frontend to easily manage connections to remote filesystems using GIO/GVfs"
-HOMEPAGE="http://www.uvena.de/gigolo/ http://goodies.xfce.org/projects/applications/gigolo"
+HOMEPAGE="http://www.uvena.de/gigolo/ https://goodies.xfce.org/projects/applications/gigolo"
 SRC_URI="mirror://xfce/src/apps/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2"

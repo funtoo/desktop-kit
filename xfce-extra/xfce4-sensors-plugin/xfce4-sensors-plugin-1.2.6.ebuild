@@ -1,13 +1,12 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 EAUTORECONF=yes
 inherit multilib xfconf
 
 DESCRIPTION="A panel plug-in for different sensors using acpi, lm_sensors and hddtemp"
-HOMEPAGE="http://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin"
+HOMEPAGE="https://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin"
 SRC_URI="mirror://xfce/src/panel-plugins/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2"

@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit eutils toolchain-funcs versionator
@@ -11,9 +10,9 @@ DEBIAN_P_MINOR=$(get_version_component_range 4)
 DEBIAN_P_MINOR=${DEBIAN_P_MINOR/p/}
 
 DESCRIPTION="User preference utility for XKB extensions for X"
-HOMEPAGE="http://www.math.missouri.edu/~stephen/software/"
+HOMEPAGE="https://faculty.missouri.edu/~stephen/software/#xkbset"
 SRC_URI="
-	http://www.math.missouri.edu/~stephen/software/${PN}/${P/_p*/}.tar.gz
+	https://faculty.missouri.edu/~stephen/software/${PN}/${P/_p*/}.tar.gz
 	mirror://debian/pool/main/x/${PN}/${PN}_${PV/_p*/}-${DEBIAN_P_MAJOR}.${DEBIAN_P_MINOR}.diff.gz
 "
 

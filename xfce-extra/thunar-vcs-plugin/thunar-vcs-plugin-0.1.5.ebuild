@@ -1,12 +1,11 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit xfconf
 
 DESCRIPTION="Adds Subversion and GIT actions to the context menu of thunar"
-HOMEPAGE="http://goodies.xfce.org/projects/thunar-plugins/thunar-vcs-plugin"
+HOMEPAGE="https://goodies.xfce.org/projects/thunar-plugins/thunar-vcs-plugin"
 SRC_URI="mirror://xfce/src/thunar-plugins/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2"

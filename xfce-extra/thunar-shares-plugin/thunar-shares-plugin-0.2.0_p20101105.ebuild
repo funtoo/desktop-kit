@@ -1,6 +1,5 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 EAUTORECONF=yes
@@ -9,7 +8,7 @@ inherit xfconf
 # git clone -b thunarx-2 git://git.xfce.org/thunar-plugins/thunar-shares-plugin
 
 DESCRIPTION="Thunar plugin to share files using Samba"
-HOMEPAGE="http://goodies.xfce.org/projects/thunar-plugins/thunar-shares-plugin"
+HOMEPAGE="https://goodies.xfce.org/projects/thunar-plugins/thunar-shares-plugin"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"

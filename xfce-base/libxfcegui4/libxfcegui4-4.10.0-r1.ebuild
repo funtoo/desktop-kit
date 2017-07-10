@@ -1,17 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit xfconf
 
 DESCRIPTION="A compability library for unported Xfce 4.6 plugins (DEPRECATED)"
-HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage http://git.xfce.org/archive/libxfcegui4/"
+HOMEPAGE="https://git.xfce.org/archive/libxfcegui4/"
 SRC_URI="mirror://xfce/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~ia64-linux ~x86-linux ~x64-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x64-solaris"
 IUSE="startup-notification"
 
 RDEPEND="gnome-base/libglade

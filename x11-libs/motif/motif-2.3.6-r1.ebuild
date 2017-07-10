@@ -1,10 +1,9 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
-inherit autotools eutils flag-o-matic multilib toolchain-funcs multilib-minimal
+inherit autotools flag-o-matic multilib toolchain-funcs multilib-minimal
 
 DESCRIPTION="The Motif user interface component toolkit"
 HOMEPAGE="https://sourceforge.net/projects/motif/
@@ -14,7 +13,7 @@ SRC_URI="mirror://sourceforge/project/motif/Motif%20${PV}%20Source%20Code/${P}.t
 
 LICENSE="LGPL-2.1+ MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~ia64-hpux ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="examples jpeg +motif22-compatibility png static-libs unicode xft"
 
 RDEPEND=">=x11-libs/libX11-1.6.2[${MULTILIB_USEDEP}]
@@ -63,7 +62,8 @@ src_prepare() {
 	[[ ${CHOST} == *-solaris2.11 ]] \
 		&& append-cppflags -DNEED_XOS_R_H -DHAVE_READDIR_R_3
 
-	if use !elibc_glibc && use !elibc_uclibc && use unicode; then
+	if use !elibc_glibc && use !elibc_uclibc && use !elibc_musl \
+			&& use unicode; then
 		# libiconv detection in configure script doesn't always work
 		# http://bugs.motifzone.net/show_bug.cgi?id=1423
 		export LIBS="${LIBS} -liconv"
@@ -111,7 +111,7 @@ multilib_src_install_all() {
 
 	# cleanup
 	rm -rf "${ED}"/usr/share/Xm
-	prune_libtool_files
+	find "${D}" -type f -name "*.la" -delete || die
 
 	dodoc BUGREPORT ChangeLog README RELEASE RELNOTES TODO
 }

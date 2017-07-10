@@ -1,12 +1,11 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit flag-o-matic multilib xfconf
 
 DESCRIPTION="V4L radio device control plug-in for the Xfce desktop environment"
-HOMEPAGE="http://goodies.xfce.org/projects/panel-plugins/xfce4-radio-plugin"
+HOMEPAGE="https://goodies.xfce.org/projects/panel-plugins/xfce4-radio-plugin"
 SRC_URI="mirror://xfce/src/panel-plugins/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-3"

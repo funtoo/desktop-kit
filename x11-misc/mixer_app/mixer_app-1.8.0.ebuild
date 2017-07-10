@@ -1,13 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=4
 inherit eutils toolchain-funcs
 
 MY_P=Mixer.app-${PV}
 
-DESCRIPTION="mixer utility that has three volume controllers that can be configured to handle any sound source"
+DESCRIPTION="mixer_app has volume controllers that can be configured to handle sound sources"
 HOMEPAGE="http://www.fukt.bsnet.se/~per/mixer/"
 SRC_URI="mirror://gentoo/${MY_P}.tar.gz"
 
