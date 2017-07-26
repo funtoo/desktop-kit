@@ -11,7 +11,7 @@ LICENSE="GPL-2"
 SRC_URI="https://github.com/bbidulock/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="bidi debug doc minimal nls truetype uclibc xinerama"
 
 # Tests broken in all versions, patches welcome, bug #323907, #389533
@@ -71,22 +71,7 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconf=()
-	if use truetype ; then
-		myconf=(
-			--enable-gradients
-			--enable-shape
-			--enable-shaped-decorations
-		)
-	else
-		myconf=(
-			--disable-xfreetype
-			--enable-corefonts
-			$(use_enable minimal lite)
-		)
-	fi
-
-	myconf+=(
+	local myconf=(
 		--disable-menus-gnome2
 		--with-libdir=/usr/share/icewm
 		--with-cfgdir=/etc/icewm
@@ -97,6 +82,19 @@ src_configure() {
 		$(use_enable nls)
 		$(use_enable xinerama)
 	)
+	if use truetype ; then
+		myconf+=(
+			--enable-gradients
+			--enable-shape
+			--enable-shaped-decorations
+		)
+	else
+		myconf+=(
+			--disable-xfreetype
+			--enable-corefonts
+			$(use_enable minimal lite)
+		)
+	fi
 
 	CXXFLAGS="${CXXFLAGS}" econf "${myconf[@]}"
 
@@ -110,8 +108,6 @@ src_install(){
 	default
 
 	if ! use doc ; then
-		docinto html
-		dodoc doc/*.sgml
 		cp doc/${PN}.man "${T}"/${PN}.1 || die
 		doman "${T}"/${PN}.1
 	fi
