@@ -1,7 +1,6 @@
-# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI="4"
 
 inherit eutils flag-o-matic
 
@@ -13,7 +12,8 @@ SRC_URI="http://releases.compiz.org/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="*"
+IUSE=""
 
 PDEPEND="~x11-themes/emerald-themes-${THEMES_RELEASE}"
 
@@ -33,16 +33,14 @@ DOCS=( AUTHORS ChangeLog INSTALL NEWS README TODO )
 
 src_prepare() {
 	# Fix pkg-config file pollution wrt #380197
-	eapply "${FILESDIR}/${P}-pkgconfig-pollution.patch"
-	# Fix crashes with some UTF-8 characters in window title
-	eapply "${FILESDIR}/${P}-fix-cairo-crash.patch"
+	epatch "${FILESDIR}"/${P}-pkgconfig-pollution.patch
 	# fix build with gtk+-2.22 - bug 341143
 	sed -i -e '/#define G[DT]K_DISABLE_DEPRECATED/s:^://:' \
 		include/emerald.h || die
 	# Fix underlinking
 	append-libs -ldl -lm
 
-	eapply_user
+	epatch_user
 }
 
 src_configure() {

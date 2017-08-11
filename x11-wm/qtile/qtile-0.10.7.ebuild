@@ -2,12 +2,12 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
 
 inherit distutils-r1
 
 SRC_URI="https://github.com/qtile/qtile/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~*"
+KEYWORDS="*"
 
 DESCRIPTION="A pure-Python tiling window manager."
 HOMEPAGE="http://www.qtile.org/"
@@ -23,7 +23,7 @@ REQUIRED_USE="widget-mpris? ( dbus )
 RDEPEND="x11-libs/cairo[xcb] x11-libs/pango dev-python/setproctitle[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/trollius[${PYTHON_USEDEP}]' 'python2*')
 	>=dev-python/six-1.4.1[${PYTHON_USEDEP}]
-	>=dev-python/xcffib-0.4.0[${PYTHON_USEDEP}]
+	>=dev-python/xcffib-0.5.0[${PYTHON_USEDEP}]
 	>=dev-python/cairocffi-0.7[${PYTHON_USEDEP}]
 	>=dev-python/cffi-1.3[${PYTHON_USEDEP}]
 	dbus? (
@@ -77,6 +77,8 @@ src_prepare() {
 		(
 			sed -i '/safe_import(".mpdwidget", "Mpd")/d' libqtile/widget/__init__.py
 			rm libqtile/widget/mpdwidget.py*
+			sed -i '/safe_import(".mpd2widget", "Mpd")/d' libqtile/widget/__init__.py
+			rm libqtile/widget/mpd2widget.py*
 		)
 	fi
 	if ! use widget-wlan ; then
