@@ -1,13 +1,12 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 EAUTORECONF=1
 inherit xfconf
 
 DESCRIPTION="A session manager for the Xfce desktop environment"
-HOMEPAGE="http://docs.xfce.org/xfce/xfce4-session/start"
+HOMEPAGE="https://docs.xfce.org/xfce/xfce4-session/start"
 SRC_URI="mirror://xfce/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
