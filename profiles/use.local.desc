@@ -73,13 +73,6 @@ app-office/abiword:plugins - Enable plugins build (see http://www.abisource.com/
 app-office/abiword:redland - Enables support redland and raptor libs.
 app-office/abiword:thesaurus - Enable thesaurus support
 app-office/abiword:wordperfect - Enable wordperfect file support via app-text/libwpd
-app-office/calligra:activities - Enable kactivities support
-app-office/calligra:import-filter - Enable support for various import filter file formats like WordPerfect, Visio and Apple Keynote
-app-office/calligra:lcms - Build colorengine plugins using media-libs/lcms
-app-office/calligra:okular - Enable bindings for kde-apps/okular
-app-office/calligra:phonon - Build stage/eventplugins and videoshape plugin using media-libs/phonon
-app-office/calligra:pim - Enable support for KDE PIM resources integration
-app-office/calligra:spacenav - Enable support for the 3Dconnexion spacenav input device via dev-libs/libspnav
 app-office/glabels:barcode - Enable barcode support through external libraries.
 app-office/gnucash:chipcard - Enable support for chipcard reading and processing.
 app-office/gnucash:hbci - Enable HBCI support, for connecting to some internet banks
@@ -87,12 +80,6 @@ app-office/gnucash:quotes - Enable Online Stock Quote retrieval
 app-office/gnumeric:libgda - Enable database support through gnome-extra/libgda.
 app-office/gnumeric:perl - Enable perl plugin loader.
 app-office/gnumeric:python - Enable python plugin loader.
-app-office/kexi:marble - Enable displaying of maps using kde-apps/marble
-app-office/kexi:mdb - Enable support for Microsoft Access database
-app-office/kexi:webkit - Enable web form designer widget using dev-qt/qtwebkit
-app-office/kmymoney:hbci - Enable HBCI support using net-libs/aqbanking
-app-office/kmymoney:quotes - Enable Online Stock Quote retrieval
-app-office/kmymoney:weboob - Enable import of online banking transactions extracted by www-client/weboob
 app-office/libreoffice:coinmp - Use sci-libs/coinor-mp as alternative solver
 app-office/libreoffice:collada - Enable Collada for rendering 3D models stored in *.dae and *.kmz format
 app-office/libreoffice:gltf - Use media-libs/libgltf for inserting 3D models in the glTF format into presentations
@@ -125,8 +112,6 @@ app-office/scribus:osg - 3D redering via dev-games/openscenegraph
 app-office/scribus:scripts - Install the scripts
 app-office/scribus:templates - Document tamplates
 app-office/scribus:tk - Install tk based scripts e.g. FontSample.py
-app-office/skrooge:activities - Enable kactivities support
-app-office/skrooge:designer - Build plugins for dev-qt/designer
 app-office/texmacs:netpbm - Add support for media-libs/netpbm
 app-office/texmacs:pdf - Add the experimental native pdf export
 app-office/texstudio:video - Use phonon for video embedding
