@@ -1,3 +1,4 @@
+=x11-misc/treeline-1.4.1-r1 python_single_target_python2_7
 app-office/dia python_single_target_python2_7
 app-office/gnucash python_single_target_python2_7
 app-office/gnumeric python_single_target_python2_7
@@ -20,7 +21,6 @@ x11-misc/icewmcp python_single_target_python2_7
 x11-misc/magick-rotation python_single_target_python2_7
 x11-misc/revelation python_single_target_python2_7
 x11-misc/tintwizard python_single_target_python2_7
-=x11-misc/treeline-1.4.1-r1 python_single_target_python2_7
 x11-misc/wbarconf python_single_target_python2_7
 x11-misc/xbattbar python_single_target_python2_7
 x11-misc/zim python_single_target_python2_7
