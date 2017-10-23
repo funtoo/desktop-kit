@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~ppc ~ppc64 x86"
 IUSE="chipcard debug +doc gnome-keyring hbci mysql ofx postgres python quotes sqlite"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -24,7 +24,8 @@ RDEPEND="
 	>=dev-libs/popt-1.5
 	>=dev-libs/libxml2-2.5.10:2
 	dev-libs/libxslt
-	>=dev-scheme/guile-2.0.0:12=[deprecated,regex]
+	>=dev-scheme/guile-1.8.3:12=[deprecated,regex]
+	<dev-scheme/guile-2:12
 	dev-scheme/guile-www
 	gnome-base/libgnomecanvas
 	>=net-libs/webkit-gtk-1.2:2
@@ -95,7 +96,7 @@ src_configure() {
 		--disable-gtkmm \
 		--enable-locale-specific-tax \
 		--disable-error-on-warning \
-		--with-guile=2.0 \
+		--with-guile=1.8 \
 		${myconf}
 }
 
