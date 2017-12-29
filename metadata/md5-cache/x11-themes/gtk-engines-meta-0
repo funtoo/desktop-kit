@@ -1,0 +1,8 @@
+DEFINED_PHASES=-
+DEPEND=x11-themes/gtk-engines x11-themes/murrine-themes x11-themes/gtk-engines-aurora x11-themes/gtk-engines-candido x11-themes/gtk-engines-experience x11-themes/experience x11-themes/gtk-engines-flat x11-themes/gtk-engines-murrine x11-themes/nimbus x11-themes/gtk-engines-nodoka x11-themes/gtk-engines-qtpixmap x11-themes/gtk-engines-quartz x11-themes/gtk-engines-rezlooks x11-themes/gtk-engines-ubuntulooks x11-themes/gtk-engines-xfce
+DESCRIPTION=Metapackage for install all gtk-engines themes
+EAPI=0
+IUSE=gtk3 qt
+KEYWORDS=amd64 ppc x86
+SLOT=0
+_md5_=de61ebbbb127e7ee98ecce432d90858b
