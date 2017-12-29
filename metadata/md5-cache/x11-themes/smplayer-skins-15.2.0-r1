@@ -1,0 +1,12 @@
+DEFINED_PHASES=install prepare
+DEPEND=dev-qt/qtcore:5
+DESCRIPTION=Skins for SMPlayer
+EAPI=6
+HOMEPAGE=https://www.smplayer.info/
+KEYWORDS=~amd64 ~hppa ~ppc ~ppc64 ~x86 ~x86-fbsd
+LICENSE=CC-BY-2.5 CC-BY-SA-2.5 CC-BY-SA-3.0 GPL-2 LGPL-3
+RDEPEND=media-video/smplayer
+SLOT=0
+SRC_URI=mirror://sourceforge/smplayer/smplayer-skins-15.2.0.tar.bz2
+_eclasses_=estack	5ac2a138d0b33354b764d84f9e835db8	multilib	97f470f374f2e94ccab04a2fb21d811e	qmake-utils	990448b067cb3cfe1443bc25fb57239c	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
+_md5_=4b7162c40023cf9e3de6c573c79ec3dc
