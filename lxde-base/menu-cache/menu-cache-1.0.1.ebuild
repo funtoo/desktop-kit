@@ -1,20 +1,41 @@
-# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI="5"
 
-DESCRIPTION="Library to create and utilize caches to speed up freedesktop application menus"
+inherit eutils multilib
+
+LIBFM="libfm-1.2.4"
+
+DESCRIPTION="A library creating and utilizing caches to speed up freedesktop.org application menus"
 HOMEPAGE="http://lxde.sourceforge.net/"
-SRC_URI="mirror://sourceforge/lxde/${P}.tar.xz"
+SRC_URI="mirror://sourceforge/lxde/${P}.tar.xz
+	mirror://sourceforge/pcmanfm/${LIBFM}.tar.xz"
 
 LICENSE="GPL-2"
-# ABI is v2. See Makefile.am
-SLOT="0/2"
-KEYWORDS="~alpha amd64 arm ~arm64 ~mips ppc x86 ~amd64-linux ~x86-linux"
+# Subslot based on soname of libmenu-cache.so.
+SLOT="0/3"
+KEYWORDS="*"
 IUSE=""
 
-RDEPEND="dev-libs/glib:2
-	x11-libs/libfm-extra"
+RDEPEND="dev-libs/glib:2"
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 	virtual/pkgconfig"
+PDEPEND="x11-libs/libfm"
+
+src_configure() {
+	pushd "${WORKDIR}/${LIBFM}" > /dev/null || die
+	econf \
+		--disable-static \
+		--with-extra-only
+	emake
+	emake DESTDIR="${T}/libfm" install
+	popd > /dev/null || die
+
+	LIBFM_EXTRA_CFLAGS="-I${T}/libfm/usr/include" \
+	LIBFM_EXTRA_LIBS="-L${T}/libfm/usr/$(get_libdir) -lfm-extra" \
+	econf
+
+	# Avoid setting rpath.
+	sed -e "s/^hardcode_libdir_flag_spec=.*/hardcode_libdir_flag_spec=/" -i libtool || die
+}
