@@ -26,5 +26,6 @@ x11-misc/xbattbar python_single_target_python2_7
 x11-misc/zim python_single_target_python2_7
 x11-plugins/thinkhdaps python_single_target_python2_7
 x11-terms/guake python_single_target_python2_7
+x11-terms/kitty python_single_target_python3_5 python_targets_python3_5
 x11-wm/compiz python_single_target_python2_7
 x11-wm/icewm python_single_target_python2_7
