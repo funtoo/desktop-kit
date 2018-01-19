@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=media-libs/libpng:0 x11-libs/fox:1.6[png,truetype] x11-libs/libX11 x11-libs/libXft startup-notification? ( x11-libs/startup-notification )
 SLOT=0
 SRC_URI=mirror://sourceforge/xfe/xfe/1.42/xfe-1.42.tar.gz
-_eclasses_=autotools	dc412f38566b91012efd58b9c203e6c3	epatch	8233751dc5105a6ae8fcd86ce2bb0247	epunt-cxx	f8073339d152f56626493f43d8ba4691	estack	5ac2a138d0b33354b764d84f9e835db8	eutils	e7491451996e8b54c3caeb713285b0fb	l10n	07318ed5f26525a9d302ca87d20b2865	libtool	e32ea84bf82cf8987965b574672dba93	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
+_eclasses_=autotools	dc412f38566b91012efd58b9c203e6c3	epatch	8233751dc5105a6ae8fcd86ce2bb0247	epunt-cxx	f8073339d152f56626493f43d8ba4691	estack	5ac2a138d0b33354b764d84f9e835db8	eutils	e7491451996e8b54c3caeb713285b0fb	l10n	d8a55cfc27fb33b81f675c7f9c560941	libtool	e32ea84bf82cf8987965b574672dba93	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
 _md5_=48870228431ae096a112e8a98f607ac0
