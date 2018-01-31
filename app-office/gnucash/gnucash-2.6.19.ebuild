@@ -1,4 +1,3 @@
-# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
@@ -26,8 +25,7 @@ RDEPEND="
 	>=dev-libs/glib-2.32.0:2
 	>=dev-libs/libxml2-2.5.10:2
 	>=dev-libs/popt-1.5
-	>=dev-scheme/guile-1.8.5:12=[deprecated,regex]
-	<dev-scheme/guile-2.2
+	>=dev-scheme/guile-2.0.11[deprecated,regex]
 	>=net-libs/webkit-gtk-1.2:2
 	>=sys-libs/zlib-1.1.4
 	>=x11-libs/goffice-0.7.0:0.8[gnome]
