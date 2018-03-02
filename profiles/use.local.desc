@@ -188,18 +188,12 @@ mate-extra/mate-user-share:gtk3 - Build with GTK+3 instead of GTK+2
 mate-extra/mate-utils:applet - Enable the mate dictionary applet
 mate-extra/mate-utils:gtk3 - Build with GTK+3 instead of GTK+2
 x11-apps/copyq:webkit - enables the application to use advanced HTML rendering and fetching remote images and other data
-x11-apps/xdm:consolekit - Enable native sys-auth/consolekit support
-x11-apps/xdm:xdm-auth - Enable XDM-AUTHENTICATION-1 support
-x11-apps/xdpyinfo:dmx - Builds support for Distributed Multiheaded X x11-base/xorg-server
-x11-apps/xsm:rsh - This allows the use of rsh (remote shell) and rcp (remote copy).
 x11-libs/agg:gpc - Enable gpc polygon clipper library
 x11-libs/fltk:games - Builds and installs some extra games
 x11-libs/gtkdatabox:glade - Build with libglade and glade-3 supports, which includes a glade's module for GtkDataBox widget
 x11-libs/gtkmathview:mathml - Install additional fonts for proper mathml support.
 x11-libs/gtkmathview:t1lib - Enable media-libs/t1lib support
 x11-libs/libQGLViewer:designer - Installs dev-qt/designer plugin.
-x11-libs/libSM:uuid - Use UUID for session identification instead of IP address and system time.
-x11-libs/libXaw:deprecated - Install deprecated Xaw6 library.
 x11-libs/libaosd:pango - Enable the textual helpers (requires pangocairo).
 x11-libs/libaosd:tools - Install the aosd_cat tool (requires glib-2.0).
 x11-libs/libdesktop-agnostic:gconf - Enable GConf as configuration backend
