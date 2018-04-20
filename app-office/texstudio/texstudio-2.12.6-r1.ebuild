@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -30,7 +30,7 @@ COMMON_DEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtscript:5
-	dev-qt/qtsingleapplication[qt5,X]
+	dev-qt/qtsingleapplication[qt5(+),X]
 	dev-qt/qtsvg:5
 	dev-qt/qttest:5
 	dev-qt/qtwidgets:5
