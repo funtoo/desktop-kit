@@ -5,6 +5,7 @@ lxde-base
 lxqt-base
 mate-base
 mate-extra
+virtual
 x11-apps
 x11-libs
 x11-misc
