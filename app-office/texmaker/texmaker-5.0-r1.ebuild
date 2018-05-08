@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,7 +11,7 @@ SRC_URI="http://www.xm1math.net/texmaker/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 IUSE=""
 
 COMMON_DEPEND="
@@ -19,14 +19,14 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXext
-	app-text/poppler:=[qt5]
+	app-text/poppler[qt5]
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtlockedfile
 	dev-qt/qtnetwork:5
 	dev-qt/qtscript:5
-	dev-qt/qtsingleapplication[X,qt5]
+	dev-qt/qtsingleapplication[X,qt5(+)]
 	dev-qt/qtwebkit:5[printsupport]
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
@@ -41,7 +41,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig"
 
 PATCHES=(
-		"${FILESDIR}/${P}-unbundle-hunspell-singleapp.patch"
+	"${FILESDIR}/${P}-unbundle-hunspell-singleapp.patch"
 )
 
 DOCS=( utilities/AUTHORS utilities/CHANGELOG.txt )
