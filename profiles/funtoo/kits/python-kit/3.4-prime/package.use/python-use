@@ -1,6 +1,7 @@
+=app-office/gnucash-2.6.15-r1 python_single_target_python2_7
+=app-office/gnucash-2.6.19 python_single_target_python2_7
 =x11-misc/treeline-1.4.1-r1 python_single_target_python2_7
 app-office/dia python_single_target_python2_7
-app-office/gnucash python_single_target_python2_7
 app-office/gnumeric python_single_target_python2_7
 app-office/gtimelog python_single_target_python2_7
 app-office/hamster-time-tracker python_single_target_python2_7
