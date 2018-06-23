@@ -104,6 +104,8 @@ app-office/texmacs:netpbm - Add support for media-libs/netpbm
 app-office/texmacs:pdf - Add the experimental native pdf export
 app-office/texstudio:video - Use phonon for video embedding
 app-office/wps-office:sharedfonts - Install WPS fonts available system wide
+dev-python/wxpython:doc - Install HTML wxWidgets docs and wxpython API reference.
+dev-python/wxpython:examples - Install interactive demo module browser and sample applets.
 lxde-base/lxdm:consolekit - Enables support for authorization using consolekit
 lxde-base/lxdm:gtk3 - Use GTK+3 instead of 2
 lxde-base/lxterminal:gtk3 - Use GTK+3 instead of GTK+2
