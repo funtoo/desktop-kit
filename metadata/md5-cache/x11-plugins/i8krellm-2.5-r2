@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DEPEND=app-admin/gkrellm:2[X] >=app-laptop/i8kutils-1.5 virtual/pkgconfig
+DESCRIPTION=GKrellM2 Plugin for the Dell Inspiron and Latitude notebooks
+EAPI=6
+HOMEPAGE=http://www.coding-zone.com/?page=i8krellm
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=app-admin/gkrellm:2[X] >=app-laptop/i8kutils-1.5
+SLOT=0
+SRC_URI=http://www.coding-zone.com/i8krellm-2.5.tar.gz
+_eclasses_=gkrellm-plugin	c01023a3c28bc24f50c00ae019e8861e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
+_md5_=1cd25cff53e4bd65e61b6c87c55d3afb

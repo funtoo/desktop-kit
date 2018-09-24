@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install
+DEPEND=app-admin/gkrellm:2[X] dev-libs/openssl:0= virtual/pkgconfig
+DESCRIPTION=A web monitor plugin for GKrellM2
+EAPI=6
+HOMEPAGE=http://gkwebmon.sourceforge.net/
+KEYWORDS=alpha ~amd64 ppc ~sparc x86
+LICENSE=GPL-2
+RDEPEND=app-admin/gkrellm:2[X] dev-libs/openssl:0=
+SLOT=0
+SRC_URI=mirror://sourceforge/gkwebmon/gkwebmon-0.2.tgz
+_eclasses_=gkrellm-plugin	c01023a3c28bc24f50c00ae019e8861e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
+_md5_=3bc8ea564f8ded9b61202328227ed669

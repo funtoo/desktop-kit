@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=app-admin/gkrellm:2[X] virtual/pkgconfig
+DESCRIPTION=Nice analog clock for GKrellM2
+EAPI=6
+HOMEPAGE=http://www.gkrellm.net/
+KEYWORDS=alpha amd64 ppc sparc x86
+LICENSE=GPL-2
+RDEPEND=app-admin/gkrellm:2[X]
+SLOT=2
+SRC_URI=mirror://gentoo/gkrellaclock-0.3.4.tar.gz
+_eclasses_=gkrellm-plugin	c01023a3c28bc24f50c00ae019e8861e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
+_md5_=5bf8dc2b27393d9dd0837ae8c88c8ac1
