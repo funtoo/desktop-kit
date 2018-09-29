@@ -1,6 +1,8 @@
 =app-office/gnucash-2.6.15-r1 python_single_target_python2_7
 =app-office/gnucash-2.6.19 python_single_target_python2_7
 =app-office/gnucash-3.1 python_single_target_python3_4 python_targets_python3_4
+=app-office/libreoffice-bin-6.0.3.2 python_single_target_python3_5 python_targets_python3_5
+=app-office/libreoffice-bin-6.0.6.2 python_single_target_python3_6 python_targets_python3_6
 =app-office/unoconv-0.7 python_single_target_python2_7
 =app-office/unoconv-0.8.2 python_single_target_python2_7
 =x11-terms/guake-0.8.13 python_single_target_python2_7
@@ -8,11 +10,12 @@
 =x11-terms/guake-3.3.0 python_single_target_python3_5 python_targets_python3_5
 =x11-terms/guake-3.3.2 python_single_target_python3_5 python_targets_python3_5
 =x11-terms/guake-9999 python_single_target_python3_5 python_targets_python3_5
+=x11-terms/kitty-0.11.1 python_single_target_python3_6 python_targets_python3_6
+=x11-terms/kitty-0.11.2 python_single_target_python3_6 python_targets_python3_6
 app-office/dia python_single_target_python2_7
 app-office/gnumeric python_single_target_python2_7
 app-office/ledger python_single_target_python2_7
 app-office/libreoffice python_single_target_python2_7
-app-office/libreoffice-bin python_single_target_python3_5 python_targets_python3_5
 app-office/lyx python_single_target_python2_7
 app-office/openerp python_single_target_python2_7
 app-office/planner python_single_target_python2_7
@@ -32,5 +35,4 @@ x11-misc/tintwizard python_single_target_python2_7
 x11-misc/wbarconf python_single_target_python2_7
 x11-misc/xbattbar python_single_target_python2_7
 x11-misc/zim python_single_target_python2_7
-x11-terms/kitty python_single_target_python3_6 python_targets_python3_6
 x11-wm/compiz python_single_target_python2_7
