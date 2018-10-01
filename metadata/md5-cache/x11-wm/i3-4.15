@@ -4,12 +4,12 @@ DESCRIPTION=An improved dynamic tiling window manager
 EAPI=6
 HOMEPAGE=https://i3wm.org/
 IUSE=doc debug test test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 x86
 LICENSE=BSD
 RDEPEND=dev-libs/libev dev-libs/libpcre >=dev-libs/yajl-2.0.3 x11-libs/libxcb[xkb] x11-libs/libxkbcommon[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm x11-misc/xkeyboard-config >=x11-libs/cairo-1.14.4[X,xcb] >=x11-libs/pango-1.30.0[X] dev-lang/perl dev-perl/AnyEvent-I3 dev-perl/JSON-XS
 REQUIRED_USE=test? ( debug )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://i3wm.org/downloads/i3-4.15.tar.bz2
-_eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	libtool	e32ea84bf82cf8987965b574672dba93	multilib	97f470f374f2e94ccab04a2fb21d811e	out-of-source	15edba2977da53bbf4d1e5a60abc0e34	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	virtualx	401b718cc14d43a5a7fbe062c4851ba5
-_md5_=7ab965a05cc94d1dd6d02b7294b907c4
+_eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	libtool	e32ea84bf82cf8987965b574672dba93	multilib	97f470f374f2e94ccab04a2fb21d811e	out-of-source	f31b989dfe7f7dbfacc65f961c17cbac	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	virtualx	401b718cc14d43a5a7fbe062c4851ba5
+_md5_=6da645234111b3578f7462a37c18c346
