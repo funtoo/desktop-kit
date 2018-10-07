@@ -150,55 +150,32 @@ lxqt-base/lxqt-panel:tray - Build tray plugin
 lxqt-base/lxqt-panel:volume - Build volume plugin
 lxqt-base/lxqt-panel:worldclock - Build worldclock plugin
 lxqt-base/lxqt-session:themes - Install LXQt themes and graphics
-mate-base/caja:gtk3 - Build with GTK+3 instead of GTK+2
 mate-base/caja:mate - Install x11-themes/mate-icon-theme which is needed when this package is used in the MATE desktop environment.
 mate-base/caja:packagekit - Enable support for installing via app-admin/packagekit based on mimetype
-mate-base/libmatekbd:gtk3 - Build with GTK+3 instead of GTK+2
 mate-base/mate:base - Install base MATE Desktop applications that are recommended for the most common usage; for example, this installs the file manager. Disable this and other USE flags if you want a more minimal MATE Desktop.
 mate-base/mate:extras - Install additional MATE Desktop applications that are recommended for extended usage of the MATE Desktop as upstream sees it; for example, this installs MATE Desktop's office related applications. Disable this if you plan to use your own non-MATE Desktop alternatives or a custom mixture of MATE and non-MATE packages.
-mate-base/mate:gtk3 - Build all of MATE DE with GTK+3 instead of GTK+2
 mate-base/mate:help - Install gnome-extra/yelp to handle in application help menus and documentation browsing
 mate-base/mate:notification - Force notification daemon to default to MATE's notification daemon. Enabled by default. Disable if it causes conflicts with other installed desktop environments.
 mate-base/mate:themes - Install MATE Desktop's themes; if you use other themes, you can disable this to spare some space and time.
-mate-base/mate-applets:gtk3 - Build with GTK+3 instead of GTK+2
 mate-base/mate-applets-meta:appindicator - Pull in mate-extra/mate-indicator-applet for AppIndicator applet
-mate-base/mate-applets-meta:gtk3 - Make sure applets are built with GTK+3 instead of GTK+2
-mate-base/mate-applets-meta:netspeed - Pull in net-analyzer/mate-netspeed for net speed monitoring applet
 mate-base/mate-applets-meta:sensors - Pull in mate-extra/mate-sensors-applet for hw sensors applet
 mate-base/mate-control-center:appindicator - Add support for AppIndicator
-mate-base/mate-control-center:gtk3 - Build with GTK+3 instead of GTK+2
-mate-base/mate-desktop:gtk3 - Build with GTK+3 instead of GTK+2
-mate-base/mate-panel:gtk3 - Build with GTK+3 instead of GTK+2
-mate-base/mate-session-manager:gtk3 - Build with GTK+3 instead of GTK+2
 mate-base/mate-session-manager:xtrans - Build with Xtrans support; WARNING: Disabling this flag will result in ICE binding on all interfaces
-mate-base/mate-settings-daemon:gtk3 - Build with GTK+3 instead of GTK+2
 mate-extra/caja-extensions:cdr - Add an extension to burn files to cds using app-cdr/brasero.
 mate-extra/caja-extensions:gajim - Add an extension to support net-im/gajim.
 mate-extra/caja-extensions:gksu - Add an extension to support opening files as root with x11-libs/gksu.
-mate-extra/caja-extensions:gtk3 - Build with GTK+3 instead of GTK+2
 mate-extra/caja-extensions:image-converter - Add image conversion support.
 mate-extra/caja-extensions:mail - Add an extension to support e-mail functionality.
 mate-extra/caja-extensions:open-terminal - Add an extension to support an open terminal.
 mate-extra/caja-extensions:pidgin - Add an extension to support net-im/pidgin
 mate-extra/caja-extensions:share - Add an extension to support sharing files.
 mate-extra/caja-extensions:wallpaper - Add an extension to support setting an image as the current wallpaper
-mate-extra/mate-indicator-applet:gtk3 - Build with GTK+3 instead of GTK+2
-mate-extra/mate-media:gtk3 - Build with GTK+3 instead of GTK+2
-mate-extra/mate-netbook:gtk3 - Build with GTK+3 instead of GTK+2
 mate-extra/mate-polkit:accountsservice - Support extraction of data from AccountsService
 mate-extra/mate-polkit:appindicator - Add support for AppIndicator
-mate-extra/mate-polkit:gtk3 - Build with GTK+3 instead of GTK+2
 mate-extra/mate-power-manager:applet - Enable building of the MATE applet.
-mate-extra/mate-power-manager:gtk3 - Build with GTK+3 instead of GTK+2
-mate-extra/mate-power-manager:man - Build power manager's man page.
 mate-extra/mate-power-manager:pm-utils - Adds support for suspend/resume using sys-power/upower-pm-utils instead of sys-power/upower
 mate-extra/mate-screensaver:consolekit - Enable support for sys-auth/consolekit
-mate-extra/mate-screensaver:gtk3 - Build with GTK+3 instead of GTK+2
-mate-extra/mate-sensors-applet:gtk3 - Build with GTK+3 instead of GTK+2
-mate-extra/mate-system-monitor:gtk3 - Build with GTK+3 instead of GTK+2
-mate-extra/mate-user-share:gtk3 - Build with GTK+3 instead of GTK+2
 mate-extra/mate-utils:applet - Enable the mate dictionary applet
-mate-extra/mate-utils:gtk3 - Build with GTK+3 instead of GTK+2
 x11-apps/copyq:webkit - enables the application to use advanced HTML rendering and fetching remote images and other data
 x11-libs/agg:gpc - Enable gpc polygon clipper library
 x11-libs/fltk:games - Builds and installs some extra games
@@ -236,8 +213,6 @@ x11-misc/light-locker:dpms - Turn on the display on screensaver deactivation.
 x11-misc/light-locker:gtk3 - Build with GTK+ 3 instead of GTK+ 2.
 x11-misc/light-locker:screensaver - Lock the screen on screensaver activation.
 x11-misc/lightdm:gtk - Pull in the gtk+ greeter
-x11-misc/mate-notification-daemon:gtk3 - Build with GTK+3 instead of GTK+2
-x11-misc/mozo:gtk3 - Build with GTK+3 instead of GTK+2
 x11-misc/mugshot:gnome - Add support for gnome-base/gnome-control-center
 x11-misc/mugshot:libreoffice - Add support for app-office/libreoffice and app-office/libreoffice-bin
 x11-misc/mugshot:webcam - Add support for setting a profile photo in media-video/cheese
@@ -292,7 +267,6 @@ x11-terms/eterm:escreen - Enable built-in app-misc/screen support
 x11-terms/eterm:utempter - Include libutempter support
 x11-terms/guake:utempter - Include utmp management support via sys-libs/libutempter
 x11-terms/kitty:imagemagick - Support displaying images in the terminal with icat
-x11-terms/mate-terminal:gtk3 - Build with GTK+3 instead of GTK+2
 x11-terms/mlterm:brltty - Enable support for app-accessibility/brltty
 x11-terms/mlterm:fcitx - Enable support for app-i18n/fcitx
 x11-terms/mlterm:gtk2 - Build with x11-libs/gtk+:2 instead of x11-libs/gtk+:3
@@ -368,7 +342,6 @@ x11-wm/fvwm:rplay - Enable rplay support
 x11-wm/fvwm:stroke - Mouse Gesture support
 x11-wm/i3:doc - Build and install the HTML documentation and regenerate the man pages
 x11-wm/lumina:desktop-utils - Build and install lumina's desktop-utils
-x11-wm/marco:gtk3 - Build with GTK+3 instead of GTK+2
 x11-wm/musca:apis - Optionally install the experimental `apis' window manager
 x11-wm/musca:xlisten - Optionally install the xlisten utility
 x11-wm/notion:xrandr - Add support for xrandr
