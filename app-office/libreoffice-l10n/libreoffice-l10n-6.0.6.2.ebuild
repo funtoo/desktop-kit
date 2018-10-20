@@ -1,11 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit rpm versionator
+inherit rpm eapi7-ver
 
-MY_PV=$(get_version_component_range 1-3)
+MY_PV=$(ver_cut 1-3)
 
 DESCRIPTION="Translations for the Libreoffice suite"
 HOMEPAGE="https://www.libreoffice.org"
@@ -14,7 +14,7 @@ BASE_SRC_URI_STABLE="https://download.documentfoundation.org/${PN/-l10n/}/stable
 
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux"
 IUSE="offlinehelp"
 
 #
@@ -75,7 +75,7 @@ src_configure() { :; }
 src_compile() { :; }
 
 src_install() {
-	local dir="${S}"/opt/${PN/-l10n/}$(get_version_component_range 1-2)/
+	local dir="${S}"/opt/${PN/-l10n/}$(ver_cut 1-2)/
 	# Condition required for people that do not install anything eg no l10n
 	# or just english with no offlinehelp.
 	if [[ -d "${dir}" ]] ; then

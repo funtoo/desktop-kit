@@ -1,20 +1,23 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit rpm eutils multilib versionator
+inherit rpm eapi7-ver
 
-MY_PV=$(get_version_component_range 1-3)
+BASE_PV=$(ver_cut 1-3)
+MY_PV="${PV/_alpha/.alpha}"
+MY_PV="${MY_PV/_beta/.beta}"
+[[ ${PV} == *alpha* || ${PV} == *beta* ]] && PN_DEV="Dev"
 
 DESCRIPTION="Translations for the Libreoffice suite"
-HOMEPAGE="http://www.libreoffice.org"
-BASE_SRC_URI_TESTING="http://download.documentfoundation.org/${PN/-l10n/}/testing/${MY_PV}/rpm"
-BASE_SRC_URI_STABLE="http://download.documentfoundation.org/${PN/-l10n/}/stable/${MY_PV}/rpm"
+HOMEPAGE="https://www.libreoffice.org"
+BASE_SRC_URI_TESTING="https://download.documentfoundation.org/${PN/-l10n/}/testing/${BASE_PV}/rpm"
+BASE_SRC_URI_STABLE="https://download.documentfoundation.org/${PN/-l10n/}/stable/${BASE_PV}/rpm"
 
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="offlinehelp"
 
 #
@@ -25,12 +28,12 @@ LANGUAGES_HELP=" am ast bg bn-IN bn bo bs ca-valencia ca cs da de dz el en-GB en
 LANGUAGES="${LANGUAGES_HELP}af ar as be br brx cy dgo fa ga gd gug kk kmr-Latn kn kok ks lb lo lt lv mai ml mn mni mr my nr nso oc or pa:pa-IN ro rw sa:sa-IN sat sd sid sr-Latn sr ss st sw-TZ ta te th tn ts tt uz ve xh zu "
 
 for lang in ${LANGUAGES_HELP}; do
-	helppack="offlinehelp? ( ${BASE_SRC_URI_STABLE}/x86/LibreOffice_${MY_PV}_Linux_x86_rpm_helppack_${lang#*:}.tar.gz -> LibreOffice_${PV}_Linux_x86_rpm_helppack_${lang#*:}.tar.gz ${BASE_SRC_URI_TESTING}/x86/LibreOffice_${PV}_Linux_x86_rpm_helppack_${lang#*:}.tar.gz )"
+	helppack="offlinehelp? ( ${BASE_SRC_URI_STABLE}/x86/LibreOffice${PN_DEV}_${BASE_PV}_Linux_x86_rpm_helppack_${lang#*:}.tar.gz -> LibreOffice_${MY_PV}_Linux_x86_rpm_helppack_${lang#*:}.tar.gz ${BASE_SRC_URI_TESTING}/x86/LibreOffice${PN_DEV}_${MY_PV}_Linux_x86_rpm_helppack_${lang#*:}.tar.gz -> LibreOffice_${MY_PV}_Linux_x86_rpm_helppack_${lang#*:}.tar.gz )"
 	SRC_URI+=" l10n_${lang%:*}? ( ${helppack} )"
 done
 for lang in ${LANGUAGES}; do
 	if [[ ${lang%:*} != en ]]; then
-		langpack="${BASE_SRC_URI_STABLE}/x86/LibreOffice_${MY_PV}_Linux_x86_rpm_langpack_${lang#*:}.tar.gz -> LibreOffice_${PV}_Linux_x86_rpm_langpack_${lang#*:}.tar.gz ${BASE_SRC_URI_TESTING}/x86/LibreOffice_${PV}_Linux_x86_rpm_langpack_${lang#*:}.tar.gz"
+		langpack="${BASE_SRC_URI_STABLE}/x86/LibreOffice${PN_DEV}_${BASE_PV}_Linux_x86_rpm_langpack_${lang#*:}.tar.gz -> LibreOffice_${MY_PV}_Linux_x86_rpm_langpack_${lang#*:}.tar.gz ${BASE_SRC_URI_TESTING}/x86/LibreOffice${PN_DEV}_${MY_PV}_Linux_x86_rpm_langpack_${lang#*:}.tar.gz -> LibreOffice_${MY_PV}_Linux_x86_rpm_langpack_${lang#*:}.tar.gz"
 		SRC_URI+=" l10n_${lang%:*}? ( ${langpack} )"
 	fi
 	IUSE+=" l10n_${lang%:*}"
@@ -59,12 +62,12 @@ src_prepare() {
 
 		# for english we provide just helppack, as translation is always there
 		if [[ ${lang%:*} != en ]]; then
-			rpmdir="LibreOffice_${PV}_Linux_x86_rpm_langpack_${dir}/RPMS/"
+			rpmdir="LibreOffice_${MY_PV}_Linux_x86_rpm_langpack_${dir}/RPMS/"
 			[[ -d ${rpmdir} ]] || die "Missing directory: ${rpmdir}"
 			rpm_unpack ./${rpmdir}/*.rpm
 		fi
 		if [[ "${LANGUAGES_HELP}" =~ " ${lang} " ]] && use offlinehelp; then
-			rpmdir="LibreOffice_${PV}_Linux_x86_rpm_helppack_${dir}/RPMS/"
+			rpmdir="LibreOffice_${MY_PV}_Linux_x86_rpm_helppack_${dir}/RPMS/"
 			[[ -d ${rpmdir} ]] || die "Missing directory: ${rpmdir}"
 			rpm_unpack ./${rpmdir}/*.rpm
 		fi
@@ -75,7 +78,7 @@ src_configure() { :; }
 src_compile() { :; }
 
 src_install() {
-	local dir="${S}"/opt/${PN/-l10n/}$(get_version_component_range 1-2)/
+	local dir="${S}"/opt/${PN/-l10n/}$(ver_cut 1-2)/
 	# Condition required for people that do not install anything eg no l10n
 	# or just english with no offlinehelp.
 	if [[ -d "${dir}" ]] ; then
