@@ -82,7 +82,6 @@ app-office/gnumeric:python - Enable python plugin loader.
 app-office/libreoffice:coinmp - Use sci-libs/coinor-mp as alternative solver
 app-office/libreoffice:googledrive - Enable support for remote files on Google Drive
 app-office/libreoffice:gtk2 - Enable legacy gtk2 frontend
-app-office/libreoffice:jemalloc - Use dev-libs/jemalloc for allocations
 app-office/libreoffice:odk - Build the Office Development Kit
 app-office/libreoffice:pdfimport - Enable PDF import via the Poppler library
 app-office/libreoffice:vlc - Use media-video/vlc for video embedding
@@ -116,12 +115,10 @@ lxde-base/lxterminal:gtk3 - Use GTK+3 instead of GTK+2
 lxqt-base/lxqt-config:monitor - Build monitor settings tool
 lxqt-base/lxqt-meta:about - Install lxqt-base/lxqt-about
 lxqt-base/lxqt-meta:admin - Install lxqt-base/lxqt-admin
-lxqt-base/lxqt-meta:filemanager - Install x11-misc/pcmanfm-qt file manager
-lxqt-base/lxqt-meta:icons - Install an icon theme
-lxqt-base/lxqt-meta:lightdm - Install x11-misc/lightdm display manager
-lxqt-base/lxqt-meta:lximage - Install media-gfx/lximage-qt image viewer
-lxqt-base/lxqt-meta:minimal - Do not install x11-wm/openbox window manager
-lxqt-base/lxqt-meta:oxygen - Prefer kde-frameworks/oxygen-icons (default)
+lxqt-base/lxqt-meta:filemanager - Install x11-misc/pcmanfm-qtfile manager
+lxqt-base/lxqt-meta:lightdm - Install x11-misc/lightdmdisplay manager
+lxqt-base/lxqt-meta:lximage - Install media-gfx/lximage-qtimage viewer
+lxqt-base/lxqt-meta:minimal - Do not install x11-wm/openboxwindow manager
 lxqt-base/lxqt-meta:powermanagement - Install lxqt-base/lxqt-powermanagement package
 lxqt-base/lxqt-meta:processviewer - Install x11-misc/qps package
 lxqt-base/lxqt-meta:screenshot - Install x11-misc/screengrab package
@@ -366,7 +363,6 @@ x11-wm/subtle:xrandr - Enable support for the X RandR extension
 x11-wm/subtle:xtest - Enable support for the XTest extension
 x11-wm/vtwm:rplay - Enable rplay support, needed for sound.
 x11-wm/windowmaker:modelock - Enable XKB language status lock support. README says: "If you don't know what it is you probably don't need it."
-x11-wm/windowmaker:webp - Enables WebP image format support using media-libs/libwebp
 x11-wm/windowmaker:xrandr - Enable XRandR window extension support
 x11-wm/wmfs:imlib2 - Enable image support through media-libs/imlib2
 x11-wm/xmonad:default-term - Pull terminal specified in default xmonad config to be a bit less hostile by default.
@@ -383,4 +379,3 @@ x11-wm/xpra:pillow - Enable pillow support
 x11-wm/xpra:server - Build server-side code
 x11-wm/xpra:vpx - Enable vpx image format support
 x11-wm/xpra:webcam - Enable webcam support via opencv
-x11-wm/xpra:webp - Enable webp image format support
