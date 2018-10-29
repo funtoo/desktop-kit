@@ -196,6 +196,10 @@ mate-extra/mate-user-share:gtk3 - Build with GTK+3 instead of GTK+2
 mate-extra/mate-utils:applet - Enable the mate dictionary applet
 mate-extra/mate-utils:gtk3 - Build with GTK+3 instead of GTK+2
 x11-apps/copyq:webkit - enables the application to use advanced HTML rendering and fetching remote images and other data
+x11-apps/igt-gpu-tools:chamelium - Enables support for building Chamelium tests
+x11-apps/igt-gpu-tools:glib - Support reading config files via glib helpers
+x11-apps/igt-gpu-tools:valgrind - Support valgrind annotations
+x11-apps/igt-gpu-tools:xrandr - Enable support for the X RandR extension
 x11-libs/agg:gpc - Enable gpc polygon clipper library
 x11-libs/fltk:games - Builds and installs some extra games
 x11-libs/gtkdatabox:glade - Build with libglade and glade-3 supports, which includes a glade's module for GtkDataBox widget
