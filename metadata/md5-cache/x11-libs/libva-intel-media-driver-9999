@@ -1,10 +1,10 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-util/lxqt-build-tools dev-qt/linguist-tools:5 sys-devel/make >=dev-util/cmake-3.9.6 >=dev-vcs/git-1.8.2.1[curl]
-DESCRIPTION=Qt terminal emulator widget
+DEPEND=>=media-libs/gmmlib-9999 >=x11-libs/libva-2.3.0 >=x11-libs/libpciaccess-0.13.1-r1:= sys-devel/make >=dev-util/cmake-3.9.6 >=dev-vcs/git-1.8.2.1[curl]
+DESCRIPTION=Intel Media Driver for VAAPI (iHD)
 EAPI=6
-HOMEPAGE=https://github.com/lxde/qtermwidget
-LICENSE=GPL-2+
-RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
+HOMEPAGE=https://github.com/intel/media-driver
+LICENSE=MIT BSD
+RDEPEND=>=media-libs/gmmlib-9999 >=x11-libs/libva-2.3.0 >=x11-libs/libpciaccess-0.13.1-r1:=
 SLOT=0
 _eclasses_=cmake-utils	f0bc1c175684130a76ab6c17f575d820	epatch	8233751dc5105a6ae8fcd86ce2bb0247	epunt-cxx	f8073339d152f56626493f43d8ba4691	estack	5ac2a138d0b33354b764d84f9e835db8	eutils	1fb064d93b3ffd05c2fb19ef430a4aa1	flag-o-matic	55aaa148741116aa54ad0d80e361818e	git-r3	0d4635eeb5a96cd5315597a47eba25c9	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	xdg-utils	93b2dfbb00a09161e1e7f6360c0f7f6b
-_md5_=4febdc11e5197fcbba477e47d223b9e1
+_md5_=a0b44b2db3e6b8e756f62b8c2dd1d28b
