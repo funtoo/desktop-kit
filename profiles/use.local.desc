@@ -223,6 +223,8 @@ x11-misc/polybar:i3wm - Add support for i3 window manager
 x11-misc/polybar:ipc - Add support for Inter-Process Messaging
 x11-misc/polybar:mpd - Add support for Music Player Daemon
 x11-misc/polybar:network - Enable network support
+x11-misc/py3status:gevent - Install extra requirement dev-python/gevent to enable green threads.
+x11-misc/py3status:udev - Install extra requirement dev-python/pyudev to enable udev events monitoring on modules.
 x11-misc/qt5ct:dbus - Enable system tray and global menu support
 x11-misc/redshift:geoclue - Control dependency on app-misc/geoclue
 x11-misc/rofi:windowmode - Enable normal window mode
