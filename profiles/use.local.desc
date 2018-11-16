@@ -353,13 +353,6 @@ x11-wm/openbox:session - Enables support for session managers
 x11-wm/openbox:xdg - Install the python xdg files for xdg autostart
 x11-wm/pekwm:contrib - Install optional extras in the documentation directory
 x11-wm/pekwm:themes - Install additional themes
-x11-wm/qtile:widget-imap - Add support for ImapWidget widget (requires additonal dependencies).
-x11-wm/qtile:widget-keyboardkbdd - Add support for KeyboardKbdd widget (requires dbus support).
-x11-wm/qtile:widget-khal-calendar - Add support for KhalCalendar widget (requires additonal dependencies).
-x11-wm/qtile:widget-launchbar - Add support for LaunchBar widget (requires additional dependencies).
-x11-wm/qtile:widget-mpd - Add support for Mpd and Mpd2 widgets (requires additional dependencies).
-x11-wm/qtile:widget-mpris - Add support for Mpris and Mpris2 widgets (requires dbus support).
-x11-wm/qtile:widget-wlan - Add support for Wlan widget (requires additional dependencies). Will only work with Python 2.7 ABI.
 x11-wm/ratpoison:history - Use sys-libs/readline for history handling
 x11-wm/ratpoison:sloppy - Install sloppy, a focus-follows-mouse implementation for ratpoison
 x11-wm/ratpoison:xrandr - Enable support for XRandR
