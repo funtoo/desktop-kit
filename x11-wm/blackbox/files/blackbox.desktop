@@ -1,4 +1,5 @@
 [Desktop Entry]
+Encoding=UTF-8
 Name=Blackbox
 Comment=This session logs you into Blackbox
 Exec=blackbox

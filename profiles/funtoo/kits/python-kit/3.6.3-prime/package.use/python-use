@@ -23,3 +23,4 @@ x11-misc/tintwizard python_single_target_python2_7
 x11-misc/wbarconf python_single_target_python2_7
 x11-misc/xbattbar python_single_target_python2_7
 x11-misc/zim python_single_target_python2_7
+x11-wm/compiz python_single_target_python2_7
