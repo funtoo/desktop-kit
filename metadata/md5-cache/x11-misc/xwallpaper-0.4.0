@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure prepare
+DEPEND=x11-libs/pixman x11-libs/xcb-util x11-libs/xcb-util-image jpeg? ( virtual/jpeg:0= ) png? ( media-libs/libpng:0= ) seccomp? ( >=sys-libs/libseccomp-2.3.1:0= ) xpm? ( x11-libs/libXpm ) virtual/pkgconfig >=app-portage/elt-patches-20170317 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DESCRIPTION=Wallpaper setting utility for X
+EAPI=6
+HOMEPAGE=https://github.com/stoeckmann/xwallpaper
+IUSE=jpeg png seccomp xpm
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=x11-libs/pixman x11-libs/xcb-util x11-libs/xcb-util-image jpeg? ( virtual/jpeg:0= ) png? ( media-libs/libpng:0= ) seccomp? ( >=sys-libs/libseccomp-2.3.1:0= ) xpm? ( x11-libs/libXpm )
+SLOT=0
+SRC_URI=https://github.com/stoeckmann/xwallpaper/releases/download/v0.4.0/xwallpaper-0.4.0.tar.gz
+_eclasses_=autotools	dc412f38566b91012efd58b9c203e6c3	libtool	e32ea84bf82cf8987965b574672dba93	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
+_md5_=c1624f2bdb9209f0d1d34a0d3ade08c4
