@@ -80,6 +80,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-python.patch
 	"${FILESDIR}"/${P}-qt-5.11.patch
 	"${FILESDIR}"/${P}-autotools.patch
+	"${FILESDIR}"/${P}-enchant2.patch
 )
 
 S="${WORKDIR}/${MY_P}"

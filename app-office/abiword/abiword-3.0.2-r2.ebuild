@@ -92,6 +92,9 @@ PATCHES=(
 
 	# http://bugzilla.abisource.com/show_bug.cgi?id=13815
 	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-fix-black-drawing-regression.patch
+
+	# FL-6102: fix enchant2 compat
+	"${FILESDIR}"/${P}-enchant2.patch
 )
 
 src_configure() {
