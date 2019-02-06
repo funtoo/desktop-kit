@@ -5,6 +5,7 @@
 =x11-terms/guake-0.8.8 python_single_target_python2_7
 app-office/dia python_single_target_python2_7
 app-office/gnumeric python_single_target_python2_7
+app-office/kmymoney python_single_target_python2_7
 app-office/ledger python_single_target_python2_7
 app-office/lyx python_single_target_python2_7
 app-office/planner python_single_target_python2_7
