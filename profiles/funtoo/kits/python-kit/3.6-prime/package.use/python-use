@@ -1,6 +1,8 @@
 =app-office/gnucash-2.6.15-r1 python_single_target_python2_7
 =app-office/gnucash-2.6.19 python_single_target_python2_7
 =app-office/unoconv-0.7 python_single_target_python2_7
+=x11-misc/zim-0.65 python_single_target_python2_7
+=x11-misc/zim-0.69 python_single_target_python2_7
 =x11-terms/guake-0.8.13 python_single_target_python2_7
 =x11-terms/guake-0.8.8 python_single_target_python2_7
 app-office/dia python_single_target_python2_7
@@ -22,5 +24,4 @@ x11-misc/revelation python_single_target_python2_7
 x11-misc/tintwizard python_single_target_python2_7
 x11-misc/wbarconf python_single_target_python2_7
 x11-misc/xbattbar python_single_target_python2_7
-x11-misc/zim python_single_target_python2_7
 x11-wm/compiz python_single_target_python2_7

@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -10,11 +10,11 @@ inherit gnome2
 DESCRIPTION="Fully featured yet light and fast cross platform word processor"
 HOMEPAGE="http://www.abisource.com/"
 SRC_URI="http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz
-	https://dev.gentoo.org/~mgorny/dist/${P}-patchset.tar.gz"
+	https://dev.gentoo.org/~pacho/gnome/${P}-patchset.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="2"
-KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~x86 ~amd64-linux ~x86-linux"
 
 IUSE="calendar collab cups debug eds +goffice grammar +introspection latex map math ots +plugins readline redland spell wordperfect wmf thesaurus"
 # You need 'plugins' enabled if want to enable the extra plugins
@@ -30,7 +30,7 @@ RDEPEND="
 	>=gnome-extra/libgsf-1.14.18:=
 	>=media-libs/libpng-1.2:0=
 	virtual/jpeg:0
-	>=x11-libs/cairo-1.10[X]
+	>=x11-libs/cairo-1.10
 	>=x11-libs/gtk+-3.0.8:3[cups?]
 	calendar? ( >=dev-libs/libical-0.46:= )
 	eds? ( >=gnome-extra/evolution-data-server-3.6.0:= )
@@ -93,8 +93,17 @@ PATCHES=(
 	# http://bugzilla.abisource.com/show_bug.cgi?id=13815
 	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-fix-black-drawing-regression.patch
 
-	# FL-6102: fix enchant2 compat
-	"${FILESDIR}"/${P}-enchant2.patch
+	# https://bugzilla.abisource.com/show_bug.cgi?id=13907
+	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-smooth-scrolling.patch
+
+	# https://bugzilla.abisource.com/show_bug.cgi?id=13791
+	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-fix-flickering.patch
+
+	# https://github.com/AbiWord/abiword/commit/bdaf0e2da72bdc9d9bb3020445fe7b1b5dd7c062
+	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-libical3.patch
+
+	# https://bugzilla.abisource.com/show_bug.cgi?id=13697
+	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-bool-boolean.patch
 )
 
 src_configure() {
