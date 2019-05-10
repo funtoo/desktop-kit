@@ -98,6 +98,7 @@ app-office/gnucash:quotes - Enable Online Stock Quote retrieval
 app-office/gnumeric:libgda - Enable database support through gnome-extra/libgda.
 app-office/gnumeric:perl - Enable perl plugin loader.
 app-office/gnumeric:python - Enable python plugin loader.
+app-office/grisbi:goffice - enable goffice graphic support
 app-office/libreoffice:coinmp - Use sci-libs/coinor-mp as alternative solver
 app-office/libreoffice:googledrive - Enable support for remote files on Google Drive
 app-office/libreoffice:gtk2 - Enable legacy gtk2 frontend
@@ -209,6 +210,8 @@ x11-libs/libdlo:test-program - Build the program for testing Displaylink devices
 x11-libs/libfm:automount - Use gnome-base/gvfs for automounting
 x11-libs/libfm:udisks - Use libfm's udisks-based volume monitor implementation instead of using the one from gvfs
 x11-libs/libfm:vala - Support custom actions in menus
+x11-libs/libva-compat:drm - Enables VA/DRM API support.
+x11-libs/libva-compat:egl - Enables EGL support.
 x11-libs/motif:motif22-compatibility - Compatibility with Open Motif 2.2
 x11-libs/qscintilla:designer - Build plugin for Qt Designer
 x11-libs/qwt:designer - Installs dev-qt/designer plugin.
@@ -320,14 +323,17 @@ x11-terms/rxvt-unicode:buffer-on-clear - Store visible output to history buffer 
 x11-terms/rxvt-unicode:fading-colors - Enable colors fading when off focus
 x11-terms/rxvt-unicode:focused-urgency - Enable the urgent flag when a terminal window is focused
 x11-terms/rxvt-unicode:font-styles - Enable support for bold and italic fonts
+x11-terms/rxvt-unicode:gdk-pixbuf - Enable transparency support using x11-libs/gdk-pixbuf
 x11-terms/rxvt-unicode:iso14755 - Enable ISO-14755 support
 x11-terms/rxvt-unicode:mousewheel - Enable scrolling via mouse wheel or buttons 4 and 5
 x11-terms/rxvt-unicode:perl - Enable perl script support. You can still disable this at runtime with -pe ""
-x11-terms/rxvt-unicode:pixbuf - Enable transparency support using gtk's pixbuf
 x11-terms/rxvt-unicode:secondary-wheel - Support for wheel scrolling on secondary screens (like mutt). Read http://lists.schmorp.de/pipermail/rxvt-unicode/2011q4/001491.html
 x11-terms/rxvt-unicode:unicode3 - Use 21 instead of 16 bits to represent unicode characters
+x11-terms/rxvt-unicode:utmp - Enable utmp support
 x11-terms/rxvt-unicode:wcwidth - Enable wide char width support
+x11-terms/rxvt-unicode:wtmp - Enable wtmp support
 x11-terms/terminator:libnotify - Enables desktop notifications viadev-python/notify-python
+x11-terms/terminology:extras - Install additional testing tools
 x11-terms/xterm:openpty - Use openpty() in preference to posix_openpt()
 x11-terms/xterm:toolbar - Enable the xterm toolbar to be built
 x11-themes/arc-theme:cinnamon - Install theme for gnome-extra/cinnamon
@@ -379,6 +385,7 @@ x11-wm/e16:xsync - Enable X Sync support
 x11-wm/e16:zoom - Support resolution change of current window (zoom) usingx11-libs/libXxf86vm (xvidtune)
 x11-wm/echinus:xrandr - Enable support for multihead configuration
 x11-wm/enlightenment:packagekit - Enable module for package manager integration
+x11-wm/enlightenment:xwayland - Enable XWayland application support
 x11-wm/fluxbox:bidi - Enable bidirectional language support with dev-libs/fribidi
 x11-wm/fluxbox:slit - Enables the Fluxbox slit (or dock)
 x11-wm/fluxbox:systray - Enables the system tray in the Fluxbox toolbar
