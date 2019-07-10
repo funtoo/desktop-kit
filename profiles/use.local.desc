@@ -196,6 +196,29 @@ mate-extra/mate-polkit:appindicator - Add support for AppIndicator
 mate-extra/mate-power-manager:applet - Enable building of the MATE applet.
 mate-extra/mate-screensaver:consolekit - Enable support for sys-auth/consolekit
 mate-extra/mate-utils:applet - Enable the mate dictionary applet
+net-print/cups:java - Add support for the Java interpeter in the web server CGIs.
+net-print/cups:lprng-compat - Do not install lp... binaries so cups and lprng can coexist.
+net-print/cups:python - Add support for the Python interpeter in the web server CGIs.
+net-print/cups-filters:foomatic - Build the included foomatic-rip printer driver. Strongly recommended.
+net-print/cups-filters:ipp_autosetup - Let cups-browsed automatically set up IPP network printers by default.
+net-print/cups-filters:pclm - Enable PCLm support
+net-print/dymo-cups-drivers:usb_modeswitch - Include usb_modeswitch for some hardware (bug #601242)
+net-print/fax4cups:efax - Install net-misc/efax backend
+net-print/fax4cups:hylafax - Install net-misc/hylafax backend
+net-print/fax4cups:mgetty-fax - Install net-dialup/mgetty backend
+net-print/hplip:X - Enables scanner GUI dependencies with USE="scanner" where media-gfx/xsane is preferred over media-gfx/sane-frontends
+net-print/hplip:fax - Enable fax on multifunction devices which support it
+net-print/hplip:hpcups - Build the hpcups driver for cups (by HP)
+net-print/hplip:hpijs - Build the IJS driver for cups (Foomatic)
+net-print/hplip:kde - Enables kde-misc/skanlite as scanner GUI with USE="scanner X"
+net-print/hplip:libnotify - Enables desktop notifications
+net-print/hplip:libusb0 - Depend on virtual/libusb SLOT 0. Some old printers do not work with virtual/libusb SLOT 1.
+net-print/hplip:minimal - Only build internal hpijs/hpcups driver (not recommended at all, make sure you know what you are doing)
+net-print/hplip:parport - Enable parallel port for devices which require it
+net-print/hplip:scanner - Enable scanner on multifunction devices which support it
+net-print/hplip:snmp - Add support for net-analyzer/net-snmp which enables this driver to work over networks (both for server and client)
+net-print/hplip:static-ppds - Use statically-generated PPDs instead of Dynamic PPDs. Although this is deprecated some printers may still need it to work properly. Use this flag if hp-setup fails to find/create a valid PPD file
+net-print/kyocera-1x2x-mfp-driver:rastertokpsl-fix - Use custom wrapper script to sanitize arguments before passing to 'rastertokpsl' filter program
 x11-apps/copyq:webkit - enables the application to use advanced HTML rendering and fetching remote images and other data
 x11-apps/igt-gpu-tools:X - Enable intel-gpu-overlay xlib/cairo backend
 x11-apps/igt-gpu-tools:chamelium - Enables support for building Chamelium tests
