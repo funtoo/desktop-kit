@@ -3,11 +3,12 @@
 
 EAPI=7
 
-inherit autotools flag-o-matic linux-info xdg multilib-minimal pam user systemd
+inherit autotools flag-o-matic linux-info xdg multilib-minimal pam user java-pkg-opt-2 systemd
 
+MY_P="${P/_rc/rc}"
+MY_P="${MY_P/_beta/b}"
 MY_PV="${PV/_rc/rc}"
 MY_PV="${MY_PV/_beta/b}"
-MY_P="${PN}-${MY_PV}"
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -16,18 +17,16 @@ if [[ ${PV} == *9999 ]]; then
 		EGIT_BRANCH=branch-${PV/.9999}
 	fi
 else
-	SRC_URI="https://github.com/apple/cups/releases/download/v${MY_PV}/${MY_P}-source.tar.gz"
-	if [[ "${PV}" != *_beta* ]] && [[ "${PV}" != *_rc* ]] ; then
-		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~m68k-mint"
-	fi
+	SRC_URI="https://github.com/apple/cups/releases/download/v${PV}/${P}-source.tar.gz"
+	KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~m68k-mint"
 fi
 
 DESCRIPTION="The Common Unix Printing System"
 HOMEPAGE="https://www.cups.org/"
 
-LICENSE="Apache-2.0"
+LICENSE="GPL-2"
 SLOT="0"
-IUSE="acl dbus debug kerberos lprng-compat pam selinux +ssl static-libs systemd +threads usb X xinetd zeroconf"
+IUSE="acl dbus debug java kerberos lprng-compat pam python selinux +ssl static-libs systemd +threads usb X xinetd zeroconf"
 
 CDEPEND="
 	app-text/libpaper
@@ -39,6 +38,7 @@ CDEPEND="
 		)
 	)
 	dbus? ( >=sys-apps/dbus-1.6.18-r1[${MULTILIB_USEDEP}] )
+	java? ( >=virtual/jre-1.6:* )
 	kerberos? ( >=virtual/krb5-0-r1[${MULTILIB_USEDEP}] )
 	!lprng-compat? ( !net-print/lprng )
 	pam? ( virtual/pam )
@@ -50,13 +50,15 @@ CDEPEND="
 	zeroconf? ( >=net-dns/avahi-0.6.31-r2[${MULTILIB_USEDEP}] )
 "
 
-DEPEND="${CDEPEND}"
+DEPEND="${CDEPEND}
+"
 BDEPEND="
 	>=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}]
 "
 
 RDEPEND="${CDEPEND}
 	selinux? ( sec-policy/selinux-cups )
+	dev-lang/python
 "
 
 PDEPEND=">=net-print/cups-filters-1.0.43"
@@ -80,8 +82,6 @@ PATCHES=(
 MULTILIB_CHOST_TOOLS=(
 	/usr/bin/cups-config
 )
-
-S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
 	enewgroup lp
@@ -164,6 +164,7 @@ multilib_src_configure() {
 		$(use_enable debug)
 		$(use_enable debug debug-guards)
 		$(use_enable debug debug-printfs)
+		$(multilib_native_use_with java)
 		$(use_enable kerberos gssapi)
 		$(multilib_native_use_enable pam)
 		$(use_enable static-libs static)
@@ -173,8 +174,20 @@ multilib_src_configure() {
 		$(multilib_native_use_enable usb libusb)
 		$(use_enable zeroconf avahi)
 		--disable-dnssd
+		--without-perl
+		--without-php
 		$(multilib_is_native_abi && echo --enable-libpaper || echo --disable-libpaper)
 	)
+
+	if use python; then
+		myeconfargs+=(
+				--with-python
+		)
+	else
+		myeconfargs+=(
+				--without-python
+		)
+	fi
 
 	if tc-is-static-only; then
 		myeconfargs+=(

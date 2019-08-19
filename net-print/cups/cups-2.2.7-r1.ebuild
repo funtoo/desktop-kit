@@ -1,13 +1,14 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
-inherit autotools flag-o-matic linux-info xdg multilib-minimal pam user systemd
+inherit autotools gnome2-utils flag-o-matic linux-info multilib-minimal pam user java-pkg-opt-2 systemd
 
-MY_PV="${PV/_rc/rc}"
-MY_PV="${MY_PV/_beta/b}"
-MY_P="${PN}-${MY_PV}"
+MY_P=${P/_rc/rc}
+MY_P=${MY_P/_beta/b}
+MY_PV=${PV/_rc/rc}
+MY_PV=${MY_PV/_beta/b}
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -16,18 +17,16 @@ if [[ ${PV} == *9999 ]]; then
 		EGIT_BRANCH=branch-${PV/.9999}
 	fi
 else
-	SRC_URI="https://github.com/apple/cups/releases/download/v${MY_PV}/${MY_P}-source.tar.gz"
-	if [[ "${PV}" != *_beta* ]] && [[ "${PV}" != *_rc* ]] ; then
-		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~m68k-mint"
-	fi
+	SRC_URI="https://github.com/apple/cups/releases/download/v${PV}/${P}-source.tar.gz"
+	KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~m68k-mint"
 fi
 
 DESCRIPTION="The Common Unix Printing System"
 HOMEPAGE="https://www.cups.org/"
 
-LICENSE="Apache-2.0"
+LICENSE="GPL-2"
 SLOT="0"
-IUSE="acl dbus debug kerberos lprng-compat pam selinux +ssl static-libs systemd +threads usb X xinetd zeroconf"
+IUSE="acl dbus debug java kerberos lprng-compat pam python selinux +ssl static-libs systemd +threads usb X xinetd zeroconf"
 
 CDEPEND="
 	app-text/libpaper
@@ -39,10 +38,13 @@ CDEPEND="
 		)
 	)
 	dbus? ( >=sys-apps/dbus-1.6.18-r1[${MULTILIB_USEDEP}] )
+	java? ( >=virtual/jre-1.6:* )
 	kerberos? ( >=virtual/krb5-0-r1[${MULTILIB_USEDEP}] )
 	!lprng-compat? ( !net-print/lprng )
 	pam? ( virtual/pam )
-	ssl? ( >=net-libs/gnutls-2.12.23-r6:0=[${MULTILIB_USEDEP}] )
+	ssl? (
+		>=net-libs/gnutls-2.12.23-r6:0=[${MULTILIB_USEDEP}]
+	)
 	systemd? ( sys-apps/systemd )
 	usb? ( virtual/libusb:1 )
 	X? ( x11-misc/xdg-utils )
@@ -50,13 +52,13 @@ CDEPEND="
 	zeroconf? ( >=net-dns/avahi-0.6.31-r2[${MULTILIB_USEDEP}] )
 "
 
-DEPEND="${CDEPEND}"
-BDEPEND="
+DEPEND="${CDEPEND}
 	>=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}]
 "
 
 RDEPEND="${CDEPEND}
 	selinux? ( sec-policy/selinux-cups )
+	dev-lang/python
 "
 
 PDEPEND=">=net-print/cups-filters-1.0.43"
@@ -75,13 +77,12 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.4.4-nostrip.patch"
 	"${FILESDIR}/${PN}-2.0.2-rename-systemd-service-files.patch"
 	"${FILESDIR}/${PN}-2.0.1-xinetd-installation-fix.patch"
+	"${FILESDIR}/${PN}-2.3_rc1-no_pam.patch" #651878
 )
 
 MULTILIB_CHOST_TOOLS=(
 	/usr/bin/cups-config
 )
-
-S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
 	enewgroup lp
@@ -164,6 +165,7 @@ multilib_src_configure() {
 		$(use_enable debug)
 		$(use_enable debug debug-guards)
 		$(use_enable debug debug-printfs)
+		$(multilib_native_use_with java)
 		$(use_enable kerberos gssapi)
 		$(multilib_native_use_enable pam)
 		$(use_enable static-libs static)
@@ -173,8 +175,20 @@ multilib_src_configure() {
 		$(multilib_native_use_enable usb libusb)
 		$(use_enable zeroconf avahi)
 		--disable-dnssd
+		--without-perl
+		--without-php
 		$(multilib_is_native_abi && echo --enable-libpaper || echo --disable-libpaper)
 	)
+
+	if use python; then
+		myeconfargs+=(
+			--with-python
+		)
+	else
+		myeconfargs+=(
+			--without-python
+		)
+	fi
 
 	if tc-is-static-only; then
 		myeconfargs+=(
@@ -224,11 +238,11 @@ multilib_src_install_all() {
 	dodoc {CHANGES,CREDITS,README}.md
 
 	# move the default config file to docs
-	dodoc "${ED}"/etc/cups/cupsd.conf.default
-	rm -f "${ED}"/etc/cups/cupsd.conf.default
+	dodoc "${ED%/}"/etc/cups/cupsd.conf.default
+	rm -f "${ED%/}"/etc/cups/cupsd.conf.default
 
 	# clean out cups init scripts
-	rm -rf "${ED}"/etc/{init.d/cups,rc*,pam.d/cups}
+	rm -rf "${ED%/}"/etc/{init.d/cups,rc*,pam.d/cups}
 
 	# install our init script
 	local neededservices
@@ -248,16 +262,16 @@ multilib_src_install_all() {
 		# correct path
 		sed -i \
 			-e "s:server = .*:server = /usr/libexec/cups/daemon/cups-lpd:" \
-			"${ED}"/etc/xinetd.d/cups-lpd || die
+			"${ED%/}"/etc/xinetd.d/cups-lpd || die
 		# it is safer to disable this by default, bug #137130
-		grep -w 'disable' "${ED}"/etc/xinetd.d/cups-lpd || \
-			{ sed -i -e "s:}:\tdisable = yes\n}:" "${ED}"/etc/xinetd.d/cups-lpd || die ; }
+		grep -w 'disable' "${ED%/}"/etc/xinetd.d/cups-lpd || \
+			{ sed -i -e "s:}:\tdisable = yes\n}:" "${ED%/}"/etc/xinetd.d/cups-lpd || die ; }
 		# write permission for file owner (root), bug #296221
 		fperms u+w /etc/xinetd.d/cups-lpd || die "fperms failed"
 	else
 		# always configure with --with-xinetd= and clean up later,
 		# bug #525604
-		rm -rf "${ED}"/etc/xinetd.d
+		rm -rf "${ED%/}"/etc/xinetd.d
 	fi
 
 	keepdir /usr/libexec/cups/driver /usr/share/cups/{model,profiles} \
@@ -266,25 +280,25 @@ multilib_src_install_all() {
 	keepdir /etc/cups/{interfaces,ppd,ssl}
 
 	if ! use X ; then
-		rm -r "${ED}"/usr/share/applications || die
+		rm -r "${ED%/}"/usr/share/applications || die
 	fi
 
 	# create /etc/cups/client.conf, bug #196967 and #266678
-	echo "ServerName ${EPREFIX}/run/cups/cups.sock" >> "${ED}"/etc/cups/client.conf
+	echo "ServerName ${EPREFIX}/run/cups/cups.sock" >> "${ED%/}"/etc/cups/client.conf
 
 	# the following file is now provided by cups-filters:
-	rm -r "${ED}"/usr/share/cups/banners || die
+	rm -r "${ED%/}"/usr/share/cups/banners || die
 
 	# the following are created by the init script
-	rm -r "${ED}"/var/cache/cups || die
-	rm -r "${ED}"/run || die
+	rm -r "${ED%/}"/var/cache/cups || die
+	rm -r "${ED%/}"/run || die
 
 	# for the special case of running lprng and cups together, bug 467226
 	if use lprng-compat ; then
-		rm -fv "${ED}"/usr/bin/{lp*,cancel}
-		rm -fv "${ED}"/usr/sbin/lp*
-		rm -fv "${ED}"/usr/share/man/man1/{lp*,cancel*}
-		rm -fv "${ED}"/usr/share/man/man8/lp*
+		rm -fv "${ED%/}"/usr/bin/{lp*,cancel}
+		rm -fv "${ED%/}"/usr/sbin/lp*
+		rm -fv "${ED%/}"/usr/share/man/man1/{lp*,cancel*}
+		rm -fv "${ED%/}"/usr/share/man/man8/lp*
 		ewarn "Not installing lp... binaries, since the lprng-compat useflag is set."
 		ewarn "Unless you plan to install an exotic server setup, you most likely"
 		ewarn "do not want this. Disable the useflag then and all will be fine."
@@ -292,17 +306,18 @@ multilib_src_install_all() {
 }
 
 pkg_preinst() {
-	xdg_pkg_preinst
+	gnome2_icon_savelist
 }
 
 pkg_postinst() {
 	# Update desktop file database and gtk icon cache (bug 370059)
-	xdg_pkg_postinst
+	gnome2_icon_cache_update
+	xdg_desktop_database_update
 
 	local v
 
 	for v in ${REPLACING_VERSIONS}; do
-		if ! ver_test ${v} -ge 2.2.2-r2 ; then
+		if ! version_is_at_least 2.2.2-r2 ${v}; then
 			echo
 			ewarn "The cupsd init script switched to using pidfiles. Shutting down"
 			ewarn "cupsd will fail the next time. To fix this, please run once as root"
@@ -323,5 +338,6 @@ pkg_postinst() {
 
 pkg_postrm() {
 	# Update desktop file database and gtk icon cache (bug 370059)
-	xdg_pkg_postrm
+	gnome2_icon_cache_update
+	xdg_desktop_database_update
 }
