@@ -11,6 +11,7 @@
 app-office/dia python_single_target_python2_7
 app-office/gnumeric python_single_target_python2_7
 app-office/ledger python_single_target_python2_7
+app-office/libreoffice python_single_target_python2_7
 app-office/libreoffice-bin python_single_target_python3_6 python_targets_python3_6
 app-office/lyx python_single_target_python2_7
 app-office/planner python_single_target_python2_7

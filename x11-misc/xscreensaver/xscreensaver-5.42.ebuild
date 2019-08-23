@@ -1,8 +1,8 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit autotools eutils flag-o-matic multilib pam
+EAPI=7
+inherit autotools desktop flag-o-matic multilib pam
 
 DESCRIPTION="A modular screen saver and locker for the X Window System"
 HOMEPAGE="https://www.jwz.org/xscreensaver/"
@@ -62,6 +62,15 @@ DEPEND="
 	virtual/pkgconfig
 	x11-base/xorg-proto
 "
+PATCHES=(
+	"${FILESDIR}"/${PN}-5.05-interix.patch
+	"${FILESDIR}"/${PN}-5.20-blurb-hndl-test-passwd.patch
+	"${FILESDIR}"/${PN}-5.20-test-passwd-segv-tty.patch
+	"${FILESDIR}"/${PN}-5.20-tests-miscfix.patch
+	"${FILESDIR}"/${PN}-5.31-pragma.patch
+	"${FILESDIR}"/${PN}-5.35-gentoo.patch
+	"${FILESDIR}"/${PN}-5.41-comments.patch
+)
 
 src_prepare() {
 	sed -i configure.in -e '/^ALL_LINGUAS=/d' || die
@@ -74,13 +83,7 @@ src_prepare() {
 			configure{,.in} || die
 	fi
 
-	eapply \
-		"${FILESDIR}"/${PN}-5.05-interix.patch \
-		"${FILESDIR}"/${PN}-5.20-blurb-hndl-test-passwd.patch \
-		"${FILESDIR}"/${PN}-5.20-test-passwd-segv-tty.patch \
-		"${FILESDIR}"/${PN}-5.20-tests-miscfix.patch \
-		"${FILESDIR}"/${PN}-5.31-pragma.patch \
-		"${FILESDIR}"/${PN}-5.35-gentoo.patch
+	default
 
 	use offensive || eapply "${FILESDIR}"/${PN}-5.35-offensive.patch
 
