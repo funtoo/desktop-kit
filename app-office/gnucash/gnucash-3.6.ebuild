@@ -4,22 +4,23 @@
 EAPI=6
 
 # google{test,mock} version
-GV="1.8.0"
-PYTHON_COMPAT=( python3_{5,6} )
+GV="1.8.1"
+PYTHON_COMPAT=( python3_{4,5,6,7} )
 
-inherit cmake-utils flag-o-matic gnome2-utils python-single-r1 xdg-utils
+inherit cmake-utils gnome2-utils python-single-r1 xdg-utils
 
 DESCRIPTION="A personal finance manager"
 HOMEPAGE="http://www.gnucash.org/"
 SRC_URI="https://github.com/Gnucash/${PN}/releases/download/${PV}/${P}.tar.bz2
-		 https://github.com/google/googletest/archive/release-${GV}.tar.gz -> gtest-${GV}.tar.gz"
+	https://github.com/google/googletest/archive/release-${GV}.tar.gz -> gtest-${GV}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
-IUSE="aqbanking chipcard debug doc examples gnome-keyring mysql nls ofx postgres
-	  python quotes -register2 sqlite +gui"
+IUSE="aqbanking chipcard debug doc examples gnome-keyring +gui mysql nls ofx
+	  postgres python quotes -register2 sqlite"
+
 REQUIRED_USE="
 	chipcard? ( aqbanking )
 	python? ( ${PYTHON_REQUIRED_USE} )"
@@ -27,11 +28,12 @@ REQUIRED_USE="
 # libdbi version requirement for sqlite taken from bug #455134
 #
 # dev-libs/boost must always be built with nls enabled.
+# guile[deprecated] because of SCM_LIST*() use
 RDEPEND="
-	>=dev-libs/glib-2.40.0:2
+	>=dev-libs/glib-2.46.0:2
 	>=dev-libs/libxml2-2.7.0:2
 	>=sys-libs/zlib-1.1.4
-	>=dev-scheme/guile-2.0.0:12=[regex]
+	>=dev-scheme/guile-2.2.0:12=[deprecated,regex]
 	dev-libs/boost:=[icu,nls]
 	dev-libs/icu:=
 	dev-libs/libxslt
@@ -42,9 +44,9 @@ RDEPEND="
 	)
 	gnome-keyring? ( >=app-crypt/libsecret-0.18 )
 	gui? (
-	  gnome-base/dconf
-	  net-libs/webkit-gtk:4=
-	  >=x11-libs/gtk+-3.14.0:3
+		gnome-base/dconf
+		net-libs/webkit-gtk:4=
+		>=x11-libs/gtk+-3.14.0:3
 	)
 	mysql? (
 		dev-db/libdbi
@@ -88,6 +90,13 @@ pkg_setup() {
 	xdg_environment_reset
 }
 
+src_unpack() {
+	default
+	cp "${FILESDIR}"/gnucash-3.4-test-stress-options.scm \
+	   ${PN}-${PV}/${PN}/report/standard-reports/test/test-stress-options.scm \
+		|| die "Failed copying scm"
+}
+
 src_configure() {
 	local sql_on_off="OFF"
 	if use mysql || use postgres || use sqlite ; then
@@ -97,7 +106,9 @@ src_configure() {
 	local mycmakeargs=(
 		-DGMOCK_ROOT="${WORKDIR}"/googletest-release-${GV}/googlemock
 		-DGTEST_ROOT="${WORKDIR}"/googletest-release-${GV}/googletest
-
+		# Disable fallback to guile-2.0
+		-DCMAKE_DISABLE_FIND_PACKAGE_GUILE2=ON
+		-DCOMPILE_GSCHEMAS=OFF
 		-DDISABLE_NLS=$(usex !nls)
 		-DENABLE_REGISTER2=$(usex register2)
 		-DWITH_AQBANKING=$(usex aqbanking)
@@ -107,8 +118,6 @@ src_configure() {
 		-DWITH_GNUCASH=$(usex gui)
 	)
 
-	append-cflags -Wno-error
-	append-cxxflags -Wno-error
 	cmake-utils_src_configure
 }
 
@@ -126,10 +135,6 @@ src_install() {
 	cmake-utils_src_install
 
 	rm "${ED%/}"/usr/share/doc/${PF}/README.dependencies || die
-
-	if use gui ; then
-	  rm "${ED%/}"/usr/share/glib-2.0/schemas/gschemas.compiled || die
-	fi
 
 	if use examples ; then
 		mv "${ED%/}"/usr/share/doc/gnucash \
