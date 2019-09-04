@@ -3,15 +3,12 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{5,6} )
+PYTHON_COMPAT=( python3_{5,6,7} )
 PYTHON_REQ_USE="xml"
 
 inherit python-r1 mate
 
-if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-fi
-
+KEYWORDS="*"
 DESCRIPTION="Mozo menu editor for MATE"
 LICENSE="GPL-2"
 SLOT="0"
