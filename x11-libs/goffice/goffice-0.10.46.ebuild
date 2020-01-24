@@ -2,16 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
-GNOME2_LA_PUNT="yes"
+GNOME3_LA_PUNT="yes"
 
-inherit gnome2
+inherit gnome3
 
 DESCRIPTION="A library of document-centric objects and utilities"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/goffice/"
 
 LICENSE="GPL-2"
 SLOT="0.10"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x64-solaris"
+KEYWORDS="*"
 IUSE="+introspection"
 
 # FIXME: add lasem to tree
@@ -43,13 +43,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	# https://gitlab.gnome.org/GNOME/goffice/merge_requests/2
-	"${FILESDIR}"/${PV}-unittest-build-failure.patch
-)
-
 src_configure() {
-	gnome2_src_configure \
+	gnome3_src_configure \
 		--without-lasem \
 		--with-gtk \
 		--with-config-backend=gsettings \
