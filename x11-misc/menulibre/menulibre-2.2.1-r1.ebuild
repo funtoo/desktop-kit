@@ -1,20 +1,20 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-PYTHON_COMPAT=( python3_{5,6} )
+PYTHON_COMPAT=( python{3_6,3_7} )
 PYTHON_REQ_USE="xml"
 DISTUTILS_IN_SOURCE_BUILD=1
-inherit distutils-r1 eutils gnome2-utils versionator
+inherit desktop distutils-r1 xdg-utils
 
 DESCRIPTION="Advanced freedesktop.org compliant menu editor"
-HOMEPAGE="http://www.smdavis.us/projects/menulibre/"
-SRC_URI="https://launchpad.net/${PN}/$(get_version_component_range 1-2)/${PV}/+download/${P}.tar.gz"
+HOMEPAGE="https://bluesabre.org/projects/menulibre/"
+SRC_URI="https://launchpad.net/${PN}/$(ver_cut 1-2)/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	dev-python/python-distutils-extra[${PYTHON_USEDEP}]
@@ -35,6 +35,7 @@ python_prepare_all() {
 	# too many categories
 	sed -i \
 		-e 's/X-GNOME-Settings-Panel;X-GNOME-PersonalSettings;DesktopSettings;X-XFCE;//' \
+		-e '/^OnlyShowIn/d' \
 		menulibre.desktop.in || die
 
 	local i
@@ -53,16 +54,14 @@ python_prepare_all() {
 
 python_install_all() {
 	distutils-r1_python_install_all
-}
-
-pkg_preinst() {
-	gnome2_icon_savelist
+	python_optimize
+	rm -r "${ED}"/usr/share/doc/${PN} || die
 }
 
 pkg_postinst() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }

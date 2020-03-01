@@ -1,64 +1,29 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 BASE_PACKAGENAME="bin"
-BASE_AMD64_URI="https://tamiko.kyomu.43-1.org/distfiles/amd64-${BASE_PACKAGENAME}-"
-BASE_X86_URI="https://tamiko.kyomu.43-1.org/distfiles/x86-${BASE_PACKAGENAME}-"
+MY_PV2=$(ver_cut 1-2)
+MY_PV3=$(ver_cut 1-3)
+MY_PV4=$(ver_cut 4)
+SRC_URI_BASE="http://download.documentfoundation.org/libreoffice"
+SRC_URI="${SRC_URI_BASE}/stable/${MY_PV3}/rpm/x86_64/LibreOffice_${MY_PV3}_Linux_x86-64_rpm.tar.gz"
 
-PYTHON_COMPAT=( python3_6 )
-PYTHON_REQ_USE="threads,xml"
-
-inherit gnome2-utils java-pkg-opt-2 python-single-r1 pax-utils prefix versionator xdg-utils
+inherit prefix rpm toolchain-funcs xdg-utils
 
 DESCRIPTION="A full office productivity suite. Binary package"
 HOMEPAGE="https://www.libreoffice.org"
-SRC_URI_AMD64="
-	${BASE_AMD64_URI}libreoffice-${PVR}.tar.xz
-	kde? (
-		!java? ( ${BASE_AMD64_URI}libreoffice-kde-${PVR}.xd3 )
-		java? ( ${BASE_AMD64_URI}libreoffice-kde-java-${PVR}.xd3 )
-	)
-	gnome? (
-		!java? ( ${BASE_AMD64_URI}libreoffice-gnome-${PVR}.xd3 )
-		java? ( ${BASE_AMD64_URI}libreoffice-gnome-java-${PVR}.xd3 )
-	)
-	!kde? ( !gnome? (
-		java? ( ${BASE_AMD64_URI}libreoffice-java-${PVR}.xd3 )
-	) )
-"
-SRC_URI_X86="
-	${BASE_X86_URI}libreoffice-${PVR}.tar.xz
-	kde? (
-		!java? ( ${BASE_X86_URI}libreoffice-kde-${PVR}.xd3 )
-		java? ( ${BASE_X86_URI}libreoffice-kde-java-${PVR}.xd3 )
-	)
-	gnome? (
-		!java? ( ${BASE_X86_URI}libreoffice-gnome-${PVR}.xd3 )
-		java? ( ${BASE_X86_URI}libreoffice-gnome-java-${PVR}.xd3 )
-	)
-	!kde? ( !gnome? (
-		java? ( ${BASE_X86_URI}libreoffice-java-${PVR}.xd3 )
-	) )
-"
 
-SRC_URI="
-	amd64? ( ${SRC_URI_AMD64} )
-	x86? ( ${SRC_URI_X86} )
-"
-
-IUSE="gnome java kde"
+IUSE="gnome gstreamer +gtk java kde zeroconf"
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* ~amd64"
 
 BIN_COMMON_DEPEND="
-	app-text/hunspell:0/1.6
 	=app-text/libexttextcat-3.4*
 	=app-text/libmwaw-0.3*
-	dev-libs/boost:0/1.65.0
-	dev-libs/icu:0/64.2
+	>=dev-libs/icu-64.2
 	>=media-gfx/graphite2-1.3.10
 	media-libs/harfbuzz:0/0.9.18[icu]
 	media-libs/libpng:0/16
@@ -74,7 +39,6 @@ BIN_COMMON_DEPEND="
 
 COMMON_DEPEND="
 	${BIN_COMMON_DEPEND}
-	${PYTHON_DEPS}
 	app-arch/unzip
 	app-arch/zip
 	app-crypt/gpgme[cxx]
@@ -97,7 +61,6 @@ COMMON_DEPEND="
 	app-text/mythes
 	>=dev-cpp/clucene-2.3.3.4-r2
 	=dev-cpp/libcmis-0.5*
-	dev-db/mariadb-connector-c
 	dev-db/unixODBC
 	dev-lang/perl
 	dev-libs/boost:=[nls]
@@ -145,9 +108,9 @@ COMMON_DEPEND="
 		gnome-base/dconf
 		gnome-extra/evolution-data-server
 	)
-	media-libs/gstreamer:1.0
+	gstreamer? ( media-libs/gstreamer:1.0 )
 	media-libs/gst-plugins-base:1.0
-	gnome? (
+	gtk? (
 		dev-libs/glib:2
 		dev-libs/gobject-introspection
 		gnome-base/dconf
@@ -155,28 +118,19 @@ COMMON_DEPEND="
 		x11-libs/gtk+:3
 		x11-libs/pango
 	)
-	kde? (
-		dev-libs/glib:2
-		dev-libs/gobject-introspection
-		gnome-base/dconf
-		media-libs/mesa[egl]
-		x11-libs/gtk+:3
-		x11-libs/pango
-	)
-	x11-libs/gdk-pixbuf
-	>=x11-libs/gtk+-2.24:2
-	x11-libs/pango
 	kde? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
-		dev-qt/qtx11extras:5
 		dev-qt/qtwidgets:5
+		dev-qt/qtx11extras:5
 		kde-frameworks/kconfig:5
 		kde-frameworks/kcoreaddons:5
 		kde-frameworks/ki18n:5
 		kde-frameworks/kio:5
 		kde-frameworks/kwindowsystem:5
 	)
+	dev-db/mariadb-connector-c
+	zeroconf? ( net-dns/avahi )
 "
 
 RDEPEND="${COMMON_DEPEND}
@@ -186,58 +140,56 @@ RDEPEND="${COMMON_DEPEND}
 	|| ( x11-misc/xdg-utils kde-plasma/kde-cli-tools )
 	java? ( >=virtual/jre-1.6 )
 	kde? ( kde-frameworks/breeze-icons:* )
+	app-crypt/mit-krb5
 "
 
 PDEPEND="
 	=app-office/libreoffice-l10n-${PV}*
 "
 
-DEPEND="dev-util/xdelta:3"
+DEPEND="${COMMON_DEPEND}"
 
 # only one flavor at a time
-REQUIRED_USE="kde? ( !gnome ) gnome? ( !kde ) ${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="kde? ( !gnome ) gnome? ( gtk !kde )"
 
 RESTRICT="test strip"
 
 S="${WORKDIR}"
 
-PYTHON_UPDATER_IGNORE="1"
+#PYTHON_UPDATER_IGNORE="1"
 
 QA_PREBUILT="/usr/*"
-
-pkg_pretend() {
-	[[ $(gcc-major-version) -lt 4 ]] || \
-			( [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -le 4 ]] ) \
-		&& die "Sorry, but gcc-4.4 and earlier won't work for libreoffice-bin package (see bug #387515)."
-}
-
-pkg_setup() {
-	python-single-r1_pkg_setup
-}
-
-src_unpack() {
-	einfo "Uncompressing distfile ${ARCH}-${BASE_PACKAGENAME}-libreoffice-${PVR}.tar.xz"
-	xz -cd "${DISTDIR}/${ARCH}-${BASE_PACKAGENAME}-libreoffice-${PVR}.tar.xz" > "${WORKDIR}/${ARCH}-${BASE_PACKAGENAME}-libreoffice-${PVR}.tar" || die
-
-	local patchname
-	use kde && patchname="-kde"
-	use gnome && patchname="-gnome"
-	use java && patchname="${patchname}-java"
-
-	if [ -n "${patchname}" ]; then
-		einfo "Patching distfile ${ARCH}-${BASE_PACKAGENAME}-libreoffice-${PVR}.tar using ${ARCH}-${BASE_PACKAGENAME}-libreoffice${patchname}-${PVR}.xd3"
-		xdelta3 -d -s "${WORKDIR}/${ARCH}-${BASE_PACKAGENAME}-libreoffice-${PVR}.tar" "${DISTDIR}/${ARCH}-${BASE_PACKAGENAME}-libreoffice${patchname}-${PVR}.xd3" "${WORKDIR}/tmpdist.tar" || die
-		mv "${WORKDIR}/tmpdist.tar" "${WORKDIR}/${ARCH}-${BASE_PACKAGENAME}-libreoffice-${PVR}.tar" || die
-	fi
-
-	einfo "Unpacking new ${ARCH}-${BASE_PACKAGENAME}-libreoffice-${PVR}.tar"
-	unpack "./${ARCH}-${BASE_PACKAGENAME}-libreoffice-${PVR}.tar"
-}
 
 src_prepare() {
 	cp "${FILESDIR}"/50-${PN} "${T}"
 	eprefixify "${T}"/50-${PN}
 	default
+
+	local rpmdir
+	use amd64 && rpmdir="LibreOffice_${PV}_Linux_x86-64_rpm/RPMS/"
+	[[ -d ${rpmdir} ]] || die "Missing directory: ${rpmdir}"
+
+	# Unpack RPMs but consider USE flags
+	for rpms in ./${rpmdir}/*.rpm; do
+		if [[ ${rpms} == "./${rpmdir}/libobasis${MY_PV2}-kde-integration-${PV}-${MY_PV4}.x86_64.rpm" ]]
+		then
+			use kde && rpm_unpack ${rpms}
+		elif [[ ${rpms} == "./${rpmdir}/libobasis${MY_PV2}-gnome-integration-${PV}-${MY_PV4}.x86_64.rpm" ]]
+			then
+				use gtk && rpm_unpack ${rpms}
+		else
+			rpm_unpack ${rpms}
+		fi
+	done
+
+	# Remove files that require zeroconf if USE flag not set
+	use zeroconf || rm -f ./opt/libreoffice${MY_PV2}/program/libsdlo.so
+	use zeroconf || rm -f ./opt/libreoffice${MY_PV2}/program/libsdfiltlo.so
+	use zeroconf || rm -f ./opt/libreoffice${MY_PV2}/program/libsduilo.so
+	# Remove files that require java if USE flag not set
+	use java || rm -f ./opt/libreoffice${MY_PV2}/program/libofficebean.so
+	# Remove files that require gstreamer if USE flag not set
+	use gstreamer || rm -f ./opt/libreoffice${MY_PV2}/program/libavmediagst.so
 }
 
 src_configure() { :; }
@@ -245,31 +197,44 @@ src_configure() { :; }
 src_compile() { :; }
 
 src_install() {
-	dodir /usr
-	cp -aR "${S}"/usr/* "${ED}"/usr/
+	local progdir=/usr/$(get_libdir)/libreoffice
+	dodir ${progdir}
+	mv "${S}"/opt/libreoffice"${MY_PV2}"/* "${ED}"/"${progdir}"/
+
+	rm ./usr/bin/libreoffice"${MY_PV2}"
+	dosym "${progdir}"/program/soffice /usr/bin/libreoffice"${MY_PV2}"
+	dosym "${progdir}"/program/soffice /usr/bin/libreoffice
+	dosym "${progdir}"/program/soffice /usr/bin/loffice
+	dosym "${progdir}"/program/soffice /usr/bin/soffice
+
+	for prog in base impress calc math writer draw; do
+		dosym "${progdir}"/program/s"${prog}" /usr/bin/lo"${prog}"
+	done
+
+	rm ./usr/share/applications/*
+	mkdir -p "${ED}"/usr/share/applications
+
+	for prog in base impress startcenter calc math writer draw xsltfilter; do
+		cp "${ED}"/"${progdir}"/share/xdg/"${prog}".desktop "${ED}"/usr/share/applications/libreoffice"${MY_PV2}"-"${prog}".desktop
+	done
+
+	doins -r usr
 
 	# prevent revdep-rebuild from attempting to rebuild all the time
 	insinto /etc/revdep-rebuild && doins "${T}/50-${PN}"
 }
 
-pkg_preinst() {
-	gnome2_icon_savelist
-}
-
 pkg_postinst() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
-
-	pax-mark -m "${EPREFIX}"/usr/$(get_libdir)/libreoffice/program/soffice.bin
-	pax-mark -m "${EPREFIX}"/usr/$(get_libdir)/libreoffice/program/unopkg.bin
 
 	use java || \
 		ewarn 'If you plan to use lbase application you should enable java or you will get various crashes.'
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
 }
