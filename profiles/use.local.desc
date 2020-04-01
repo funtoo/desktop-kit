@@ -98,9 +98,6 @@ app-office/glabels:barcode - Enable barcode support through external libraries.
 app-office/gnucash:chipcard - Enable support for chipcard reading and processing.
 app-office/gnucash:hbci - Enable HBCI support, for connecting to some internet banks
 app-office/gnucash:quotes - Enable Online Stock Quote retrieval
-app-office/gnumeric:libgda - Enable database support through gnome-extra/libgda.
-app-office/gnumeric:perl - Enable perl plugin loader.
-app-office/gnumeric:python - Enable python plugin loader.
 app-office/grisbi:goffice - enable goffice graphic support
 app-office/libreoffice:coinmp - Use sci-libs/coinor-mp as alternative solver
 app-office/libreoffice:googledrive - Enable support for remote files on Google Drive
