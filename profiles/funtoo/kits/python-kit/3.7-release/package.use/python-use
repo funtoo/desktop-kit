@@ -29,9 +29,11 @@ app-office/planner python_single_target_python2_7
 app-office/pybliographer python_single_target_python2_7
 app-office/scribus python_single_target_python2_7
 app-office/taskcoach python_single_target_python2_7
+media-gfx/cura python_single_target_python3+ python_targets_python3+
 net-print/cups python_single_target_python2_7
 net-print/pkpgcounter python_single_target_python2_7
 net-print/pykota python_single_target_python2_7
+net-print/uranium python_single_target_python3+ python_targets_python3+
 x11-apps/whyteboard python_single_target_python2_7
 x11-libs/flowcanvas python_single_target_python2_7
 x11-libs/goocanvas python_single_target_python2_7
