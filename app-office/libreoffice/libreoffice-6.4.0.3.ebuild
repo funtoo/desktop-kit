@@ -1,9 +1,8 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
+PYTHON_COMPAT=( python3+ )
 PYTHON_REQ_USE="threads(+),xml"
 
 MY_PV="${PV/_alpha/.alpha}"
@@ -18,10 +17,9 @@ DEV_URI="
 ADDONS_URI="https://dev-www.libreoffice.org/src/"
 
 BRANDING="${PN}-branding-gentoo-0.8.tar.xz"
-PATCHSET="${P}-patchset-01.tar.xz"
+# PATCHSET="${P}-patchset-01.tar.xz"
 
-[[ ${MY_PV} == *9999* ]] && inherit git-r3
-inherit autotools bash-completion-r1 check-reqs flag-o-matic java-pkg-opt-2 multiprocessing python-single-r1 qmake-utils toolchain-funcs xdg
+inherit autotools bash-completion-r1 check-reqs flag-o-matic java-pkg-opt-2 multiprocessing python-single-r1 qmake-utils toolchain-funcs xdg-utils
 
 DESCRIPTION="A full office productivity suite"
 HOMEPAGE="https://www.libreoffice.org"
@@ -31,19 +29,19 @@ SRC_URI="branding? ( https://dev.gentoo.org/~dilfridge/distfiles/${BRANDING} )"
 # Split modules following git/tarballs; Core MUST be first!
 # Help is used for the image generator
 # Only release has the tarballs
-if [[ ${MY_PV} != *9999* ]]; then
-	for i in ${DEV_URI}; do
-		SRC_URI+=" ${i}/${PN}-${MY_PV}.tar.xz"
-		SRC_URI+=" ${i}/${PN}-help-${MY_PV}.tar.xz"
-	done
-	unset i
-fi
+for i in ${DEV_URI}; do
+	SRC_URI+=" ${i}/${PN}-${MY_PV}.tar.xz"
+	SRC_URI+=" ${i}/${PN}-help-${MY_PV}.tar.xz"
+done
+unset i
 unset DEV_URI
 
 # Really required addons
 # These are bundles that can't be removed for now due to huge patchsets.
 # If you want them gone, patches are welcome.
 ADDONS_SRC=(
+	# QR code generating library for >=libreoffice-6.4
+	"${ADDONS_URI}/QR-Code-generator-1.4.0.tar.gz"
 	"java? ( ${ADDONS_URI}/17410483b5b5f267aa18b7e00b65e6e0-hsqldb_1_8_0.zip )"
 	# no release for 8 years, should we package it?
 	"libreoffice_extensions_wiki-publisher? ( ${ADDONS_URI}/a7983f859eafb2677d7ff386a023bc40-xsltml_2.1.2.zip )"
@@ -63,7 +61,7 @@ unset ADDONS_SRC
 LO_EXTS="nlpsolver scripting-beanshell scripting-javascript wiki-publisher"
 
 IUSE="accessibility bluetooth +branding coinmp +cups dbus debug eds firebird
-googledrive gstreamer +gtk gtk2 kde ldap +mariadb odk pdfimport postgres test vlc
+googledrive gstreamer +gtk kde ldap +mariadb odk pdfimport postgres test
 $(printf 'libreoffice_extensions_%s ' ${LO_EXTS})"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -74,10 +72,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	libreoffice_extensions_wiki-publisher? ( java )
 "
 
+RESTRICT="!test? ( test )"
+
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
-[[ ${MY_PV} == *9999* ]] || \
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="*"
 
 BDEPEND="
 	dev-util/intltool
@@ -109,7 +108,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=app-text/libwps-0.4
 	app-text/mythes
 	>=dev-cpp/clucene-2.3.3.4-r2
-	=dev-cpp/libcmis-0.5*
+	>=dev-cpp/libcmis-0.5.2
 	dev-db/unixODBC
 	dev-lang/perl
 	dev-libs/boost:=[nls]
@@ -118,14 +117,15 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/icu:=
 	dev-libs/libassuan
 	dev-libs/libgpg-error
-	>=dev-libs/liborcus-0.14.0
+	>=dev-libs/liborcus-0.15.0
+	>=dev-libs/libixion-0.15.0
 	dev-libs/librevenge
 	dev-libs/libxml2
 	dev-libs/libxslt
 	dev-libs/nspr
 	dev-libs/nss
 	>=dev-libs/redland-1.0.16
-	>=dev-libs/xmlsec-1.2.24[nss]
+	>=dev-libs/xmlsec-1.2.28[nss]
 	media-gfx/fontforge
 	media-gfx/graphite2
 	media-libs/fontconfig
@@ -176,16 +176,11 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		x11-libs/gtk+:3
 		x11-libs/pango
 	)
-	gtk2? (
-		x11-libs/gdk-pixbuf
-		>=x11-libs/gtk+-2.24:2
-		x11-libs/pango
-	)
 	kde? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
-		dev-qt/qtx11extras:5
 		dev-qt/qtwidgets:5
+		dev-qt/qtx11extras:5
 		kde-frameworks/kconfig:5
 		kde-frameworks/kcoreaddons:5
 		kde-frameworks/ki18n:5
@@ -208,8 +203,8 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/libatomic_ops-7.2d
 	dev-perl/Archive-Zip
 	>=dev-util/cppunit-1.14.0
-	>=dev-util/gperf-3
-	>=dev-util/mdds-1.4.1:1=
+	>=dev-util/gperf-3.1
+	dev-util/mdds:1.5
 	media-libs/glm
 	sys-devel/ucpp
 	x11-base/xorg-proto
@@ -217,7 +212,7 @@ DEPEND="${COMMON_DEPEND}
 	x11-libs/libXtst
 	java? (
 		dev-java/ant-core
-		>=virtual/jdk-1.8.0-r3
+		>=virtual/jdk-1.8
 	)
 	test? (
 		app-crypt/gnupg
@@ -232,29 +227,21 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/openoffice
 	media-fonts/liberation-fonts
 	|| ( x11-misc/xdg-utils kde-plasma/kde-cli-tools )
-	java? ( >=virtual/jre-1.6 )
+	java? ( >=virtual/jre-1.8 )
 	kde? ( kde-frameworks/breeze-icons:* )
-	vlc? ( media-video/vlc )
 "
-if [[ ${MY_PV} != *9999* ]] && [[ ${PV} != *_* ]]; then
-	PDEPEND="=app-office/libreoffice-l10n-$(ver_cut 1-2)*"
-else
-	# Translations are not reliable on live ebuilds
-	# rather force people to use english only.
-	PDEPEND="!app-office/libreoffice-l10n"
-fi
+PDEPEND="=app-office/libreoffice-l10n-$(ver_cut 1-2)*"
 
 PATCHES=(
-	# master branch
-	"${FILESDIR}/${PN}-6.2-ldap-optional.patch"
-	# 6.2 branch
-	"${WORKDIR}"/${PATCHSET/.tar.xz/}
+	# "${WORKDIR}"/${PATCHSET/.tar.xz/}
 
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-5.4-system-pyuno.patch"
 	"${FILESDIR}/${PN}-5.3.4.2-kioclient5.patch"
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
-	"${FILESDIR}/${PN}-6.2.2.2-stricter-ant-check.patch"
+
+	# TODO: upstream (for now taken from Arch Linux)
+	"${FILESDIR}/${P}-poppler-0.86.patch" # bug 711102
 )
 
 S="${WORKDIR}/${PN}-${MY_PV}"
@@ -270,14 +257,11 @@ _check_reqs() {
 }
 
 pkg_pretend() {
-	use java || \
-		ewarn "If you plan to use Base application you should enable java or you will get various crashes."
-
-	if has_version "<app-office/libreoffice-5.3.0[firebird]"; then
-		ewarn "Firebird has been upgraded to version 3. It is unable to read back Firebird 2.5 data, so"
-		ewarn "embedded firebird odb files created in LibreOffice pre-5.3 can't be opened with this version."
-		ewarn "See also: https://wiki.documentfoundation.org/ReleaseNotes/5.3#Base"
+	if ! use java && ! use firebird; then
+		ewarn "If you plan to use Base application you must enable either firebird or java."
 	fi
+
+	use java || ewarn "Without java, several wizards are not going to be available."
 
 	[[ ${MERGE_TYPE} != binary ]] && _check_reqs pkg_pretend
 }
@@ -285,30 +269,13 @@ pkg_pretend() {
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 	python-single-r1_pkg_setup
+	xdg_environment_reset
 
 	[[ ${MERGE_TYPE} != binary ]] && _check_reqs pkg_setup
 }
 
-src_unpack() {
-	default
-
-	if [[ ${MY_PV} = *9999* ]]; then
-		local base_uri branch mypv
-		base_uri="https://anongit.freedesktop.org/git"
-		branch="master"
-		mypv=${MY_PV/.9999}
-		[[ ${mypv} != ${MY_PV} ]] && branch="${PN}-${mypv/./-}"
-		git-r3_fetch "${base_uri}/${PN}/core" "refs/heads/${branch}"
-		git-r3_checkout "${base_uri}/${PN}/core"
-		LOCOREGIT_VERSION=${EGIT_VERSION}
-
-		git-r3_fetch "${base_uri}/${PN}/help" "refs/heads/master"
-		git-r3_checkout "${base_uri}/${PN}/help" "helpcontent2" # doesn't match on help
-	fi
-}
-
 src_prepare() {
-	xdg_src_prepare
+	default
 
 	# sandbox violations on many systems, we don't need it. Bug #646406
 	sed -i \
@@ -389,6 +356,7 @@ src_configure() {
 	# --without-system-sane: just sane.h header that is used for scan in writer,
 	#   not linked or anything else, worthless to depend on
 	# --disable-pdfium: not yet packaged
+	# --without-system-qrencode: has no real build system and LO is the only user
 	local myeconfargs=(
 		--with-system-dicts
 		--with-system-epoxy
@@ -406,14 +374,14 @@ src_configure() {
 		--disable-breakpad
 		--disable-bundle-mariadb
 		--disable-ccache
-		--disable-dependency-tracking
 		--disable-epm
 		--disable-fetch-external
-		--disable-gstreamer-0-10
+		--disable-gtk3-kde5
 		--disable-online-update
 		--disable-openssl
 		--disable-pdfium
 		--disable-report-builder
+		--disable-vlc
 		--with-build-version="${gentoo_buildid}"
 		--enable-extension-integration
 		--with-external-dict-dir="${EPREFIX}/usr/share/myspell"
@@ -432,6 +400,7 @@ src_configure() {
 		--without-helppack-integration
 		--with-system-gpgmepp
 		--without-system-sane
+		--without-system-qrcodegen
 		$(use_enable bluetooth sdremote-bluetooth)
 		$(use_enable coinmp)
 		$(use_enable cups)
@@ -441,14 +410,12 @@ src_configure() {
 		$(use_enable firebird firebird-sdbc)
 		$(use_enable gstreamer gstreamer-1-0)
 		$(use_enable gtk gtk3)
-		$(use_enable gtk2 gtk)
-		$(use_enable kde kde5)
+		$(use_enable kde kf5)
 		$(use_enable kde qt5)
 		$(use_enable ldap)
 		$(use_enable odk)
 		$(use_enable pdfimport)
 		$(use_enable postgres postgresql-sdbc)
-		$(use_enable vlc)
 		$(use_with accessibility lxml)
 		$(use_with coinmp system-coinmp)
 		$(use_with googledrive gdrive-client-id ${google_default_client_id})
@@ -456,10 +423,6 @@ src_configure() {
 		$(use_with java)
 		$(use_with odk doxygen)
 	)
-
-	if use gtk && use kde; then
-		myeconfargs+=( --enable-gtk3-kde5 )
-	fi
 
 	if use eds || use gtk; then
 		myeconfargs+=( --enable-dconf --enable-gio )
@@ -520,7 +483,7 @@ src_test() {
 
 src_install() {
 	# This is not Makefile so no buildserver
-	make DESTDIR="${D}" distro-pack-install -o build -o check || die
+	emake DESTDIR="${D}" distro-pack-install -o build -o check
 
 	# bug 593514
 	if use gtk; then
@@ -541,7 +504,14 @@ src_install() {
 	fi
 }
 
-pkg_preinst() {
-	java-utils-2_pkg_preinst
-	xdg_pkg_preinst
+pkg_postinst() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
