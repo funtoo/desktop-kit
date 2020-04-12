@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,16 +6,15 @@ EAPI=6
 inherit udev unpacker
 
 DESCRIPTION="Proprietary plugins and firmware for HPLIP"
-HOMEPAGE="https://developers.hp.com/hp-linux-imaging-and-printing"
-SRC_URI="http://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/hplip-${PV}-plugin.run"
-
+HOMEPAGE="https://developers.hp.com/hp-linux-imaging-and-printing/plugins"
+SRC_URI="https://developers.hp.com/sites/default/files/hplip-3.20.3-plugin.run -> hplip-3.20.3-plugin.run"
 LICENSE="hplip-plugin"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="*"
 IUSE=""
 
 RDEPEND="
-	~net-print/hplip-${PV}
+	>=net-print/hplip-3.20.0
 	virtual/udev
 "
 DEPEND=""

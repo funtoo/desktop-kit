@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
+PYTHON_COMPAT=( python2+ )
 PYTHON_REQ_USE="threads(+),xml(+)"
 
 # 14 and 15 spit out a lot of warnings about subdirs
@@ -13,8 +13,7 @@ inherit autotools linux-info python-single-r1 readme.gentoo-r1 udev
 
 DESCRIPTION="HP Linux Imaging and Printing - Print, scan, fax drivers and service tools"
 HOMEPAGE="https://developers.hp.com/hp-linux-imaging-and-printing"
-SRC_URI="mirror://sourceforge/hplip/${P}.tar.gz
-		https://dev.gentoo.org/~billie/distfiles/${PN}-3.18.12-patches-1.tar.xz"
+SRC_URI="https://sourceforge.net/projects/hplip/files/hplip/3.20.2/hplip-3.20.2.tar.gz -> hplip-3.20.2.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -74,10 +73,6 @@ RDEPEND="
 "
 
 REQUIRED_USE="!minimal? ( ${PYTHON_REQUIRED_USE} )"
-
-PATCHES=(
-	"${WORKDIR}/patches"
-)
 
 CONFIG_CHECK="~PARPORT ~PPDEV"
 ERROR_PARPORT="Please make sure kernel parallel port support is enabled (PARPORT and PPDEV)."
