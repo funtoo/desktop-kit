@@ -5,7 +5,7 @@ EAPI=7
 PYTHON_COMPAT=( python3+ )
 
 inherit distutils-r1
-SRC_URI="https://files.pythonhosted.org/packages/75/bd/77136f23e8dd7635ed382d9f026b63cd3ae94afdaab470f380330f676eb2/borgbackup-1.1.11.tar.gz -> borgbackup-1.1.11.tar.gz"
+SRC_URI="https://files.pythonhosted.org/packages/97/68/27d96a12f54894223ad6676ce4d215ad61771e3e723580f3ee6e609e17b7/borgbackup-1.1.13.tar.gz -> borgbackup-1.1.13.tar.gz"
 KEYWORDS="*"
 
 DESCRIPTION="Deduplicating backup program with compression and authenticated encryption"
@@ -21,7 +21,7 @@ RDEPEND="
 	app-arch/lz4
 	virtual/acl
 	dev-python/llfuse[${PYTHON_USEDEP}]
-	dev-python/msgpack[${PYTHON_USEDEP}]
+	~dev-python/msgpack-0.5.6[${PYTHON_USEDEP}]
 	dev-python/pyzmq[${PYTHON_USEDEP}]
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )
