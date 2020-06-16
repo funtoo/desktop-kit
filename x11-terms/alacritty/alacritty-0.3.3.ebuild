@@ -288,7 +288,7 @@ inherit bash-completion-r1 cargo desktop eutils
 DESCRIPTION="GPU-accelerated terminal emulator"
 HOMEPAGE="https://github.com/jwilm/alacritty"
 SRC_URI="https://github.com/jwilm/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris ${CRATES})"
+ $(cargo_crate_uris ${CRATES})"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -296,22 +296,22 @@ KEYWORDS="~amd64"
 IUSE="+terminfo"
 
 DEPEND="
-	media-libs/fontconfig:=
-	media-libs/freetype:2
-	x11-libs/libxcb
+ media-libs/fontconfig:=
+ media-libs/freetype:2
+ x11-libs/libxcb
 "
 
 RDEPEND="${DEPEND}
-	sys-libs/zlib
-	x11-libs/libXcursor
-	x11-libs/libXi
-	x11-libs/libXrandr
-	virtual/opengl
+ sys-libs/zlib
+ x11-libs/libXcursor
+ x11-libs/libXi
+ x11-libs/libXrandr
+ virtual/opengl
 "
 
 BDEPEND="dev-util/cmake
-	>=virtual/rust-1.32.0
-	terminfo? ( sys-libs/ncurses )
+ >=virtual/rust-1.32.0
+ terminfo? ( sys-libs/ncurses )
 "
 
 DOCS=( CHANGELOG.md docs/ansicode.txt INSTALL.md README.md alacritty.yml )
@@ -321,34 +321,36 @@ QA_FLAGS_IGNORED="usr/bin/alacritty"
 S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_install() {
-	cargo_src_install --path=alacritty
+  echo "test"
+  cargo install --path alacritty --root="${D}/usr" $(usex debug --debug "") "$@" \
+  || die "cargo install failed"
 
-	newbashcomp extra/completions/alacritty.bash alacritty
+ newbashcomp extra/completions/alacritty.bash alacritty
 
-	insinto /usr/share/fish/vendor_completions.d/
-	doins extra/completions/alacritty.fish
+ insinto /usr/share/fish/vendor_completions.d/
+ doins extra/completions/alacritty.fish
 
-	insinto /usr/share/zsh/site-functions
-	doins extra/completions/_alacritty
+ insinto /usr/share/zsh/site-functions
+ doins extra/completions/_alacritty
 
-	domenu extra/linux/alacritty.desktop
-	newicon extra/logo/alacritty-term.svg Alacritty.svg
+ domenu extra/linux/alacritty.desktop
+ newicon extra/logo/alacritty-term.svg Alacritty.svg
 
-	newman extra/alacritty.man alacritty.1
+ newman extra/alacritty.man alacritty.1
 
-	insinto /usr/share/alacritty/scripts
-	doins -r scripts/*
+ insinto /usr/share/alacritty/scripts
+ doins -r scripts/*
 
-	einstalldocs
+ einstalldocs
 
-	if use terminfo; then
-		tic -e alacritty,alacritty-direct -o "${T}" extra/alacritty.info || die "generating terminfo failed"
-		insinto /usr/share/terminfo/a/
-		doins  "${T}"/a/alacritty*
-	fi
+ if use terminfo; then
+  tic -e alacritty,alacritty-direct -o "${T}" extra/alacritty.info || die "generating terminfo failed"
+  insinto /usr/share/terminfo/a/
+  doins  "${T}"/a/alacritty*
+ fi
 }
 
 pkg_postinst() {
-	optfeature "wayland support" dev-libs/wayland
-	optfeature "apply-tilix-colorscheme script dependency" dev-python/pyyaml
+ optfeature "wayland support" dev-libs/wayland
+ optfeature "apply-tilix-colorscheme script dependency" dev-python/pyyaml
 }

@@ -13,7 +13,7 @@ inherit autotools linux-info python-single-r1 readme.gentoo-r1 udev
 
 DESCRIPTION="HP Linux Imaging and Printing - Print, scan, fax drivers and service tools"
 HOMEPAGE="https://developers.hp.com/hp-linux-imaging-and-printing"
-SRC_URI="https://sourceforge.net/projects/hplip/files/hplip/3.20.5/hplip-3.20.5.tar.gz -> hplip-3.20.5.tar.gz"
+SRC_URI="https://sourceforge.net/projects/hplip/files/hplip/3.20.6/hplip-3.20.6.tar.gz -> hplip-3.20.6.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
