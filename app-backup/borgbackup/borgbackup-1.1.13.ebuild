@@ -5,7 +5,7 @@ EAPI=7
 PYTHON_COMPAT=( python3+ )
 
 inherit distutils-r1
-SRC_URI="https://files.pythonhosted.org/packages/97/68/27d96a12f54894223ad6676ce4d215ad61771e3e723580f3ee6e609e17b7/borgbackup-1.1.13.tar.gz -> borgbackup-1.1.13.tar.gz"
+SRC_URI="https://files.pythonhosted.org/packages/97/68/27d96a12f54894223ad6676ce4d215ad61771e3e723580f3ee6e609e17b7/borgbackup-1.1.13.tar.gz"
 KEYWORDS="*"
 
 DESCRIPTION="Deduplicating backup program with compression and authenticated encryption"
