@@ -1,5 +1,4 @@
 app-admin
-app-arch
 app-backup
 app-leechcraft
 app-office
@@ -7,7 +6,6 @@ app-officeext
 dev-python
 lxde-base
 lxqt-base
-mate-base
 mate-extra
 media-gfx
 net-misc
