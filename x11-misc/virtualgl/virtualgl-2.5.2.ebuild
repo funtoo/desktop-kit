@@ -1,25 +1,20 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 inherit cmake-multilib flag-o-matic multilib systemd
 
-if [[ ${PV} == *9999 ]] ; then
-	EGIT_REPO_URI="https://github.com/VirtualGL/${PN}.git"
-	inherit git-r3
-else
-	MY_PN="VirtualGL"
-	MY_P="${MY_PN}-${PV}"
-	S="${WORKDIR}/${MY_P}"
-	SRC_URI="mirror://sourceforge/project/${PN}/${PV}/${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
-
 DESCRIPTION="Run OpenGL applications remotely with full 3D hardware acceleration"
-HOMEPAGE="https://www.virtualgl.org/"
+HOMEPAGE="http://www.virtualgl.org/"
+
+MY_PN="VirtualGL"
+MY_P="${MY_PN}-${PV}"
+S="${WORKDIR}/${MY_P}"
+SRC_URI="mirror://sourceforge/${PN}/files/${PV}/${MY_P}.tar.gz"
 
 SLOT="0"
 LICENSE="LGPL-2.1 wxWinLL-3.1 FLTK"
+KEYWORDS="amd64 ~arm64 x86"
 IUSE="libressl ssl"
 
 RDEPEND="
