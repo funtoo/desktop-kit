@@ -10,7 +10,7 @@ inherit desktop flag-o-matic wxwidgets cmake-utils
 MY_PV="${PV/_beta/BETA}"
 DESCRIPTION="Password manager with wxGTK based frontend"
 HOMEPAGE="https://pwsafe.org/ https://github.com/pwsafe/pwsafe/"
-SRC_URI="https://github.com/pwsafe/pwsafe/archive/3.53.0pre.tar.gz -> passwordsafe-3.53.0pre.tar.gz"
+SRC_URI="https://github.com/pwsafe/pwsafe/archive/1.11.0.tar.gz -> passwordsafe-1.11.0.tar.gz"
 
 LICENSE="Artistic-2"
 SLOT="0"
