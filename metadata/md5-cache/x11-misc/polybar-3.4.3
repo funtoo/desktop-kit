@@ -4,12 +4,12 @@ DEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-e
 DESCRIPTION=A fast and easy to use tool for creating status bars
 EAPI=7
 HOMEPAGE=https://github.com/jaagr/polybar
-IUSE=alsa curl i3wm ipc mpd network pulseaudio python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+IUSE=alsa curl i3wm ipc mpd network pulseaudio python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
 KEYWORDS=*
 LICENSE=MIT
 RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) x11-base/xcb-proto x11-libs/cairo[xcb] x11-libs/libxcb[xkb] x11-libs/xcb-util-wm x11-libs/xcb-util-xrm dev-python/sphinx alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) i3wm? ( dev-libs/jsoncpp ) mpd? ( media-libs/libmpdclient ) network? ( net-wireless/wireless-tools ) pulseaudio? ( media-sound/pulseaudio )
 REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8 )
 SLOT=0
 SRC_URI=https://github.com/polybar/polybar/archive/3.4.3.tar.gz -> polybar-3.4.3.tar.gz https://github.com/polybar/xpp/archive/8c019e6d7fefd2468791bc1cbf90d68ff7c1ba33.tar.gz -> xpp-8c019e6d7fefd2468791bc1cbf90d68ff7c1ba33.tar.gz https://github.com/polybar/i3ipcpp/archive/21ce9060ac7c502225fdbd2f200b1cbdd8eca08d.tar.gz -> i3ipcpp-21ce9060ac7c502225fdbd2f200b1cbdd8eca08d.tar.gz
-_eclasses_=cmake-utils	2b36e0ed4585e0b246ddd9d2ca07f3a4	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-single-r1	a811e2c445a5fb40db1a1eba728dca7f	python-utils-r1	263e4bbfa6a84be6dc6272a6702aedca	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	xdg-utils	14d00d009167652b1fa363e55effe213
+_eclasses_=cmake-utils	2b36e0ed4585e0b246ddd9d2ca07f3a4	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-single-r1	ce99dfba1cad0514af51a32b2b6964af	python-utils-r1	263e4bbfa6a84be6dc6272a6702aedca	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	xdg-utils	14d00d009167652b1fa363e55effe213
 _md5_=ff74677c918104d2f0400f67fd16fb6c
