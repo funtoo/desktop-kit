@@ -7,6 +7,7 @@
 =x11-misc/zim-0.69 python_single_target_python2_7
 =x11-wm/compiz-0.9.13.1 python_single_target_python2_7
 =x11-wm/compiz-0.9.13.1-r2 python_single_target_python2_7
+app-misc/fslint python_single_target_python2_7
 app-office/dia python_single_target_python2_7
 app-office/gtg python_single_target_python2_7
 app-office/impressive python_single_target_python2_7
