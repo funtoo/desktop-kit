@@ -6,6 +6,7 @@ CRATES="
 adler-0.2.2
 adler32-1.1.0
 aho-corasick-0.7.13
+alacritty_terminal-0.10.0
 andrew-0.2.1
 android_glue-0.2.3
 android_log-sys-0.1.2
@@ -197,8 +198,8 @@ signal-hook-registry-1.2.0
 siphasher-0.3.3
 slab-0.4.2
 smallvec-1.4.1
-smithay-client-toolkit-0.10.0
 smithay-client-toolkit-0.6.6
+smithay-client-toolkit-0.10.0
 smithay-clipboard-0.5.1
 socket2-0.3.12
 spsc-buffer-0.1.1
@@ -262,20 +263,16 @@ yaml-rust-0.4.4
 zip-0.5.6
 "
 
-MY_PV="${PV//_rc/-rc}"
-# https://bugs.gentoo.org/725962
 PYTHON_COMPAT=( python3+ )
 
 inherit bash-completion-r1 cargo desktop python-any-r1
 
 DESCRIPTION="GPU-accelerated terminal emulator"
 HOMEPAGE="https://github.com/alacritty/alacritty"
-
-SRC_URI="https://github.com/alacritty/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://api.github.com/repos/alacritty/alacritty/tarball/v0.5.0 -> alacritty-0.5.0.tar.gz
 	$(cargo_crate_uris ${CRATES})"
+
 KEYWORDS="*"
-
-
 LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions Boost-1.0 BSD BSD-2 CC0-1.0 FTL ISC MIT MPL-2.0 Unlicense WTFPL-2 ZLIB"
 SLOT="0"
 IUSE="wayland +X"
@@ -306,10 +303,10 @@ BDEPEND="dev-util/cmake"
 
 QA_FLAGS_IGNORED="usr/bin/alacritty"
 
-S="${WORKDIR}/${PN}-${MY_PV}"
-
 src_unpack() {
-		cargo_src_unpack
+	cargo_src_unpack
+	rm -rf ${S}
+	mv ${WORKDIR}/alacritty-alacritty-* ${S} || die
 }
 
 src_configure() {
