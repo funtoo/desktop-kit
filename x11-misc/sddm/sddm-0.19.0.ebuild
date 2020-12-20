@@ -1,15 +1,14 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-PLOCALES="ar bn ca cs da de es et fi fr hi_IN hu is it ja kk ko lt lv nb nl nn pl pt_BR pt_PT ro ru sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
+PLOCALES="ar bn ca cs da de es et eu fi fr he hi_IN hu ie is it ja kk ko lt lv nb nl nn oc pl pt_BR pt_PT ro ru sk sr sr@ijekavian sr@ijekavianlatin sr@latin sv tr uk zh_CN zh_TW"
 inherit cmake-utils l10n systemd user
 
 DESCRIPTION="Simple Desktop Display Manager"
 HOMEPAGE="https://github.com/sddm/sddm"
-SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
-KEYWORDS="amd64 ~arm arm64 x86"
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz"
+KEYWORDS="*"
 
 LICENSE="GPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0 public-domain"
 SLOT="0"
@@ -40,8 +39,8 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.12.0-respect-user-flags.patch" # fix for flags handling and bug 563108
-	"${FILESDIR}/${P}-Xsession.patch" # bug 611210
-	"${FILESDIR}/${P}-sddmconfdir.patch"
+	"${FILESDIR}/${PN}-0.18.0-Xsession.patch" # bug 611210
+	"${FILESDIR}/${PN}-0.18.0-sddmconfdir.patch"
 	# TODO: fix properly
 	"${FILESDIR}/${PN}-0.16.0-ck2-revert.patch" # bug 633920
 )
