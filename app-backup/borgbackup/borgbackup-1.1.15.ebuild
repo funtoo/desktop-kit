@@ -5,7 +5,7 @@ EAPI=7
 PYTHON_COMPAT=( python3+ )
 
 inherit distutils-r1
-SRC_URI="https://files.pythonhosted.org/packages/dd/13/5313ccad7f76cd3d13b207e31ca6e3072ca00c0bf7d605f7e8e6bc409b0d/borgbackup-1.1.14.tar.gz"
+SRC_URI="https://files.pythonhosted.org/packages/c9/4d/dd06d8787f8faa8c50a422abd9ba14be15ee0b5830e745033815c49d5313/borgbackup-1.1.15.tar.gz"
 KEYWORDS="*"
 
 DESCRIPTION="Deduplicating backup program with compression and authenticated encryption"
@@ -20,7 +20,6 @@ RDEPEND="
 	!!app-office/borg
 	app-arch/lz4
 	virtual/acl
-	=dev-python/msgpack-1.0.0*[${PYTHON_USEDEP}]
 	dev-python/llfuse[${PYTHON_USEDEP}]
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )
