@@ -19,6 +19,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
+	x11-terms/kitty-terminfo
 	media-libs/fontconfig
 	media-libs/freetype:2
 	>=media-libs/harfbuzz-1.5.0:=
@@ -51,9 +52,10 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.17.2-flags.patch
-	"${FILESDIR}"/${PN}-0.14.4-svg-icon.patch
-	"${FILESDIR}"/${PN}-0.19.1-tests.patch
+		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.14.4-svg-icon.patch
+		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.16.0-remove-terminfo.patch
+		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.17.2-flags.patch
+		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.19.1-tests.patch
 )
 
 src_prepare() {
