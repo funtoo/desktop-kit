@@ -1,4 +1,3 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,11 +5,11 @@ inherit toolchain-funcs
 
 DESCRIPTION="Tiling window manager based on binary space partitioning"
 HOMEPAGE="https://github.com/baskerville/bspwm/"
-SRC_URI="https://github.com/baskerville/bspwm/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://api.github.com/repos/baskerville/bspwm/tarball/0.9.10 -> bspwm-0.9.10.tgz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="*"
 IUSE="examples"
 
 DEPEND="
@@ -21,6 +20,11 @@ DEPEND="
 RDEPEND="${DEPEND}
 	x11-misc/sxhkd
 "
+src_unpack() {
+    unpack "${A}
+    mv "${WORKDIR}/baskerville-bspwm"* "$S" || die
+}
+
 
 src_compile() {
 	emake PREFIX=/usr CC="$(tc-getCC)"
