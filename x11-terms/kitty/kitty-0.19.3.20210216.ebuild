@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python3+ )
 
 inherit python-single-r1 toolchain-funcs xdg
 
-SRC_URI="https://github.com/kovidgoyal/kitty/archive/v0.19.3.tar.gz"
+SRC_URI="https://github.com/kovidgoyal/kitty/archive/4cf73204a2e024488129251642c538dc2277b858.tar.gz"
 KEYWORDS="*"
 
 DESCRIPTION="A modern, hackable, featureful, OpenGL-based terminal emulator"
@@ -53,13 +53,20 @@ BDEPEND="
 
 PATCHES=(
 		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.14.4-svg-icon.patch
-		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.16.0-remove-terminfo.patch
 		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.17.2-flags.patch
-		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.19.1-tests.patch
 )
+
+src_unpack() {
+	unpack ${A}
+	rm -rf ${S}
+	mv ${WORKDIR}/kitty-* ${S} || die
+}
 
 src_prepare() {
 	default
+
+	sed -i -e "/build_terminfo =/,+4d" setup.py # remove terminfo
+	sed -i "s/'launcher'/'..\/linux-package\/bin'/" kitty/constants.py # tests
 
 	# disable wayland as required
 	if ! use wayland; then

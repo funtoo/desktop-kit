@@ -8,7 +8,7 @@ inherit python-any-r1 toolchain-funcs xdg
 
 DESCRIPTION="Terminfo for kitty, an OpenGL-based terminal emulator"
 HOMEPAGE="https://github.com/kovidgoyal/kitty"
-SRC_URI="https://github.com/kovidgoyal/kitty/archive/v0.19.3.tar.gz"
+SRC_URI="https://github.com/kovidgoyal/kitty/archive/4cf73204a2e024488129251642c538dc2277b858.tar.gz"
 S="${WORKDIR}/kitty-${PV}"
 
 LICENSE="GPL-3"
@@ -26,6 +26,12 @@ PATCHES=(
 # file. As tests are designed to be run with the whole package compiled they
 # would fail in this case.
 RESTRICT="test"
+
+src_unpack() {
+	unpack ${A}
+	rm -rf ${S}
+	mv ${WORKDIR}/kitty-* ${S} || die
+}
 
 src_compile() {
 	"${EPYTHON}" setup.py \
