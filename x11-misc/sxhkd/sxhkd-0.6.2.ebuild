@@ -1,27 +1,30 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit toolchain-funcs systemd
+inherit toolchain-funcs 
 
 DESCRIPTION="Simple X hotkey daemon"
 HOMEPAGE="https://github.com/baskerville/sxhkd/"
-SRC_URI="https://github.com/baskerville/sxhkd/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://api.github.com/repos/baskerville/sxhkd/tarball/0.6.2 -> sxhkd-0.6.2.tgz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="*"
 
 RDEPEND="x11-libs/libxcb
 	x11-libs/xcb-util-keysyms"
 DEPEND="${RDEPEND}
 	x11-libs/xcb-util"
 
+src_unpack() {
+	unpack "${A}"
+	mv "${WORKDIR}/baskerville-sxhkd"* "$S" || die
+}
+
 src_compile() {
-	emake CC="$(tc-getCC)" PREFIX=/usr
+	emake CC="$(tc-getCC)"
 }
 
 src_install() {
-	emake PREFIX=/usr DESTDIR="${D}" install
-	systemd_dounit contrib/systemd/${PN}.service
+	emake DESTDIR="${D}" PREFIX=/usr DOCPREFIX="/usr/share/doc/${PF}" install
 }
