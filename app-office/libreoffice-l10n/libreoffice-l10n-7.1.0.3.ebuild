@@ -4,11 +4,9 @@ EAPI=7
 
 inherit rpm
 
-BASE_PV=$(ver_cut 1-3)
-
 DESCRIPTION="Translations for the Libreoffice suite"
 HOMEPAGE="https://www.libreoffice.org"
-BASE_SRC_URI_STABLE="https://download.documentfoundation.org/${PN/-l10n/}/stable/${BASE_PV}/rpm"
+BASE_SRC_URI="https://downloadarchive.documentfoundation.org/${PN/-l10n/}/old/${PV}/rpm"
 
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
@@ -19,12 +17,12 @@ LANGUAGES_HELP=" am ar ast bg bn-IN bn bo bs ca-valencia ca cs da de dz el en-GB
 LANGUAGES=" af am ar as ast be bg bn-IN bn bo br brx bs ca-valencia ca ckb cs cy da de dgo dsb dz el en-GB en-ZA eo es et eu fa fi fr fur fy ga gd gl gu gug he hi hr hsb hu id is it ja ka kab kk km kmr-Latn kn ko kok ks lb lo lt lv mai mk ml mn mni mr my nb ne nl nn nr nso oc om or pa:pa-IN pl pt-BR pt ro ru rw sa:sa-IN sat sd si sid sk sl sq sr-Latn sr ss st sv sw-TZ szl ta te tg th tn tr ts tt ug uk uz ve vec vi xh zh-CN zh-TW zu "
 
 for lang in ${LANGUAGES_HELP}; do
-	helppack="offlinehelp? ( ${BASE_SRC_URI_STABLE}/x86_64/LibreOffice_${BASE_PV}_Linux_x86-64_rpm_helppack_${lang#*:}.tar.gz )"
+	helppack="offlinehelp? ( ${BASE_SRC_URI}/x86_64/LibreOffice_${PV}_Linux_x86-64_rpm_helppack_${lang#*:}.tar.gz )"
 	SRC_URI+=" l10n_${lang%:*}? ( ${helppack} )"
 done
 for lang in ${LANGUAGES}; do
 	if [[ ${lang%:*} != en ]]; then
-		langpack="${BASE_SRC_URI_STABLE}/x86_64/LibreOffice_${BASE_PV}_Linux_x86-64_rpm_langpack_${lang#*:}.tar.gz"
+		langpack="${BASE_SRC_URI}/x86_64/LibreOffice_${PV}_Linux_x86-64_rpm_langpack_${lang#*:}.tar.gz"
 		SRC_URI+=" l10n_${lang%:*}? ( ${langpack} )"
 	fi
 	IUSE+=" l10n_${lang%:*}"
