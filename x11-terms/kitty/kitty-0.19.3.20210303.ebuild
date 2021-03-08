@@ -53,7 +53,7 @@ BDEPEND="
 
 PATCHES=(
 		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.14.4-svg-icon.patch
-		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.17.2-flags.patch
+		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.19.3.20210303-flags.patch
 )
 
 src_unpack() {

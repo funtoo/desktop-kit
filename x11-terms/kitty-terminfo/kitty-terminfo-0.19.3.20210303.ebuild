@@ -19,7 +19,7 @@ IUSE="debug"
 DEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
-		${REPODIR}/x11-terms/kitty-gen/files/kitty-terminfo-setup-0.19.1.patch
+		${REPODIR}/x11-terms/kitty-gen/files/kitty-terminfo-setup-0.19.3.20210303.patch
 )
 
 # kitty-terminfo is a split package from kitty that only installs the terminfo
