@@ -9,7 +9,7 @@ inherit distutils-r1
 DESCRIPTION="Generate and change color-schemes on the fly"
 HOMEPAGE="https://github.com/dylanaraps/pywal"
 
-SRC_URI="https://github.com/dylanaraps/pywal/archive/3.3.0.tar.gz"
+SRC_URI="https://github.com/dylanaraps/pywal/archive/3.3.0.tar.gz -> pywal-3.3.0.tar.gz"
 KEYWORDS="*"
 
 LICENSE="MIT"

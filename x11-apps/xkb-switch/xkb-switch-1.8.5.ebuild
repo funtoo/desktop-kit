@@ -6,7 +6,7 @@ inherit cmake
 
 DESCRIPTION="Switch your X keyboard layouts from the command line"
 HOMEPAGE="https://github.com/grwlf/xkb-switch"
-SRC_URI="https://github.com/grwlf/xkb-switch/archive/1.8.5.tar.gz"
+SRC_URI="https://github.com/grwlf/xkb-switch/archive/1.8.5.tar.gz -> xkb-switch-1.8.5.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
