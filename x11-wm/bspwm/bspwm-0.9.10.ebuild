@@ -5,7 +5,7 @@ inherit toolchain-funcs
 
 DESCRIPTION="Tiling window manager based on binary space partitioning"
 HOMEPAGE="https://github.com/baskerville/bspwm/"
-SRC_URI="https://api.github.com/repos/baskerville/bspwm/tarball/0.9.10 -> bspwm-0.9.10.tgz"
+SRC_URI="https://api.github.com/repos/baskerville/bspwm/tarball/refs/tags/0.9.10 -> bspwm-0.9.10.tgz"
 
 LICENSE="BSD-2"
 SLOT="0"

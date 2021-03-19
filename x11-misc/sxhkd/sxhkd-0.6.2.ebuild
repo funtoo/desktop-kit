@@ -5,7 +5,7 @@ inherit toolchain-funcs
 
 DESCRIPTION="Simple X hotkey daemon"
 HOMEPAGE="https://github.com/baskerville/sxhkd/"
-SRC_URI="https://api.github.com/repos/baskerville/sxhkd/tarball/0.6.2 -> sxhkd-0.6.2.tgz"
+SRC_URI="https://api.github.com/repos/baskerville/sxhkd/tarball/refs/tags/0.6.2 -> sxhkd-0.6.2.tgz"
 
 LICENSE="BSD-2"
 SLOT="0"
