@@ -210,7 +210,7 @@ inherit bash-completion-r1 cargo desktop python-any-r1
 
 DESCRIPTION="GPU-accelerated terminal emulator"
 HOMEPAGE="https://github.com/alacritty/alacritty"
-SRC_URI="https://api.github.com/repos/alacritty/alacritty/tarball/v0.7.2 -> alacritty-0.7.2.tar.gz
+SRC_URI="https://api.github.com/repos/alacritty/alacritty/tarball/refs/tags/v0.7.2 -> alacritty-0.7.2.tar.gz
 	$(cargo_crate_uris ${CRATES})"
 
 KEYWORDS="*"
