@@ -1,9 +1,8 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3+ )
 
 MY_P="${P/_}"
 inherit desktop flag-o-matic font python-single-r1 qmake-utils toolchain-funcs xdg-utils
@@ -15,10 +14,14 @@ SRC_URI="ftp://ftp.lyx.org/pub/lyx/stable/2.3.x/${MY_P}.tar.xz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~x64-macos ~x86-macos"
-IUSE="aspell cups debug docbook dia dot enchant gnumeric html +hunspell +latex monolithic-build nls rcs rtf subversion svg l10n_he"
+KEYWORDS="*"
+IUSE="aspell cups debug dia dot enchant gnumeric html +hunspell +latex monolithic-build nls rcs rtf svg l10n_he"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
+BDEPEND="
+	virtual/pkgconfig
+	nls? ( sys-devel/gettext )
+"
 RDEPEND="${PYTHON_DEPS}
 	app-text/mythes
 	dev-libs/boost:=
@@ -34,9 +37,8 @@ RDEPEND="${PYTHON_DEPS}
 	aspell? ( app-text/aspell )
 	cups? ( net-print/cups )
 	dia? ( app-office/dia )
-	docbook? ( app-text/sgmltools-lite )
 	dot? ( media-gfx/graphviz )
-	enchant? ( app-text/enchant )
+	enchant? ( app-text/enchant:2 )
 	gnumeric? ( app-office/gnumeric )
 	html? ( dev-tex/html2latex )
 	hunspell? ( app-text/hunspell )
@@ -46,8 +48,6 @@ RDEPEND="${PYTHON_DEPS}
 		app-text/ghostscript-gpl
 		app-text/ps2eps
 		app-text/texlive
-		dev-tex/chktex
-		dev-tex/dvipost
 		dev-texlive/texlive-fontsrecommended
 		dev-texlive/texlive-latexextra
 		dev-texlive/texlive-mathscience
@@ -66,22 +66,13 @@ RDEPEND="${PYTHON_DEPS}
 		dev-tex/html2latex
 		dev-tex/latex2rtf
 	)
-	subversion? ( dev-vcs/subversion )
 	svg? ( || ( gnome-base/librsvg media-gfx/inkscape ) )
 "
 DEPEND="${RDEPEND}
-	virtual/pkgconfig
 	dev-qt/qtconcurrent:5
-	nls? ( sys-devel/gettext )
 "
 
 DOCS=( ANNOUNCE NEWS README RELEASE-NOTES UPGRADING )
-
-PATCHES=(
-	"${FILESDIR}"/${P}-python.patch
-	"${FILESDIR}"/${P}-qt-5.11.patch
-	"${FILESDIR}"/${P}-autotools.patch
-)
 
 S="${WORKDIR}/${MY_P}"
 
@@ -101,7 +92,7 @@ src_prepare() {
 src_configure() {
 	tc-export CXX
 	#bug 221921
-	export VARTEXFONTS=${T}/fonts
+	export VARTEXFONTS="${T}"/fonts
 
 	econf \
 		$(use_with aspell) \
@@ -121,8 +112,8 @@ src_install() {
 	default
 
 	if use l10n_he ; then
-		echo "\bind_file cua" > "${T}"/hebrew.bind
-		echo "\bind \"F12\" \"language hebrew\"" >> "${T}"/hebrew.bind
+		echo "\bind_file cua" > "${T}"/hebrew.bind || die
+		echo "\bind \"F12\" \"language hebrew\"" >> "${T}"/hebrew.bind || die
 
 		insinto /usr/share/lyx/bind
 		doins "${T}"/hebrew.bind
@@ -155,7 +146,7 @@ pkg_postinst() {
 
 	# fix for bug 91108
 	if use latex ; then
-		texhash
+		texhash || die
 	fi
 
 	# instructions for RTL support. See also bug 168331.
@@ -175,6 +166,6 @@ pkg_postrm() {
 	xdg_desktop_database_update
 
 	if use latex ; then
-		texhash
+		texhash || die
 	fi
 }
