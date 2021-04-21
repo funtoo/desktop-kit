@@ -1,8 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_{5,6,7} )
+PYTHON_COMPAT=( python3+ )
 
 inherit systemd autotools eutils gnome2-utils python-r1
 
@@ -12,7 +11,7 @@ SRC_URI="https://github.com/jonls/redshift/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="*"
 IUSE="ayatana geoclue gtk nls"
 
 COMMON_DEPEND=">=x11-libs/libX11-1.4
@@ -79,6 +78,16 @@ pkg_preinst() {
 
 pkg_postinst() {
 	use gtk && gnome2_icon_cache_update
+
+	# Allow redshift to use geoclue if needed
+	use geoclue && grep -q "\[redshift\]" /etc/geoclue/geoclue.conf ||
+		cat <<- EOF >> /etc/geoclue/geoclue.conf
+
+		[redshift]
+		allowed=true
+		system=false
+		users=
+		EOF
 }
 
 pkg_postrm() {
