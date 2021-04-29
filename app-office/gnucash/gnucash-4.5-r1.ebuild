@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Gnucash/gnucash/releases/download/4.5/gnucash-4.5.ta
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="aqbanking debug doc examples gnome-keyring +gui mysql nls ofx postgres python quotes -register2 smartcard sqlite test"
+IUSE="aqbanking debug doc examples gnome-keyring +gui mysql nls ofx postgres python quotes -register2 smartcard +sqlite test"
 
 RESTRICT="!test? ( test )"
 
