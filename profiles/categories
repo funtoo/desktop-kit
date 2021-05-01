@@ -4,10 +4,14 @@ app-leechcraft
 app-misc
 app-office
 app-officeext
+dev-libs
 dev-python
+dev-util
 lxde-base
+lxqt-base
 mate-extra
 media-gfx
+media-sound
 net-misc
 net-print
 virtual
