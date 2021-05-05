@@ -12,4 +12,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_9 
 SLOT=0
 SRC_URI=https://github.com/kovidgoyal/kitty/archive/b570dfcd0996b976714b212bc852feb04e1305c9.tar.gz
 _eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	python-single-r1	ce99dfba1cad0514af51a32b2b6964af	python-utils-r1	263e4bbfa6a84be6dc6272a6702aedca	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=1283d8bce4e635f1fab26c44bb98ab80
+_md5_=024085fdbaf19721234583830a556bf9

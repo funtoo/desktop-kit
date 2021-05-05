@@ -53,7 +53,6 @@ BDEPEND="
 
 PATCHES=(
 		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.14.4-svg-icon.patch
-		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.19.3.20210303-flags.patch
 )
 
 src_unpack() {
@@ -67,6 +66,15 @@ src_prepare() {
 
 	sed -i -e "/build_terminfo =/,+4d" setup.py # remove terminfo
 	sed -i "s/'launcher'/'..\/linux-package\/bin'/" kitty/constants.py # tests
+
+	# flags
+	sed -i \
+		-e "s/optimize =.*/optimize = ''/g" \
+		-e "s/ + ('' if debug else ' -O3')//g" \
+		-e "s/ -Werror / /g" \
+		-e "s/cflags.append('-O3')/pass/g" \
+		-e "s/ -pipe //g" \
+		setup.py
 
 	# disable wayland as required
 	if ! use wayland; then
@@ -83,6 +91,7 @@ src_compile() {
 	"${EPYTHON}" setup.py \
 		--verbose $(usex debug --debug "") \
 		--libdir-name $(get_libdir) \
+		--ignore-compiler-warnings \
 		linux-package || die "Failed to compile kitty."
 }
 
