@@ -1,16 +1,15 @@
-# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit eutils multilib savedconfig toolchain-funcs
+EAPI=7
+inherit desktop savedconfig toolchain-funcs
 
 DESCRIPTION="simple terminal implementation for X"
 HOMEPAGE="https://st.suckless.org/"
-SRC_URI="https://dl.suckless.org/st/${P}.tar.gz"
+SRC_URI="{{artifacts[0].src_uri}}"
 
 LICENSE="MIT-with-advertising"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 hppa x86"
+KEYWORDS="*"
 IUSE="savedconfig"
 
 RDEPEND="
