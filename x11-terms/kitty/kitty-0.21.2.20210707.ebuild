@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python3+ )
 
 inherit python-single-r1 toolchain-funcs xdg
 
-SRC_URI="https://github.com/kovidgoyal/kitty/archive/1ec07eb17af5cdfb43fa1f0ab6d94c45deec39e2.tar.gz"
+SRC_URI="https://github.com/kovidgoyal/kitty/archive/cd6b3da6653dfb92d51534d5ff83376e80e64381.tar.gz"
 KEYWORDS="*"
 
 DESCRIPTION="A modern, hackable, featureful, OpenGL-based terminal emulator"
