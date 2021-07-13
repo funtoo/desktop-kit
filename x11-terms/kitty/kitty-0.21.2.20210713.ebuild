@@ -52,7 +52,6 @@ BDEPEND="
 "
 
 PATCHES=(
-		${REPODIR}/x11-terms/kitty-gen/files/kitty-0.14.4-svg-icon.patch
 )
 
 src_unpack() {
