@@ -10,6 +10,6 @@ LICENSE=GPL-3
 RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) x11-terms/kitty-terminfo media-libs/fontconfig media-libs/freetype:2 >=media-libs/harfbuzz-1.5.0:= media-libs/lcms media-libs/libcanberra media-libs/libpng:0= sys-apps/dbus sys-libs/zlib x11-libs/libxcb[xkb] x11-libs/libXcursor x11-libs/libXi x11-libs/libXinerama x11-libs/libxkbcommon[X] x11-libs/libXrandr wayland? ( dev-libs/wayland >=dev-libs/wayland-protocols-1.17 )
 REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8 )
 SLOT=0
-SRC_URI=https://github.com/kovidgoyal/kitty/archive/8dfef58f292dce21f979fd981e7f3c625e708ed7.tar.gz
+SRC_URI=https://github.com/kovidgoyal/kitty/archive/61f5d3972f0fbe6bb1cc2c4cd1940f528c56cc20.tar.gz
 _eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	python-single-r1	ce99dfba1cad0514af51a32b2b6964af	python-utils-r1	263e4bbfa6a84be6dc6272a6702aedca	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=9cc4f460a479e9b56310a2954664a8df
+_md5_=3348e8aa6010397d13c7a0ae40e891f5

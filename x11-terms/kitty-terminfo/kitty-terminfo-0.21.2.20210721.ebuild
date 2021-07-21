@@ -8,7 +8,7 @@ inherit python-any-r1 toolchain-funcs xdg
 
 DESCRIPTION="Terminfo for kitty, an OpenGL-based terminal emulator"
 HOMEPAGE="https://github.com/kovidgoyal/kitty"
-SRC_URI="https://github.com/kovidgoyal/kitty/archive/8dfef58f292dce21f979fd981e7f3c625e708ed7.tar.gz"
+SRC_URI="https://github.com/kovidgoyal/kitty/archive/61f5d3972f0fbe6bb1cc2c4cd1940f528c56cc20.tar.gz"
 S="${WORKDIR}/kitty-${PV}"
 
 LICENSE="GPL-3"
