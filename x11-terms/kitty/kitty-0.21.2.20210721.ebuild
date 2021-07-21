@@ -6,7 +6,8 @@ PYTHON_COMPAT=( python3+ )
 
 inherit python-single-r1 toolchain-funcs xdg
 
-SRC_URI="https://github.com/kovidgoyal/kitty/archive/61f5d3972f0fbe6bb1cc2c4cd1940f528c56cc20.tar.gz"
+SRC_URI="https://github.com/kovidgoyal/kitty/archive/61f5d3972f0fbe6bb1cc2c4cd1940f528c56cc20.tar.gz
+	https://github.com/kovidgoyal/kitty/releases/download/v0.21.2/kitty-0.21.2.tar.xz"
 KEYWORDS="*"
 
 DESCRIPTION="A modern, hackable, featureful, OpenGL-based terminal emulator"
@@ -48,7 +49,6 @@ DEPEND="${RDEPEND}
 
 BDEPEND="
 	virtual/pkgconfig
-	>=dev-python/sphinx-1.7
 "
 
 PATCHES=(
@@ -56,8 +56,11 @@ PATCHES=(
 
 src_unpack() {
 	unpack ${A}
+	mv ${WORKDIR}/kitty-0.21.2/docs/_build ${WORKDIR}/docs_build || die
+	rm -rf ${WORKDIR}/kitty-0.21.2
 	rm -rf ${S}
 	mv ${WORKDIR}/kitty-* ${S} || die
+	mv ${WORKDIR}/docs_build ${S}/docs/_build || die
 }
 
 src_prepare() {
@@ -90,7 +93,7 @@ src_compile() {
 	"${EPYTHON}" setup.py \
 		--verbose $(usex debug --debug "") \
 		--libdir-name $(get_libdir) \
-		--ignore-compiler-warnings \
+		--update-check-interval=0 \
 		linux-package || die "Failed to compile kitty."
 }
 
