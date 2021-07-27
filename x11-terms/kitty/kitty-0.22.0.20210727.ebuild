@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python3+ )
 
 inherit python-single-r1 toolchain-funcs xdg
 
-SRC_URI="https://github.com/kovidgoyal/kitty/archive/887347106ddecc27ecc577d74b8116bd7e7e27da.tar.gz
+SRC_URI="https://github.com/kovidgoyal/kitty/archive/9c9d68561e5a97cafa67817dcc5ac67c5a85bc24.tar.gz
 	https://github.com/kovidgoyal/kitty/releases/download/v0.22.0/kitty-0.22.0.tar.xz"
 KEYWORDS="*"
 
