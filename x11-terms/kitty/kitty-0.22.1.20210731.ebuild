@@ -6,8 +6,8 @@ PYTHON_COMPAT=( python3+ )
 
 inherit python-single-r1 toolchain-funcs xdg
 
-SRC_URI="https://github.com/kovidgoyal/kitty/archive/3c953d47ca7a029f7cbedee091dc2306af950d11.tar.gz
-	https://github.com/kovidgoyal/kitty/releases/download/v0.22.0/kitty-0.22.0.tar.xz"
+SRC_URI="https://github.com/kovidgoyal/kitty/archive/0045244295ba766f0ee092dca1adcd3bd04bc652.tar.gz
+	https://github.com/kovidgoyal/kitty/releases/download/v0.22.1/kitty-0.22.1.tar.xz"
 KEYWORDS="*"
 
 DESCRIPTION="A modern, hackable, featureful, OpenGL-based terminal emulator"
@@ -56,8 +56,8 @@ PATCHES=(
 
 src_unpack() {
 	unpack ${A}
-	mv ${WORKDIR}/kitty-0.22.0/docs/_build ${WORKDIR}/docs_build || die
-	rm -rf ${WORKDIR}/kitty-0.22.0
+	mv ${WORKDIR}/kitty-0.22.1/docs/_build ${WORKDIR}/docs_build || die
+	rm -rf ${WORKDIR}/kitty-0.22.1
 	rm -rf ${S}
 	mv ${WORKDIR}/kitty-* ${S} || die
 	mv ${WORKDIR}/docs_build ${S}/docs/_build || die
