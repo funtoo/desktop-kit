@@ -1,11 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare unpack
-DEPEND=media-libs/fontconfig x11-libs/libX11 x11-libs/libXft xinerama? ( x11-libs/libXinerama ) xinerama? ( x11-proto/xineramaproto ) >=dev-vcs/git-1.8.2.1
+DEPEND=media-libs/fontconfig x11-libs/libX11 x11-libs/libXft xinerama? ( x11-libs/libXinerama ) xinerama? ( x11-base/xorg-proto )
 DESCRIPTION=a dynamic window manager for X11
-EAPI=6
+EAPI=7
 HOMEPAGE=https://dwm.suckless.org/
 IUSE=xinerama
 LICENSE=MIT
+PROPERTIES=live
 RDEPEND=media-libs/fontconfig x11-libs/libX11 x11-libs/libXft xinerama? ( x11-libs/libXinerama )
 SLOT=0
-_eclasses_=git-r3	52a888802d25387c2c74cb845d1219bc	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
-_md5_=d4f98f2c59e45574a11ef1c378438e1f
+_eclasses_=git-r3	7dcb8a92f5a091f13e82494fa317ca4b	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=4918901c55e2f35703ca1d15d4c9c788

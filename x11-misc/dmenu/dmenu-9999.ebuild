@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 inherit git-r3 savedconfig toolchain-funcs
 
 DESCRIPTION="a generic, highly customizable, and efficient menu for the X Window System"
@@ -21,8 +21,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	xinerama? ( x11-proto/xineramaproto )
-	x11-proto/xproto
+	x11-base/xorg-proto
 "
 PATCHES=(
 	"${FILESDIR}"/${P}-gentoo.patch
@@ -33,17 +32,18 @@ src_prepare() {
 
 	sed -i \
 		-e 's|^	@|	|g' \
-		-e 's|${CC} -o|$(CC) $(CFLAGS) -o|g' \
 		-e '/^	echo/d' \
 		Makefile || die
 
-	restore_config config.def.h
+	restore_config config.h
 }
 
 src_compile() {
 	emake CC=$(tc-getCC) \
 		"FREETYPEINC=$( $(tc-getPKG_CONFIG) --cflags x11 fontconfig xft 2>/dev/null )" \
 		"FREETYPELIBS=$( $(tc-getPKG_CONFIG) --libs x11 fontconfig xft 2>/dev/null )" \
+		"X11INC=$( $(tc-getPKG_CONFIG) --cflags x11 2>/dev/null )" \
+		"X11LIB=$( $(tc-getPKG_CONFIG) --libs x11 2>/dev/null )" \
 		"XINERAMAFLAGS=$(
 			usex xinerama "-DXINERAMA $(
 				$(tc-getPKG_CONFIG) --cflags xinerama 2>/dev/null
@@ -55,7 +55,7 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="/usr" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 
-	save_config config.def.h
+	save_config config.h
 }

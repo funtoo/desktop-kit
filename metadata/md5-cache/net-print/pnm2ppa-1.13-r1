@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare unpack
+DEPEND=app-text/ghostscript-gpl net-print/cups >=net-print/cups-filters-1.0.43-r1[foomatic] sys-libs/glibc syslog? ( virtual/logger )
+DESCRIPTION=Print driver for Hp Deskjet 710, 712, 720, 722, 820, 1000 series
+EAPI=4
+HOMEPAGE=http://pnm2ppa.sourceforge.net
+IUSE=syslog l10n_en l10n_cs l10n_es l10n_fr l10n_it l10n_nl
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-text/ghostscript-gpl net-print/cups >=net-print/cups-filters-1.0.43-r1[foomatic] sys-libs/glibc syslog? ( virtual/logger )
+SLOT=0
+SRC_URI=mirror://sourceforge/pnm2ppa/pnm2ppa-1.13.tar.gz
+_eclasses_=base	2ec5c64f5de125f0c65a927c4c128fef	desktop	b1d22ac8bdd4679ab79c71aca235009d	epatch	a1bf4756dba418a7238f3be0cb010c54	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	ltprune	22f9f14d105434e9c400ccac3bbb64ae	multilib	d410501a125f99ffb560b0c523cd3d1e	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf
+_md5_=a551f9da5b785560a41845bd10a934ad

@@ -1,11 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
-DEPEND=>=dev-libs/glib-2.24:2 x11-libs/libX11 x11-libs/libXext xinerama? ( x11-libs/libXinerama ) app-text/asciidoc virtual/pkgconfig >=dev-vcs/git-1.8.2.1
+DEPEND=>=dev-libs/glib-2.24:2 x11-libs/libX11 x11-libs/libXext xinerama? ( x11-libs/libXinerama ) app-text/asciidoc virtual/pkgconfig
 DESCRIPTION=A manual tiling window manager for X
-EAPI=6
-HOMEPAGE=http://herbstluftwm.org
+EAPI=7
+HOMEPAGE=https://herbstluftwm.org/
 IUSE=examples xinerama zsh-completion
 LICENSE=BSD-2
+PROPERTIES=live
 RDEPEND=>=dev-libs/glib-2.24:2 x11-libs/libX11 x11-libs/libXext xinerama? ( x11-libs/libXinerama ) app-shells/bash zsh-completion? ( app-shells/zsh )
 SLOT=0
-_eclasses_=bash-completion-r1	8e447753aaf658afa609fbf961d80ab7	git-r3	52a888802d25387c2c74cb845d1219bc	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
-_md5_=408197a920ebdb014dbb1b5ea68afdd8
+_eclasses_=bash-completion-r1	47a7402d95930413ce25ba8d857339bb	git-r3	7dcb8a92f5a091f13e82494fa317ca4b	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=e108dc9977cd613ec9f9a7967da5130f

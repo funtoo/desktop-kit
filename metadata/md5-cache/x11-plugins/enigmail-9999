@@ -1,10 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst setup unpack
-DEPEND=|| ( ( >=app-crypt/gnupg-2.0 || ( app-crypt/pinentry[gtk(-)] app-crypt/pinentry[qt4(-)] app-crypt/pinentry[qt5(-)] ) ) =app-crypt/gnupg-1.4* ) || ( >=dev-lang/python-2.7.5-r2:2.7 ) app-arch/zip dev-lang/perl >=dev-vcs/git-1.8.2.1
+DEPEND=|| ( ( >=app-crypt/gnupg-2.0 || ( app-crypt/pinentry[gtk(-)] app-crypt/pinentry[qt5(-)] ) ) =app-crypt/gnupg-1.4* ) !<mail-client/thunderbird-52.5.0 !<www-client/seamonkey-2.49.5.0_p0 || ( >=dev-lang/python-2.7.5-r2:2.7 ) app-arch/zip dev-lang/perl
 DESCRIPTION=Mozilla extension to provide GPG support in mail clients
-EAPI=6
-HOMEPAGE=http://www.enigmail.net/
+EAPI=7
+HOMEPAGE=https://www.enigmail.net/
 LICENSE=MPL-2.0 GPL-3
-RDEPEND=|| ( ( >=app-crypt/gnupg-2.0 || ( app-crypt/pinentry[gtk(-)] app-crypt/pinentry[qt4(-)] app-crypt/pinentry[qt5(-)] ) ) =app-crypt/gnupg-1.4* )
+PROPERTIES=live
+RDEPEND=|| ( ( >=app-crypt/gnupg-2.0 || ( app-crypt/pinentry[gtk(-)] app-crypt/pinentry[qt5(-)] ) ) =app-crypt/gnupg-1.4* ) !<mail-client/thunderbird-52.5.0 !<www-client/seamonkey-2.49.5.0_p0
 SLOT=0
-_eclasses_=git-r3	52a888802d25387c2c74cb845d1219bc	multilib	97f470f374f2e94ccab04a2fb21d811e	python-any-r1	27d7f9da7187d283b7f3eae8390b7b09	python-utils-r1	c9de01becf9df3f8c10aeec3dc693f5d	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
-_md5_=7a5d90700f378fd941586eb007a4fb26
+_eclasses_=git-r3	7dcb8a92f5a091f13e82494fa317ca4b	multilib	d410501a125f99ffb560b0c523cd3d1e	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	263e4bbfa6a84be6dc6272a6702aedca	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=50297617fcfbc55f2d7179882d2a18c1

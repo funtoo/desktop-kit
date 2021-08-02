@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -10,7 +10,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="gnome-keyring libnotify"
 
 RDEPEND="sys-fs/udisks:2
@@ -22,6 +22,8 @@ DEPEND="${RDEPEND}
 	virtual/imagemagick-tools[png]"
 
 DOCS="ChangeLog"
+
+PATCHES=( "${FILESDIR}"/${P}-perl_brace_regex.patch )
 
 src_configure() {
 	econf \

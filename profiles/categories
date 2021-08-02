@@ -1,10 +1,20 @@
+app-admin
+app-backup
 app-leechcraft
+app-misc
 app-office
 app-officeext
+dev-libs
+dev-python
+dev-util
 lxde-base
 lxqt-base
-mate-base
 mate-extra
+media-gfx
+media-sound
+net-misc
+net-print
+virtual
 x11-apps
 x11-libs
 x11-misc
@@ -12,5 +22,3 @@ x11-plugins
 x11-terms
 x11-themes
 x11-wm
-xfce-base
-xfce-extra

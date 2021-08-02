@@ -1,0 +1,11 @@
+DEFINED_PHASES=prepare
+DEPEND=dev-libs/glib dev-libs/json-glib net-im/pidgin net-libs/http-parser
+DESCRIPTION=A libpurple/Pidgin plugin for matrix.org
+EAPI=6
+HOMEPAGE=https://github.com/matrix-org/purple-matrix
+KEYWORDS=~*
+LICENSE=GPL-3
+RDEPEND=dev-libs/glib dev-libs/json-glib net-im/pidgin net-libs/http-parser
+SLOT=0
+SRC_URI=https://github.com/matrix-org/purple-matrix/archive/1a53f61998407013719fdabdcff4ead3e9715340.tar.gz -> purple-matrix-0.0.0_p20170927.tar.gz
+_md5_=ca417c6d62a99166e1cf3dde93eefa50

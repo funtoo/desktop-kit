@@ -1,12 +1,12 @@
-DEFINED_PHASES=compile install prepare setup
-DEPEND=media-libs/imlib2 =app-admin/gkrellm-2* virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=app-admin/gkrellm:2[X] media-libs/imlib2 virtual/pkgconfig
 DESCRIPTION=A GKrellM2 plugin of the famous wmMoonClock dockapp
 EAPI=6
 HOMEPAGE=http://gkrellmoon.sourceforge.net/
 KEYWORDS=alpha amd64 ppc sparc x86
 LICENSE=GPL-2
-RDEPEND=media-libs/imlib2 app-admin/gkrellm[X] =app-admin/gkrellm-2*
+RDEPEND=app-admin/gkrellm:2[X] media-libs/imlib2
 SLOT=2
 SRC_URI=mirror://sourceforge/gkrellmoon/gkrellmoon-0.6.tar.gz
-_eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	epunt-cxx	f8073339d152f56626493f43d8ba4691	estack	5ac2a138d0b33354b764d84f9e835db8	eutils	e7491451996e8b54c3caeb713285b0fb	gkrellm-plugin	0c6887ede1f3cc3067a1d1acb8aff2e9	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee
-_md5_=96041879f8ec11638b15e28ac732b7b1
+_eclasses_=gkrellm-plugin	c01023a3c28bc24f50c00ae019e8861e	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=6715215fa59fdb3df9c172b8b296cf02

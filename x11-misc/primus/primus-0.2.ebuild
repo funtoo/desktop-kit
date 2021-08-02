@@ -1,4 +1,3 @@
-# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -17,12 +16,17 @@ IUSE=""
 
 RDEPEND="
 	x11-misc/bumblebee
-	x11-drivers/nvidia-drivers[compat]
+	x11-drivers/nvidia-drivers
 "
 DEPEND="virtual/opengl"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-support-user-LDFLAGS.patch
+	"${FILESDIR}"/${PN}-add-libglvnd-workaround.patch
+)
+
 src_compile() {
-	export PRIMUS_libGLa='/usr/$$LIB/opengl/nvidia/lib/libGL.so.1'
+	export PRIMUS_libGLa='/usr/$$LIB/libGL.so.1'
 	mymake() {
 		emake LIBDIR=$(get_libdir)
 	}
