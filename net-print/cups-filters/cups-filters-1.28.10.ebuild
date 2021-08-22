@@ -1,29 +1,26 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GENTOO_DEPEND_ON_PERL=no
 
-inherit perl-module systemd flag-o-matic
+inherit autotools perl-module flag-o-matic
 
-if [[ "${PV}" == "9999" ]] ; then
-	inherit bzr autotools
-	EBZR_REPO_URI="http://bzr.linuxfoundation.org/openprinting/cups-filters"
-else
-	SRC_URI="http://www.openprinting.org/download/${PN}/${P}.tar.xz"
-	KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 s390 sparc x86 ~amd64-fbsd ~m68k-mint"
-fi
+SRC_URI="https://api.github.com/repos/OpenPrinting/cups-filters/tarball/1.28.10 -> cups-filters-1.28.10.tar.gz"
+KEYWORDS="*"
+
 DESCRIPTION="Cups filters"
 HOMEPAGE="https://wiki.linuxfoundation.org/openprinting/cups-filters"
 
 LICENSE="MIT GPL-2"
 SLOT="0"
-IUSE="dbus +foomatic ipp_autosetup jpeg ldap pclm pdf perl png +postscript static-libs test tiff zeroconf"
+IUSE="dbus +foomatic jpeg ldap pclm pdf perl png +postscript test tiff zeroconf"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=app-text/poppler-0.32:=[cxx,jpeg?,lcms,tiff?,utils]
-	>=app-text/qpdf-8.1.0:=
+	>=app-text/qpdf-8.3.0:=
 	dev-libs/glib:2
 	media-libs/fontconfig
 	media-libs/freetype:2
@@ -36,7 +33,6 @@ RDEPEND="
 	foomatic? ( !net-print/foomatic-filters )
 	jpeg? ( virtual/jpeg:0 )
 	ldap? ( net-nds/openldap )
-	pclm? ( >=app-text/qpdf-8.1.0:= )
 	pdf? ( app-text/mupdf )
 	perl? ( dev-lang/perl:= )
 	png? ( media-libs/libpng:0= )
@@ -44,14 +40,25 @@ RDEPEND="
 	tiff? ( media-libs/tiff:0 )
 	zeroconf? ( net-dns/avahi[dbus] )
 "
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	dev-util/gdbus-codegen
+	>=sys-devel/gettext-0.18.3
+	virtual/pkgconfig
 	test? ( media-fonts/dejavu )
 "
 
 src_prepare() {
+	local need_eautoreconf=
+
 	default
-	[[ "${PV}" == "9999" ]] && eautoreconf
+
+	if ! use test ; then
+		eapply "${FILESDIR}"/${PN}-1.28.2-make-missing-testfont-non-fatal.patch
+		need_eautoreconf=yes
+	fi
+
+	[[ -n ${need_eautoreconf} ]] && eautoreconf
 
 	# Bug #626800
 	append-cxxflags -std=c++11
@@ -59,7 +66,6 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
-		--docdir="${EPREFIX}/usr/share/doc/${PF}"
 		--enable-imagefilters
 		--localstatedir="${EPREFIX}"/var
 		--with-browseremoteprotocols=DNSSD,CUPS
@@ -68,15 +74,13 @@ src_configure() {
 		--with-pdftops=pdftops
 		--with-rcdir=no
 		--without-php
+		--disable-static
 		$(use_enable dbus)
 		$(use_enable foomatic)
-		$(use_enable ipp_autosetup auto-setup-driverless)
 		$(use_enable ldap)
 		$(use_enable pclm)
 		$(use_enable pdf mutool)
 		$(use_enable postscript ghostscript)
-		$(use_enable postscript ijs)
-		$(use_enable static-libs static)
 		$(use_enable zeroconf avahi)
 		$(use_with jpeg)
 		$(use_with png)
@@ -89,21 +93,25 @@ src_compile() {
 	default
 
 	if use perl; then
-		pushd "${S}/scripting/perl" > /dev/null
+		pushd "${S}/scripting/perl" > /dev/null || die
 		perl-module_src_configure
 		perl-module_src_compile
-		popd > /dev/null
+		popd > /dev/null || die
 	fi
+}
+
+src_test() {
+	emake check
 }
 
 src_install() {
 	default
 
 	if use perl; then
-		pushd "${S}/scripting/perl" > /dev/null
+		pushd "${S}/scripting/perl" > /dev/null || die
 		perl-module_src_install
 		perl_delete_localpod
-		popd > /dev/null
+		popd > /dev/null || die
 	fi
 
 	if use postscript; then
@@ -118,15 +126,15 @@ src_install() {
 
 	if ! use zeroconf ; then
 		sed -i -e 's:need cupsd avahi-daemon:need cupsd:g' "${T}"/cups-browsed || die
-		sed -i -e 's:cups\.service avahi-daemon\.service:cups.service:g' "${S}"/utils/cups-browsed.service || die
 	fi
 
 	doinitd "${T}"/cups-browsed
-	systemd_dounit "${S}/utils/cups-browsed.service"
 }
 
-src_test() {
-	emake check
+src_unpack() {
+	default
+	rm -rf "${S}"
+	mv "${WORKDIR}"/OpenPrinting-cups-filters-* "${S}" || die
 }
 
 pkg_postinst() {
