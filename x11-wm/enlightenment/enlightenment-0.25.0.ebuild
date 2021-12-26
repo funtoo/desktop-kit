@@ -6,7 +6,7 @@ inherit meson xdg-utils
 
 DESCRIPTION="Enlightenment window manager"
 HOMEPAGE="https://www.enlightenment.org"
-SRC_URI="https://api.github.com/repos/Enlightenment/enlightenment/tarball/refs/tags/v0.24.2 -> enlightenment-0.24.2.tar.gz"
+SRC_URI="https://api.github.com/repos/Enlightenment/enlightenment/tarball/refs/tags/v0.25.0 -> enlightenment-0.25.0.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0.17/${PV%%_*}"
@@ -45,7 +45,7 @@ DEPEND="${RDEPEND}"
 
 fix_src_dirs() {
 	pushd "${WORKDIR}"
-	mv Enlightenment-enlightenment-* enlightenment-0.24.2
+	mv Enlightenment-enlightenment-* enlightenment-0.25.0
 	popd
 }
 
