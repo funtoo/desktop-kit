@@ -14,7 +14,7 @@ KEYWORDS="*"
 IUSE="offlinehelp"
 
 LANGUAGES_HELP=" am ar ast bg bn-IN bn bo bs ca-valencia ca cs da de dz el en-GB en:en-US en-ZA eo es et eu fi fr gl gu he hi hr hu id is it ja ka km ko lo lt lv mk nb ne nl nn om pl pt-BR pt ro ru si sid sk sl sq sv ta tg tr ug uk vi zh-CN zh-TW "
-LANGUAGES=" af am ar as ast be bg bn-IN bn bo br brx bs ca-valencia ca ckb cs cy da de dgo dsb dz el en-GB en-ZA eo es et eu fa fi fr fur fy ga gd gl gu gug he hi hr hsb hu id is it ja ka kab kk km kmr-Latn kn ko kok ks lb lo lt lv mai mk ml mn mni mr my nb ne nl nn nr nso oc om or pa:pa-IN pl pt-BR pt ro ru rw sa:sa-IN sat sd si sid sk sl sq sr-Latn sr ss st sv sw-TZ szl ta te tg th tn tr ts tt ug uk uz ve vec vi xh zh-CN zh-TW zu "
+LANGUAGES=" af am ar as ast be bg bn-IN bn bo br brx bs ca-valencia ca ckb cs cy da de dgo dsb dz el en-GB en:en-US en-ZA eo es et eu fa fi fr fur fy ga gd gl gu gug he hi hr hsb hu id is it ja ka kab kk km kmr-Latn kn ko kok ks lb lo lt lv mai mk ml mn mni mr my nb ne nl nn nr nso oc om or pa:pa-IN pl pt-BR pt ro ru rw sa:sa-IN sat sd si sid sk sl sq sr-Latn sr ss st sv sw-TZ szl ta te tg th tn tr ts tt ug uk uz ve vec vi xh zh-CN zh-TW zu "
 
 for lang in ${LANGUAGES_HELP}; do
 	helppack="offlinehelp? ( ${BASE_SRC_URI}/x86_64/LibreOffice_${PV}_Linux_x86-64_rpm_helppack_${lang#*:}.tar.gz )"
