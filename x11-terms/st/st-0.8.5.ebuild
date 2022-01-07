@@ -5,7 +5,7 @@ inherit desktop savedconfig toolchain-funcs
 
 DESCRIPTION="simple terminal implementation for X"
 HOMEPAGE="https://st.suckless.org/"
-SRC_URI="https://dl.suckless.org/st/st-0.8.4.tar.gz"
+SRC_URI="https://dl.suckless.org/st/st-0.8.5.tar.gz"
 
 LICENSE="MIT-with-advertising"
 SLOT="0"
