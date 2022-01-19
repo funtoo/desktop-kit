@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext sys-devel/libtool doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection-common )
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/libxml2 introspection? ( dev-libs/gobject-introspection ) test? ( dev-libs/check )
+DESCRIPTION=An interface library to access tags for identifying languages
+EAPI=7
+HOMEPAGE=https://bitbucket.org/tagoh/liblangtag/wiki/Home
+IUSE=debug doc introspection static-libs test
+KEYWORDS=*
+LICENSE=|| ( LGPL-3 MPL-2.0 )
+RDEPEND=dev-libs/libxml2 introspection? ( dev-libs/gobject-introspection )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.3.tar.bz2
+_eclasses_=xdg-utils	14d00d009167652b1fa363e55effe213
+_md5_=9eece33daea2acbb12eb7456caa1980e
