@@ -10,7 +10,7 @@ MY_PN=Cura
 
 DESCRIPTION="A 3D model slicing application for 3D printing"
 HOMEPAGE="https://github.com/Ultimaker/Cura"
-SRC_URI="https://github.com/Ultimaker/Cura/archive/4.13.0.tar.gz -> Cura-4.13.0.tar.gz"
+SRC_URI="https://github.com/Ultimaker/Cura/archive/4.13.1.tar.gz -> Cura-4.13.1.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
