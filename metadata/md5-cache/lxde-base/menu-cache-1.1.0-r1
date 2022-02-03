@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure
+DEPEND=dev-libs/glib:2 sys-devel/gettext virtual/pkgconfig
+DESCRIPTION=A library creating and utilizing caches to speed up freedesktop.org application menus
+EAPI=7
+HOMEPAGE=http://lxde.sourceforge.net/
+KEYWORDS=*
+LICENSE=LGPL-2.1
+PDEPEND=x11-libs/libfm
+RDEPEND=dev-libs/glib:2
+SLOT=0/3
+SRC_URI=mirror://sourceforge/lxde/menu-cache-1.1.0.tar.xz mirror://sourceforge/pcmanfm/libfm-1.2.5.tar.xz
+_eclasses_=eutils	6e6c2737b59a4b982de6fb3ecefd87f8	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=aedc682355c7805a7695f940415d9c4b
