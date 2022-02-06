@@ -5,14 +5,10 @@ app-misc
 app-office
 app-officeext
 app-text
-dev-libs
 dev-python
-dev-util
 lxde-base
-lxqt-base
 mate-extra
 media-gfx
-media-sound
 net-misc
 net-print
 sys-process
