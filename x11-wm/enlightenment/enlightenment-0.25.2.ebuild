@@ -6,7 +6,7 @@ inherit meson xdg-utils
 
 DESCRIPTION="Enlightenment window manager"
 HOMEPAGE="https://www.enlightenment.org"
-SRC_URI="https://download.enlightenment.org/rel/apps/enlightenment/enlightenment-0.25.1.tar.xz"
+SRC_URI="https://download.enlightenment.org/rel/apps/enlightenment/enlightenment-0.25.2.tar.xz"
 
 LICENSE="BSD-2"
 SLOT="0.17/${PV%%_*}"
