@@ -2,10 +2,6 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3+ )
-
-inherit python-any-r1 toolchain-funcs xdg
-
 DESCRIPTION="Terminfo for kitty, an OpenGL-based terminal emulator"
 HOMEPAGE="https://github.com/kovidgoyal/kitty"
 SRC_URI="https://github.com/kovidgoyal/kitty/archive/6bfb6da0ad0c552c34457aafe85b0f0b61200ba2.tar.gz"
@@ -14,18 +10,14 @@ S="${WORKDIR}/kitty-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="*"
-IUSE="debug"
+IUSE=""
 
-DEPEND="${PYTHON_DEPS}"
+BDEPEND="sys-libs/ncurses"
 
 PATCHES=(
-		${REPODIR}/x11-terms/kitty-gen/files/kitty-terminfo-setup-0.24.2.20220215.patch
 )
 
-# kitty-terminfo is a split package from kitty that only installs the terminfo
-# file. As tests are designed to be run with the whole package compiled they
-# would fail in this case.
-RESTRICT="test"
+RESTRICT="test" # intended to be ran on the full kitty package
 
 src_unpack() {
 	unpack ${A}
@@ -33,14 +25,9 @@ src_unpack() {
 	mv ${WORKDIR}/kitty-* ${S} || die
 }
 
-src_compile() {
-	"${EPYTHON}" setup.py \
-		--verbose $(usex debug --debug "") \
-		--libdir-name $(get_libdir) \
-		linux-terminfo || die "Failed to compile kitty."
-}
+src_compile() { :; }
 
 src_install() {
-	insinto /usr
-	doins -r linux-package/*
+	dodir /usr/share/terminfo
+	tic -xo "${ED}"/usr/share/terminfo terminfo/kitty.terminfo || die
 }
