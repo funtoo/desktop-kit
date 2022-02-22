@@ -4,7 +4,7 @@ EAPI=7
 
 DESCRIPTION="Shell integration scripts for kitty, a GPU-based terminal emulator"
 HOMEPAGE="https://sw.kovidgoyal.net/kitty/"
-SRC_URI="https://github.com/kovidgoyal/kitty/archive/6bfb6da0ad0c552c34457aafe85b0f0b61200ba2.tar.gz"
+SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.24.2/kitty-0.24.2.tar.xz -> kitty-0.24.2.tar.xz"
 S="${WORKDIR}/kitty-${PV}"
 
 LICENSE="GPL-3"
@@ -14,12 +14,6 @@ RESTRICT="test" # intended to be ran on the full kitty package
 
 PATCHES=(
 )
-
-src_unpack() {
-	unpack ${A}
-	rm -rf ${S}
-	mv ${WORKDIR}/kitty-* ${S} || die
-}
 
 src_compile() { :; }
 
