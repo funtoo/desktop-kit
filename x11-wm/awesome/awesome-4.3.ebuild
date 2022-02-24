@@ -4,14 +4,14 @@ EAPI=7
 
 inherit cmake desktop pax-utils
 
-SRC_URI="https://github.com/awesomeWM/awesome/releases/download/v4.3/awesome-4.3.tar.xz -> awesome-4.3.tar.xz"
-KEYWORDS="*"
 
 DESCRIPTION="A dynamic floating and tiling window manager"
 HOMEPAGE="https://awesomewm.org/"
+SRC_URI="https://github.com/awesomeWM/awesome/tarball/5da5d36178250335f748eed43551daad9e5af694 -> awesome-4.3-5da5d36.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="*"
 IUSE="dbus doc gnome luajit"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
@@ -52,9 +52,16 @@ BDEPEND="app-text/asciidoc
 # Skip installation of README.md by einstalldocs, which leads to broken symlink
 DOCS=()
 
-src_prepare() {
-	default
+# Ensure that this can be compiled by gcc-9 and above
+PATCHES=( "${FILESDIR}"/${P}-fno-common.patch )
 
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv awesomeWM-awesome* "${S}"
+	fi
+}
+
+src_prepare() {
 	# Fix convert path
 	sed -i -e "s|convert|bin/convert|g" awesomeConfig.cmake
 
