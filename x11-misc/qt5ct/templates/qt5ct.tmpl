@@ -1,44 +1,34 @@
-# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit qmake-utils
+inherit cmake
 
 DESCRIPTION="Qt5 configuration tool, similar to qtconfig for Qt4"
 HOMEPAGE="https://sourceforge.net/projects/qt5ct/"
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
+SRC_URI="{{artifacts[0].src_uri}}"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64"
-IUSE="+dbus"
+KEYWORDS="*"
 
 RDEPEND="
+	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
-	dev-qt/qtgui:5=
+	dev-qt/qtdbus:5
+	dev-qt/qtgui:5=[dbus]
 	dev-qt/qtwidgets:5
-	dbus? (
-		dev-qt/qtdbus:5
-		dev-qt/qtgui:5[dbus]
-	)
 "
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	dev-qt/linguist-tools:5
+	dev-qt/qtpaths:5
 "
-
-PATCHES=( "${FILESDIR}/${P}-fix-qtdbus-automagic.patch" )
-
-src_configure() {
-	eqmake5 DISABLE_DBUS=$(usex !dbus 1 0)
-}
 
 src_install() {
-	emake INSTALL_ROOT="${D}" install
-	einstalldocs
+	cmake_src_install
 
-	echo 'QT_QPA_PLATFORMTHEME=qt5ct' > "${T}"/98${PN} || die
-	doenvd "${T}"/98${PN}
+	newenvd - 98qt5ct <<< 'QT_QPA_PLATFORMTHEME=qt5ct'
 }
 
 pkg_postinst() {
