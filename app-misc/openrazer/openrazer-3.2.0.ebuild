@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python3+ )
 
 inherit distutils-r1 python-r1 udev desktop linux-mod user
 
-DESCRIPTION="Open source driver and user-space daemon to control Razer devices"
+DESCRIPTION="Open source driver and user-space daemon to control Razer lighting and other features on GNU/Linux"
 HOMEPAGE="https://openrazer.github.io https://github.com/openrazer/openrazer"
 SRC_URI="https://github.com/openrazer/openrazer/releases/download/v3.2.0/openrazer-3.2.0.tar.xz -> openrazer-3.2.0.tar.xz"
 
