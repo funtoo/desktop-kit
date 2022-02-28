@@ -5,7 +5,7 @@ EAPI=7
 inherit cmake desktop pax-utils
 
 
-DESCRIPTION="A dynamic floating and tiling window manager"
+DESCRIPTION="awesome window manager"
 HOMEPAGE="https://awesomewm.org/"
 SRC_URI="https://github.com/awesomeWM/awesome/tarball/5da5d36178250335f748eed43551daad9e5af694 -> awesome-4.3-5da5d36.tar.gz"
 

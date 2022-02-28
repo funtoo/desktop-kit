@@ -9,7 +9,7 @@ inherit python-single-r1 toolchain-funcs xdg
 SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.24.3/kitty-0.24.3.tar.xz -> kitty-0.24.3.tar.xz"
 KEYWORDS="*"
 
-DESCRIPTION="A modern, hackable, featureful, OpenGL-based terminal emulator"
+DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
 HOMEPAGE="https://github.com/kovidgoyal/kitty"
 
 LICENSE="GPL-3"
