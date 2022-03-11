@@ -7,7 +7,7 @@ inherit cmake xdg-utils
 DESCRIPTION="Qt GUI Openbox Configuration Tool"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/obconf-qt/releases/download/0.16.1/obconf-qt-0.16.1.tar.xz -> obconf-qt-0.16.1.tar.xz"
+SRC_URI="https://github.com/lxqt/obconf-qt/releases/download/0.16.2/obconf-qt-0.16.2.tar.xz -> obconf-qt-0.16.2.tar.xz"
 KEYWORDS="*"
 
 LICENSE="GPL-2 GPL-2+"
