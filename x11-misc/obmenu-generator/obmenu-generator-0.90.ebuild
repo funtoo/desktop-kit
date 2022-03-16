@@ -1,15 +1,14 @@
-# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="A fast pipe/static menu generator for the Openbox Window Manager"
-HOMEPAGE="http://trizen.go.ro/"
-SRC_URI="https://github.com/trizen/obmenu-generator/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/trizen/obmenu-generator"
+SRC_URI="https://github.com/trizen/obmenu-generator/tarball/894ba46223fbea521853feebde6cb5ef6cebc179 -> obmenu-generator-0.90-894ba46.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="*"
 
 RDEPEND="
 	dev-lang/perl
@@ -18,9 +17,17 @@ RDEPEND="
 	x11-wm/openbox
 "
 
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv trizen-obmenu-generator* "${S}" || die
+	fi
+}
+
 src_install() {
 	dobin ${PN}
+
 	insinto /etc/xdg/obmenu-generator
 	doins schema.pl
-	newdoc README.md README
+
+	dodoc README.md
 }
