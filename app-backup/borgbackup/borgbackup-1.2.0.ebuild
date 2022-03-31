@@ -35,3 +35,11 @@ python_prepare_all() {
 	sed -i "s|'msgpack-python.*',||g" setup.py || die
 	distutils-r1_python_prepare_all
 }
+
+src_compile() {
+	BORG_OPENSSL_PREFIX=/usr distutils-r1_src_compile
+}
+
+src_install() {
+	BORG_OPENSSL_PREFIX=/usr distutils-r1_src_install
+}
