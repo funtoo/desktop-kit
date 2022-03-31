@@ -1,3 +1,5 @@
+=app-office/ledger-3.1.1-r2 python_single_target_python2_7
+=app-office/ledger-3.1.2 python_single_target_python2_7
 =dev-python/wxpython-3.0.2.0 python_single_target_python2_7
 =x11-misc/arandr-0.1.9 python_single_target_python2_7
 =x11-misc/polybar-3.4.0 python_single_target_python2_7
@@ -10,7 +12,6 @@
 app-misc/fslint python_single_target_python2_7
 app-office/dia python_single_target_python2_7
 app-office/gtg python_single_target_python2_7
-app-office/ledger python_single_target_python2_7
 app-office/planner python_single_target_python2_7
 app-office/pybliographer python_single_target_python2_7
 app-office/taskcoach python_single_target_python2_7
