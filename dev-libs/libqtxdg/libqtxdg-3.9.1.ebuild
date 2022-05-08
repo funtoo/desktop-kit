@@ -7,7 +7,7 @@ inherit cmake virtualx
 DESCRIPTION="Qt Implementation of XDG Standards"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/libqtxdg/releases/download/3.9.0/libqtxdg-3.9.0.tar.xz -> libqtxdg-3.9.0.tar.xz"
+SRC_URI="https://github.com/lxqt/libqtxdg/releases/download/3.9.1/libqtxdg-3.9.1.tar.xz -> libqtxdg-3.9.1.tar.xz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1+ Nokia-Qt-LGPL-Exception-1.1"
