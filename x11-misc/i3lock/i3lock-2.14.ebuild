@@ -6,7 +6,7 @@ inherit toolchain-funcs autotools
 
 DESCRIPTION="Simple screen locker"
 HOMEPAGE="https://i3wm.org/i3lock/"
-SRC_URI="https://api.github.com/repos/i3/i3lock/tarball/refs/tags/2.13 -> i3lock-2.13-4f76d51a3f79082e01b319e9031aad868d89449d.tar.gz"
+SRC_URI="https://api.github.com/repos/i3/i3lock/tarball/refs/tags/2.14 -> i3lock-2.14-01713948829dc36944cb79db89881b8ad56d5a37.tar.gz"
 KEYWORDS="*"
 
 LICENSE="BSD"
