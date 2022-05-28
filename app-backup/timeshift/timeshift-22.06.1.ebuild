@@ -6,7 +6,7 @@ inherit vala xdg
 
 DESCRIPTION="A system restore utility for Linux"
 HOMEPAGE="https://github.com/teejee2008/timeshift"
-SRC_URI="https://github.com/teejee2008/timeshift/tarball/ade651c0c8199a6f99344ecf6fc5061b741494eb -> timeshift-21.09.1-ade651c.tar.gz"
+SRC_URI="https://github.com/teejee2008/timeshift/tarball/9d614d5e2e20cb4486b4f4becf7f60c5cd0dea1a -> timeshift-22.06.1-9d614d5.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
