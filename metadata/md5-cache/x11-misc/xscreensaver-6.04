@@ -10,6 +10,6 @@ LICENSE=BSD
 RDEPEND=>=gnome-base/libglade-2 dev-libs/libxml2 media-libs/netpbm x11-apps/appres x11-apps/xwininfo x11-libs/libX11 x11-libs/libXext x11-libs/libXft x11-libs/libXi x11-libs/libXmu x11-libs/libXrandr x11-libs/libXt x11-libs/libXxf86vm caps? ( sys-libs/libcap ) gdk-pixbuf? ( || ( <x11-libs/gdk-pixbuf-2.42:2 ( x11-libs/gdk-pixbuf-xlib >=x11-libs/gdk-pixbuf-2.42.0:2 ) ) ) gtk? ( x11-libs/gtk+:2 ) jpeg? ( virtual/jpeg:0 ) opengl? ( virtual/glu virtual/opengl ) pam? ( sys-libs/pam ) xinerama? ( x11-libs/libXinerama ) perl? ( dev-lang/perl dev-perl/libwww-perl virtual/perl-Digest-MD5 ) selinux? ( sec-policy/selinux-xscreensaver ) x11-base/xorg-x11[fonts]
 REQUIRED_USE=gdk-pixbuf? ( gtk )
 SLOT=0
-SRC_URI=https://jwz.org/xscreensaver/xscreensaver-6.03.tar.gz
+SRC_URI=https://jwz.org/xscreensaver/xscreensaver-6.04.tar.gz
 _eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	desktop	b1d22ac8bdd4679ab79c71aca235009d	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	pam	756a09f72c4cdbb55f2694c95f1e0860	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=697733991feb1c9fde4bd12032980c2e
+_md5_=89f9d235eeaa9cdc94b74fc86ebde03b
