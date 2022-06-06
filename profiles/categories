@@ -14,8 +14,10 @@ lxqt-base
 mate-extra
 media-gfx
 media-sound
+net-libs
 net-misc
 net-print
+sys-libs
 sys-process
 virtual
 x11-apps
