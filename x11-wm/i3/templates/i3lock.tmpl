@@ -4,9 +4,9 @@ EAPI=7
 
 inherit meson
 
-DESCRIPTION="improved screen locker"
+DESCRIPTION="{{ description }}"
 HOMEPAGE="https://i3wm.org/i3lock/"
-SRC_URI="https://github.com/i3/i3lock/tarball/01713948829dc36944cb79db89881b8ad56d5a37 -> i3lock-2.14-0171394.tar.gz"
+SRC_URI="{{ artifacts[0].src_uri }}"
 KEYWORDS="*"
 
 LICENSE="BSD"
@@ -24,7 +24,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 post_src_unpack() {
-	mv "${WORKDIR}/"i3-i3lock* "${S}" || die
+	mv "${WORKDIR}/"{{github_user}}-{{github_repo}}* "${S}" || die
 }
 
 src_prepare() {
