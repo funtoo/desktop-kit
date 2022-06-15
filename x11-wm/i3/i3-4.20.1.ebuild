@@ -4,10 +4,10 @@ EAPI=7
 
 inherit meson virtualx
 
-SRC_URI="https://api.github.com/repos/i3/i3/tarball/refs/tags/4.20.1 -> i3-4.20.1-b952e74145559de6ffbd8a7db06872ae33b91c3b.tar.gz"
+SRC_URI="https://github.com/i3/i3/tarball/b952e74145559de6ffbd8a7db06872ae33b91c3b -> i3-4.20.1-b952e74.tar.gz"
 KEYWORDS="*"
 
-DESCRIPTION="An improved dynamic tiling window manager"
+DESCRIPTION="A tiling window manager"
 HOMEPAGE="https://i3wm.org/"
 
 LICENSE="BSD"
