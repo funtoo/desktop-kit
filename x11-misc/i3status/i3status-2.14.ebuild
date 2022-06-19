@@ -3,9 +3,9 @@
 EAPI=7
 inherit fcaps meson
 
-DESCRIPTION="Generates status bar to use with i3bar, dzen2 or xmobar"
+DESCRIPTION=""
 HOMEPAGE="https://i3wm.org/i3status/"
-SRC_URI="https://github.com/i3/i3status/tarball/8fc0f6e53119964ce2e9b4ab1ceb971476f53a8a -> i3status-2.14-8fc0f6e.tar.gz"
+SRC_URI="https://api.github.com/repos/i3/i3status/tarball/refs/tags/2.14 -> i3status-2.14-8fc0f6e53119964ce2e9b4ab1ceb971476f53a8a.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
