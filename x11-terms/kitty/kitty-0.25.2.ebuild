@@ -2,12 +2,12 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3+ )
+PYTHON_COMPAT=( python3_9+ )
 
 inherit python-single-r1 toolchain-funcs xdg
 
 SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.25.2/kitty-0.25.2.tar.xz -> kitty-0.25.2.tar.xz"
-KEYWORDS="*"
+KEYWORDS="next"
 
 DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
 HOMEPAGE="https://github.com/kovidgoyal/kitty"

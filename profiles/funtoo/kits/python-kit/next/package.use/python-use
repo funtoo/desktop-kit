@@ -5,6 +5,7 @@
 =x11-misc/xflux-gui-1.1.10_p20180910 python_single_target_python2_7 python_targets_python2_7
 =x11-misc/zim-0.65 python_single_target_python2_7 python_targets_python2_7
 =x11-misc/zim-0.69 python_single_target_python2_7 python_targets_python2_7
+=x11-terms/kitty-0.25.2 python_single_target_python3_9+ python_targets_python3_9+
 =x11-wm/compiz-0.9.13.1 python_single_target_python2_7 python_targets_python2_7
 =x11-wm/compiz-0.9.13.1-r2 python_single_target_python2_7 python_targets_python2_7
 app-misc/fslint python_single_target_python2_7 python_targets_python2_7
