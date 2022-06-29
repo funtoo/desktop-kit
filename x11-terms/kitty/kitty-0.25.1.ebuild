@@ -2,14 +2,14 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( {{python_compat}} )
+PYTHON_COMPAT=( python3+ )
 
 inherit python-single-r1 toolchain-funcs xdg
 
-SRC_URI="{{artifacts[0].src_uri}}"
-KEYWORDS="{{keywords}}"
+SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.25.1/kitty-0.25.1.tar.xz -> kitty-0.25.1.tar.xz"
+KEYWORDS="*"
 
-DESCRIPTION="{{ description }}"
+DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
 HOMEPAGE="https://github.com/kovidgoyal/kitty"
 
 LICENSE="GPL-3"
@@ -53,9 +53,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	{%- for patch in patches %}
-		{{gen_path}}/files/{{patch}}
-	{%- endfor %}
 )
 
 src_prepare() {
