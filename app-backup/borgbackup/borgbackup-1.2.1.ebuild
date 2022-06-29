@@ -27,7 +27,6 @@ IUSE="libressl"
 SLOT="0"
 LICENSE="BSD"
 KEYWORDS="*"
-
 S="${WORKDIR}/borgbackup-1.2.1"
 
 python_prepare_all() {
