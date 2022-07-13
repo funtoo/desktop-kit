@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=dev-libs/glib:2 alsa? ( media-libs/alsa-lib ) x11-libs/gdk-pixbuf:2[X] x11-libs/gtk+:2 x11-libs/libX11
 SLOT=0
 SRC_URI=https://github.com/aanatoly/fbpanel/archive/7.0.tar.gz -> fbpanel-7.0.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	62a980ca9c5f570cad01b65ab90228ca	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	32393cac272daca4c136cc44e6005b67	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
 _md5_=f7968bd09f0e13c652f7025271b0194a
