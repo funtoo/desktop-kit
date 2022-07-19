@@ -8,12 +8,10 @@ app-officeext
 app-text
 dev-libs
 dev-python
-dev-util
 lxde-base
 lxqt-base
 mate-extra
 media-gfx
-media-sound
 net-libs
 net-misc
 net-print

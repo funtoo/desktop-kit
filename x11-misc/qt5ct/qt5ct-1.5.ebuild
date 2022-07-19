@@ -6,7 +6,7 @@ inherit cmake
 
 DESCRIPTION="Qt5 configuration tool, similar to qtconfig for Qt4"
 HOMEPAGE="https://sourceforge.net/projects/qt5ct/"
-SRC_URI="https://downloads.sourceforge.net/qt5ct/qt5ct-1.5.tar.bz2"
+SRC_URI="https://downloads.sourceforge.net/qt5ct/qt5ct-1.5.tar.bz2 -> qt5ct-1.5.tar.bz2"
 
 LICENSE="BSD-2"
 SLOT="0"
