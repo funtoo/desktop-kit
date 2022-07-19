@@ -7,7 +7,7 @@ inherit distutils-r1
 
 DESCRIPTION=""
 HOMEPAGE="https://borgbackup.readthedocs.io/ https://pypi.org/project/borgbackup/"
-SRC_URI="https://files.pythonhosted.org/packages/e5/7e/3098f7ba4e5b6caec1657cd44e3c5d309fad83ba7bb6f6b8433315a5adbc/borgbackup-1.2.1.tar.gz
+SRC_URI="https://files.pythonhosted.org/packages/e5/7e/3098f7ba4e5b6caec1657cd44e3c5d309fad83ba7bb6f6b8433315a5adbc/borgbackup-1.2.1.tar.gz -> borgbackup-1.2.1.tar.gz
 "
 
 DEPEND="
