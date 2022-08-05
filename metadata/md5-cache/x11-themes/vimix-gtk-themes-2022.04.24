@@ -1,0 +1,12 @@
+BDEPEND=dev-lang/sassc
+DEFINED_PHASES=install unpack
+DEPEND=x11-libs/gtk+:3 x11-themes/gtk-engines x11-themes/gtk-engines-murrine
+DESCRIPTION=A flat Material Design theme for GTK
+EAPI=7
+HOMEPAGE=https://github.com/vinceliuice/vimix-gtk-themes
+KEYWORDS=*
+LICENSE=GPL-3
+RDEPEND=x11-libs/gtk+:3 x11-themes/gtk-engines x11-themes/gtk-engines-murrine
+SLOT=0
+SRC_URI=https://api.github.com/repos/vinceliuice/vimix-gtk-themes/tarball/2022-04-24 -> vimix-gtk-themes-2022.04.24.tar.gz
+_md5_=a738029bacf86afa18fe0252168d7613

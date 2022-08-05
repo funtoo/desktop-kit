@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=x11-libs/gtk+:3 gtk2? ( x11-themes/gtk-engines-murrine ) icons? ( dev-util/gtk-update-icon-cache )
+DESCRIPTION=Gruvbox Material theme for GTK
+EAPI=7
+HOMEPAGE=https://github.com/sainnhe/gruvbox-material-gtk
+IUSE=+gtk2 +icons
+KEYWORDS=*
+LICENSE=MIT
+RDEPEND=x11-libs/gtk+:3 gtk2? ( x11-themes/gtk-engines-murrine ) icons? ( dev-util/gtk-update-icon-cache )
+SLOT=0
+SRC_URI=https://github.com/sainnhe/gruvbox-material-gtk/archive/cc255d43322ad646bb35924accb0778d5e959626.tar.gz -> gruvbox-material-gtk-theme-cc255d43322ad646bb35924accb0778d5e959626.tar.gz
+_eclasses_=xdg-utils	14d00d009167652b1fa363e55effe213
+_md5_=d75b4d02ccffd8c1a3d943ec059c8f85

@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install postinst postrm prepare
+DEPEND=dev-libs/libltdl:0= dev-qt/qthelp:5 dev-qt/qtgui:5 dev-qt/qtsql:5[sqlite] dev-qt/qtwidgets:5 >=dev-libs/openssl-1.1.0:= doc? ( app-text/linuxdoc-tools ) dev-qt/linguist-tools:5
+DESCRIPTION=A GUI to OpenSSL, RSA public keys, certificates, signing requests etc
+EAPI=7
+HOMEPAGE=https://hohnstaedt.de/xca/
+IUSE=doc
+KEYWORDS=*
+LICENSE=BSD
+RDEPEND=dev-libs/libltdl:0= dev-qt/qthelp:5 dev-qt/qtgui:5 dev-qt/qtsql:5[sqlite] dev-qt/qtwidgets:5 >=dev-libs/openssl-1.1.0:= doc? ( app-text/linuxdoc-tools )
+SLOT=0
+SRC_URI=https://github.com/chris2511/xca/releases/download/RELEASE.2.4.0/xca-2.4.0.tar.gz
+_eclasses_=xdg-utils	14d00d009167652b1fa363e55effe213
+_md5_=97f183fd8ebe0fc9d96ed8fd9f67a5ab
