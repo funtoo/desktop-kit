@@ -7,7 +7,7 @@ inherit unpacker xdg-utils
 MY_PN="Bitwarden"
 DESCRIPTION="Bitwarden password manager desktop client"
 HOMEPAGE="https://bitwarden.com/"
-SRC_URI="https://github.com/bitwarden/desktop/tarball/d7674f5c91cc620fbcb0c48347c78c4cbafff8ab -> desktop-2022.6.2-d7674f5.tar.gz"
+SRC_URI="https://github.com/bitwarden/desktop/releases/download/v2022.5.1/Bitwarden-2022.5.1-amd64.deb -> Bitwarden-2022.5.1-amd64.deb"
 
 LICENSE="GPL-3"
 SLOT="0"
