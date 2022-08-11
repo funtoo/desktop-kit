@@ -1,4 +1,3 @@
-# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -14,7 +13,9 @@ SRC_URI="mirror://sourceforge/fluxbox/${P}.tar.xz"
 HOMEPAGE="http://www.fluxbox.org"
 SLOT="0"
 LICENSE="MIT"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="*"
+
+BDEPEND="media-gfx/imagemagick"
 
 RDEPEND="
 	!!<=x11-misc/fbdesk-1.2.1
@@ -33,6 +34,7 @@ RDEPEND="
 	|| ( x11-misc/gxmessage x11-apps/xmessage )
 "
 DEPEND="
+	${BDEPEND}
 	${RDEPEND}
 	bidi? ( virtual/pkgconfig )
 	nls? ( sys-devel/gettext )
@@ -51,12 +53,14 @@ src_prepare() {
 
 	# Fix bug #551522; 1.3.8 will render this obsolete
 	epatch "${FILESDIR}"/fix-hidden-toolbar.patch
+	
+	epatch "${FILESDIR}"/${P}-fix-compare-pointer-with-int.patch
 
-	# Add in the Gentoo -r number to fluxbox -version output.
+	# Add in the Funtoo -r number to fluxbox -version output.
 	if [[ "${PR}" == "r0" ]] ; then
-		suffix="gentoo"
+		suffix="funtoo"
 	else
-		suffix="gentoo-${PR}"
+		suffix="funtoo-${PR}"
 	fi
 	sed -i \
 		-e "s~\(__fluxbox_version .@VERSION@\)~\1-${suffix}~" \
@@ -65,6 +69,7 @@ src_prepare() {
 
 src_configure() {
 	xdg_environment_reset
+	append-cppflags -std=c++98
 	use bidi && append-cppflags "$($(tc-getPKG_CONFIG) --cflags fribidi)"
 
 	econf $(use_enable bidi fribidi ) \
