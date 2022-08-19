@@ -5,7 +5,7 @@ inherit autotools toolchain-funcs
 
 DESCRIPTION="A window switcher, run dialog and dmenu replacement"
 HOMEPAGE="https://github.com/davatorium/rofi"
-SRC_URI="https://github.com/davatorium/rofi/releases/download/1.7.4/rofi-1.7.4.tar.gz -> rofi-1.7.4.tar.gz"
+SRC_URI="https://github.com/davatorium/rofi/releases/download/1.7.5/rofi-1.7.5.tar.gz -> rofi-1.7.5.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
