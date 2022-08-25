@@ -1,20 +1,18 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 GNOME2_EAUTORECONF="yes"
 GNOME2_LA_PUNT="yes"
 
-inherit gnome2
+inherit gnome2 flag-o-matic
 
 DESCRIPTION="Fully featured yet light and fast cross platform word processor"
 HOMEPAGE="http://www.abisource.com/"
-SRC_URI="http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz
-	https://dev.gentoo.org/~pacho/gnome/${P}-patchset.tar.xz"
+SRC_URI="https://gitlab.gnome.org/World/AbiWord/-/archive/release-${PV}/AbiWord-release-${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="2"
-KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips x86 ~amd64-linux ~x86-linux"
+KEYWORDS="*"
 
 IUSE="calendar collab cups debug eds +goffice grammar +introspection latex map math ots +plugins readline redland spell wordperfect wmf thesaurus"
 # You need 'plugins' enabled if want to enable the extra plugins
@@ -56,7 +54,7 @@ RDEPEND="
 	redland? (
 		>=dev-libs/redland-1.0.10
 		>=dev-libs/rasqal-0.9.17 )
-	spell? ( >=app-text/enchant-1.2 )
+	spell? ( >=app-text/enchant-1.2:0 )
 	!<app-office/abiword-plugins-2.8
 "
 DEPEND="${RDEPEND}
@@ -66,47 +64,8 @@ DEPEND="${RDEPEND}
 	collab? ( dev-cpp/asio )
 "
 
-PATCHES=(
-	# http://bugzilla.abisource.com/show_bug.cgi?id=13842
-	"${WORKDIR}"/${P}-patchset/${PN}-2.8.3-desktop.patch
-
-	# http://bugzilla.abisource.com/show_bug.cgi?id=13843
-	"${WORKDIR}"/${P}-patchset/${PN}-2.6.0-boolean.patch
-
-	# http://bugzilla.abisource.com/show_bug.cgi?id=13844
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.0-librevenge.patch
-
-	# http://bugzilla.abisource.com/show_bug.cgi?id=13845
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.0-link-grammar-5-second.patch
-
-	# http://bugzilla.abisource.com/show_bug.cgi?id=13846
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.0-libwp.patch
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.1-libwps-0.4.patch
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.1-fixwps.patch
-
-	# http://bugzilla.abisource.com/show_bug.cgi?id=13847
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-fix-installing-readme.patch
-
-	# http://bugzilla.abisource.com/show_bug.cgi?id=13841
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-fix-nullptr-c++98.patch
-
-	# http://bugzilla.abisource.com/show_bug.cgi?id=13815
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-fix-black-drawing-regression.patch
-
-	# https://bugzilla.abisource.com/show_bug.cgi?id=13907
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-smooth-scrolling.patch
-
-	# https://bugzilla.abisource.com/show_bug.cgi?id=13791
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-fix-flickering.patch
-
-	# https://github.com/AbiWord/abiword/commit/bdaf0e2da72bdc9d9bb3020445fe7b1b5dd7c062
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-libical3.patch
-
-	# https://bugzilla.abisource.com/show_bug.cgi?id=13697
-	"${WORKDIR}"/${P}-patchset/${PN}-3.0.2-bool-boolean.patch
-)
-
 src_configure() {
+	append-cppflags -std=c++11
 	local plugins=()
 
 	if use plugins; then
