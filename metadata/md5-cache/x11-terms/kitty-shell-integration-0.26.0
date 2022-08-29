@@ -6,5 +6,5 @@ KEYWORDS=next
 LICENSE=GPL-3
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.25.2/kitty-0.25.2.tar.xz -> kitty-0.25.2.tar.xz
-_md5_=7023709bbb0227e9cb54ae0d19d83bb5
+SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.26.0/kitty-0.26.0.tar.xz -> kitty-0.26.0.tar.xz
+_md5_=c27d9025ea8fb5c4fddcb95d842024e0
