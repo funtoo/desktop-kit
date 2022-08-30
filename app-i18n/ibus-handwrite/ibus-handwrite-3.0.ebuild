@@ -8,7 +8,7 @@ SRC_URI="https://github.com/microcai/ibus-handwrite/tarball/30e5d656a0b26f62869c
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="*"
 IUSE="nls +zinnia"
 
 RDEPEND="app-i18n/ibus

@@ -8,7 +8,7 @@ SRC_URI="https://github.com/moebiuscurve/ibus-table-others/releases/download/1.3
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="*"
 IUSE=""
 
 RDEPEND="app-i18n/ibus-table

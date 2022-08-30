@@ -1,31 +1,36 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
-inherit gnome3-utils xdg
+PYTHON_COMPAT=( python3+ )
 
-DESCRIPTION="M17N engine for IBus"
-HOMEPAGE="https://github.com/ibus/ibus/wiki"
+inherit gnome3-utils python-single-r1 xdg virtualx
+
+DESCRIPTION="Korean Hangul engine for IBus"
+HOMEPAGE="https://github.com/libhangul/ibus-hangul/wiki"
 SRC_URI="{{ artifacts[0].src_uri }}"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="*"
-IUSE="gtk nls"
+IUSE="nls"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="app-i18n/ibus
-	dev-libs/m17n-lib
-	gtk? ( x11-libs/gtk+:3 )
+RDEPEND="${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		app-i18n/ibus[python(+),${PYTHON_USEDEP}]
+		dev-python/pygobject:3[${PYTHON_USEDEP}]
+	')
+	>=app-i18n/libhangul-0.1
 	nls? ( virtual/libintl )"
-RDEPEND="${DEPEND}
-	>=dev-db/m17n-db-1.7"
+DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/gettext
 	virtual/pkgconfig"
 
 src_configure() {
 	econf \
 		$(use_enable nls) \
-		$(use_with gtk gtk 3.0)
+		--with-python=${EPYTHON}
 }
 
 pkg_preinst() {

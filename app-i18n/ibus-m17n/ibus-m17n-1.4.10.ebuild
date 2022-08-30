@@ -10,7 +10,7 @@ SRC_URI="https://github.com/ibus/ibus-m17n/releases/download/1.4.10/ibus-m17n-1.
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="*"
 IUSE="gtk nls"
 
 DEPEND="app-i18n/ibus

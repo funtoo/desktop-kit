@@ -14,7 +14,7 @@ SRC_URI="https://github.com/Madman10K/ibus-table-extraphrase/releases/download/v
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="*"
 IUSE=""
 
 RDEPEND="app-i18n/ibus-table"

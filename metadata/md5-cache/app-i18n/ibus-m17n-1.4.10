@@ -5,10 +5,10 @@ DESCRIPTION=M17N engine for IBus
 EAPI=7
 HOMEPAGE=https://github.com/ibus/ibus/wiki
 IUSE=gtk nls
-KEYWORDS=amd64 x86
+KEYWORDS=*
 LICENSE=GPL-2+
 RDEPEND=app-i18n/ibus dev-libs/m17n-lib gtk? ( x11-libs/gtk+:3 ) nls? ( virtual/libintl ) >=dev-db/m17n-db-1.7
 SLOT=0
 SRC_URI=https://github.com/ibus/ibus-m17n/releases/download/1.4.10/ibus-m17n-1.4.10.tar.gz -> ibus-m17n-1.4.10.tar.gz
 _eclasses_=gnome3-utils	2e056188c1b3f3d82982454b3b2f1810	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=2d09aa52cf17089014d802e8e8a0f5ae
+_md5_=6faee6900d422467fe2871c8897ece04
