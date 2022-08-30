@@ -1,0 +1,14 @@
+BDEPEND=dev-util/cmake-fedora virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/make dev-util/cmake test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=app-i18n/ibus app-i18n/libchewing dev-libs/glib:2 x11-libs/gtk+:3 x11-libs/libX11 gconf? ( gnome-base/gconf ) nls? ( virtual/libintl )
+DESCRIPTION=Chinese Chewing engine for IBus, provides intelligent Zhuyin(BoPoMoFo) support
+EAPI=7
+HOMEPAGE=https://github.com/ibus/ibus/wiki
+IUSE=gconf nls test
+KEYWORDS=*
+LICENSE=GPL-2+
+RDEPEND=app-i18n/ibus app-i18n/libchewing dev-libs/glib:2 x11-libs/gtk+:3 x11-libs/libX11 gconf? ( gnome-base/gconf ) nls? ( virtual/libintl )
+SLOT=0
+SRC_URI=https://github.com/definite/ibus-chewing/tarball/ae83a09ad60f466906d8fd131002722271ed2755 -> ibus-chewing-1.6.1-ae83a09.tar.gz
+_eclasses_=cmake	ac7cb516f6a288b6a82bc0649ce49878	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	gnome3-utils	2e056188c1b3f3d82982454b3b2f1810	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd	virtualx	401b718cc14d43a5a7fbe062c4851ba5	xdg-utils	14d00d009167652b1fa363e55effe213
+_md5_=3c6a75d9f0c134a965e034f1132773a4
