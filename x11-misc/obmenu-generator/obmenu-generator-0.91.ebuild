@@ -4,7 +4,7 @@ EAPI=7
 
 DESCRIPTION="A fast pipe/static menu generator for the Openbox Window Manager"
 HOMEPAGE="https://github.com/trizen/obmenu-generator"
-SRC_URI="https://github.com/trizen/obmenu-generator/tarball/894ba46223fbea521853feebde6cb5ef6cebc179 -> obmenu-generator-0.90-894ba46.tar.gz"
+SRC_URI="https://github.com/trizen/obmenu-generator/tarball/a2afe6dfab8ae8fdaac2c0f8acb5b81e6bdece1c -> obmenu-generator-0.91-a2afe6d.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
