@@ -6,7 +6,7 @@ GENTOO_DEPEND_ON_PERL=no
 
 inherit autotools perl-module flag-o-matic
 
-SRC_URI="https://api.github.com/repos/OpenPrinting/cups-filters/tarball/1.28.16 -> cups-filters-1.28.16.tar.gz"
+SRC_URI="https://github.com/OpenPrinting/cups-filters/releases/download/1.28.16/cups-filters-1.28.16.tar.xz -> cups-filters-1.28.16.tar.xz"
 KEYWORDS="*"
 
 DESCRIPTION="Cups filters"
@@ -14,22 +14,26 @@ HOMEPAGE="https://wiki.linuxfoundation.org/openprinting/cups-filters"
 
 LICENSE="MIT GPL-2"
 SLOT="0"
-# TODO add the "pdf" to IUSE after mupdf is available.
-IUSE="dbus exif +foomatic jpeg ldap pclm perl png +postscript test tiff zeroconf"
+
+IUSE="braille dbus exif +foomatic jpeg ldap pclm pdf perl png +postscript test tiff zeroconf"
 
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=app-text/poppler-0.32:=[cxx,jpeg?,lcms,tiff?,utils]
-	>=app-text/qpdf-8.3.0:=
+	>=app-text/qpdf-8.4.2:=
 	dev-libs/glib:2
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/lcms:2
-	>=net-print/cups-1.7.3
+	>=net-print/cups-2.2.2
 	!<=net-print/cups-1.5.9999
 	sys-devel/bc
 	sys-libs/zlib
+	braille? (
+		dev-libs/liblouis
+		media-gfx/imagemagick
+	)
 	exif? ( media-libs/libexif )
 	dbus? ( sys-apps/dbus )
 	foomatic? ( !net-print/foomatic-filters )
@@ -57,7 +61,8 @@ post_src_unpack() {
 
 src_prepare() {
 	default
-#	append-cxxflags -std=c++11
+	# Setting recommended by cups-filters documentation:
+	append-cxxflags -std=c++11
 	eautoreconf
 }
 
@@ -71,14 +76,14 @@ src_configure() {
 		--with-pdftops=pdftops
 		--with-rcdir=no
 		--without-php
-
+		--disable-mutool
+		$(use_enable braille)
 		$(use_enable exif)
 		$(use_enable dbus)
 		$(use_enable foomatic)
 		$(use_enable ldap)
+		$(use_enable pdf poppler)
 		$(use_enable pclm)
-#		$(use_enable pdf mutool)
-		--disable-mutool
 		$(use_enable postscript ghostscript)
 		$(use_enable zeroconf avahi)
 		$(use_with jpeg)
@@ -132,7 +137,7 @@ src_install() {
 
 	find "${ED}" \( -name "*.a" -o -name "*.la" \) -delete || die
 
-	cp "${FILESDIR}"/cups-browsed.init.d-r1 "${T}"/cups-browsed || die
+	cp "${FILESDIR}"/cups-browsed.init.d-r2 "${T}"/cups-browsed || die
 
 	if ! use zeroconf ; then
 		sed -i -e 's:need cupsd avahi-daemon:need cupsd:g' "${T}"/cups-browsed || die
