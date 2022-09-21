@@ -4,7 +4,7 @@ EAPI=7
 
 inherit meson virtualx
 
-SRC_URI="https://github.com/i3/i3/tarball/b952e74145559de6ffbd8a7db06872ae33b91c3b -> i3-4.20.1-b952e74.tar.gz"
+SRC_URI="https://github.com/i3/i3/tarball/5bc4280a48b44f768a4467e12d44ba9b1bae3953 -> i3-4.21-5bc4280.tar.gz"
 KEYWORDS="*"
 
 DESCRIPTION="A tiling window manager"
