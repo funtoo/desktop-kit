@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python3_9+ )
 
 inherit python-single-r1 toolchain-funcs xdg
 
-SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.26.3/kitty-0.26.3.tar.xz -> kitty-0.26.3.tar.xz"
+SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.26.4/kitty-0.26.4.tar.xz -> kitty-0.26.4.tar.xz"
 KEYWORDS="next"
 
 DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
