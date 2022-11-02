@@ -11,5 +11,5 @@ RDEPEND=>=app-text/wv-1.2 >=dev-libs/fribidi-0.10.4 >=dev-libs/glib-2.16:2 >=dev
 REQUIRED_USE=collab? ( plugins ) grammar? ( plugins ) latex? ( plugins ) math? ( plugins ) ots? ( plugins ) readline? ( plugins ) thesaurus? ( plugins ) wordperfect? ( plugins ) wmf? ( plugins )
 SLOT=2
 SRC_URI=http://www.abisource.com/downloads/abiword/3.0.5/source/abiword-3.0.5.tar.gz
-_eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	14d00d009167652b1fa363e55effe213
+_eclasses_=autotools	5223f703a2e9c194fcda924f8c4b6baf	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	14d00d009167652b1fa363e55effe213
 _md5_=cf9d708d31e41554493cbd218ca8a26f
