@@ -8,7 +8,7 @@ inherit meson python-any-r1 xdg-utils
 
 DESCRIPTION="Feature rich terminal emulator using the Enlightenment Foundation Libraries"
 HOMEPAGE="https://www.enlightenment.org/about-terminology"
-SRC_URI="https://download.enlightenment.org/rel/apps/terminology/terminology-1.12.1.tar.xz -> terminology-1.12.1.tar.xz"
+SRC_URI="https://download.enlightenment.org/rel/apps/terminology/terminology-1.13.0.tar.xz -> terminology-1.13.0.tar.xz"
 
 LICENSE="BSD-2"
 SLOT="0"
