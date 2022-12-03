@@ -6,7 +6,7 @@ inherit autotools
 
 DESCRIPTION="VNC server for real X displays"
 HOMEPAGE="https://libvnc.github.io/"
-SRC_URI="https://github.com/LibVNC/x11vnc/tarball/0c2dc5e4305dcb6228b8bb14f726ac9c77b530b4 -> x11vnc-0.9.15-0c2dc5e.tar.gz"
+SRC_URI="https://github.com/LibVNC/x11vnc/tarball/4ca006fed80410bd9b061a1519bd5d9366bb0bc8 -> x11vnc-0.9.16-4ca006f.tar.gz"
 
 LICENSE="GPL-2+-with-openssl-exception"
 SLOT="0"
@@ -36,6 +36,12 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	dev-lang/tk:0
 "
+PATCHES=(
+	"${FILESDIR}"/"${P}"-crypto.patch
+	"${FILESDIR}"/"${P}"-anonymous-ssl.patch
+	"${FILESDIR}"/"${P}"-fno-common.patch
+	"${FILESDIR}"/"${P}"-CVE-2020-29074.patch
+)
 
 post_src_unpack() {
 	if [ ! -d "${S}" ]; then
