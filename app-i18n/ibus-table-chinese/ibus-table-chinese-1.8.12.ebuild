@@ -7,7 +7,7 @@ inherit cmake-utils
 
 DESCRIPTION="Chinese tables for IBus-Table"
 HOMEPAGE="https://github.com/definite/ibus-table-chinese"
-SRC_URI="https://github.com/mike-fabian/ibus-table-chinese/releases/download/1.8.11/ibus-table-chinese-1.8.11.tar.gz -> ibus-table-chinese-1.8.11.tar.gz"
+SRC_URI="https://github.com/mike-fabian/ibus-table-chinese/releases/download/1.8.12/ibus-table-chinese-1.8.12.tar.gz -> ibus-table-chinese-1.8.12.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
