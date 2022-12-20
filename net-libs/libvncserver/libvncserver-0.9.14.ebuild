@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Library for creating vnc servers"
 HOMEPAGE="https://libvnc.github.io/"
-SRC_URI="https://github.com/LibVNC/libvncserver/tarball/2aa20dad4c23c18948d3f63b33f9dfec1f837729 -> libvncserver-0.9.13-2aa20da.tar.gz"
+SRC_URI="https://github.com/LibVNC/libvncserver/tarball/10e9eb75f73e973725dc75c373de5d89807af028 -> libvncserver-0.9.14-10e9eb7.tar.gz"
 
 # common/d3des.*: https://github.com/LibVNC/libvncserver/issues/88
 LICENSE="GPL-2 GPL-2+ LGPL-2.1+ BSD MIT"
