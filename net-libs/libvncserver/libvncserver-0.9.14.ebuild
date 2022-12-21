@@ -37,24 +37,17 @@ DEPEND="
 	lzo? ( dev-libs/lzo )
 	png? ( >=media-libs/libpng-1.6.10:0= )
 	sasl? ( dev-libs/cyrus-sasl )
-	systemd? ( sys-apps/systemd:= )
 	zlib? ( >=sys-libs/zlib-1.2.8-r1:0= )
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( AUTHORS ChangeLog NEWS.md README.md TODO.md )
+DOCS=( AUTHORS ChangeLog NEWS.md README.md SECURITY.md CONTRIBUTING.md )
 
 post_src_unpack() {
 	if [ ! -d "${S}" ]; then
 		mv LibVNC-libvncserver* "${S}" || die
 	fi
 }
-PATCHES=(
-	"${FILESDIR}"/"${P}"-test-fix-includetest.patch
-	"${FILESDIR}"/"${P}"-test-fix-tjunittest.patch
-)
-
-
 
 src_configure() {
 	local mycmakeargs=(
@@ -71,7 +64,7 @@ src_configure() {
 		-DWITH_OPENSSL=$(usex gnutls OFF $(usex ssl ON OFF))
 		-DWITH_PNG=$(usex png ON OFF)
 		-DWITH_SASL=$(usex sasl ON OFF)
-		-DWITH_SYSTEMD=$(usex systemd ON OFF)
+		-DWITH_SYSTEMD=OFF
 		-DWITH_THREADS=$(usex threads ON OFF)
 		-DWITH_ZLIB=$(usex zlib ON OFF)
 	)
