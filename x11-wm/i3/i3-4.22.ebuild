@@ -7,7 +7,7 @@ inherit meson virtualx
 SRC_URI="https://github.com/i3/i3/tarball/b85da284a736edb5c2d629b2880f4fec18bc7575 -> i3-4.22-b85da28.tar.gz"
 KEYWORDS="*"
 
-DESCRIPTION="A tiling window manager"
+DESCRIPTION="A tiling window manager for X11"
 HOMEPAGE="https://i3wm.org/"
 
 LICENSE="BSD"
