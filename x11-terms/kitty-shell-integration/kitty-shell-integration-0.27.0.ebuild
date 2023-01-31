@@ -4,7 +4,7 @@ EAPI=7
 
 DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
 HOMEPAGE="https://sw.kovidgoyal.net/kitty/"
-SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.26.5/kitty-0.26.5.tar.xz -> kitty-0.26.5.tar.xz"
+SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.27.0/kitty-0.27.0.tar.xz -> kitty-0.27.0.tar.xz"
 S="${WORKDIR}/kitty-${PV}"
 
 LICENSE="GPL-3"
