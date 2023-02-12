@@ -5,7 +5,7 @@ EAPI=7
 DESCRIPTION="A window manager written in Nim (In Development)"
 HOMEPAGE="https://github.com/avahe-kellenberger/nimdow"
 
-SRC_URI="https://api.github.com/repos/avahe-kellenberger/nimdow/tarball/v0.7.35 -> nimdow-0.7.35.tar.gz"
+SRC_URI="https://api.github.com/repos/avahe-kellenberger/nimdow/tarball/v0.7.36 -> nimdow-0.7.36.tar.gz"
 KEYWORDS="*"
 
 LICENSE="GPL-2"
