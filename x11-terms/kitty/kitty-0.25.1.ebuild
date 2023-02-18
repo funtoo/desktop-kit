@@ -4,12 +4,16 @@ EAPI=7
 
 PYTHON_COMPAT=( python3+ )
 
-inherit python-single-r1 toolchain-funcs xdg
+inherit python-single-r1 toolchain-funcs xdg 
 
-SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.25.1/kitty-0.25.1.tar.xz -> kitty-0.25.1.tar.xz"
+
+SRC_URI="
+	https://github.com/kovidgoyal/kitty/releases/download/v0.25.1/kitty-0.25.1.tar.xz -> kitty-0.25.1.tar.xz
+	
+"
 KEYWORDS="*"
 
-DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
+DESCRIPTION=""
 HOMEPAGE="https://github.com/kovidgoyal/kitty"
 
 LICENSE="GPL-3"
@@ -54,6 +58,8 @@ BDEPEND="
 
 PATCHES=(
 )
+
+QA_FLAGS_IGNORED="usr/bin/kitten" # written in Go
 
 src_prepare() {
 	default
@@ -104,6 +110,7 @@ src_install() {
 	dobin linux-package/bin/kitty
 
 	fperms +x /usr/$(get_libdir)/kitty/shell-integration/ssh/{askpass.py,kitty}
+	fperms +x /usr/bin/kitten
 
 	python_fix_shebang "${ED}"
 }
