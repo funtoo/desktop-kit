@@ -8,7 +8,7 @@ inherit autotools gnome2-utils lua-single python-single-r1
 
 DESCRIPTION="Intelligent Pinyin and Bopomofo input methods based on LibPinyin for IBus"
 HOMEPAGE="https://github.com/libpinyin/ibus-libpinyin https://sourceforge.net/projects/libpinyin/"
-SRC_URI="https://github.com/libpinyin/ibus-libpinyin/releases/download/1.15.0/ibus-libpinyin-1.15.0.tar.gz -> ibus-libpinyin-1.15.0.tar.gz"
+SRC_URI="https://github.com/libpinyin/ibus-libpinyin/releases/download/1.15.1/ibus-libpinyin-1.15.1.tar.gz -> ibus-libpinyin-1.15.1.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
