@@ -6,7 +6,7 @@ inherit desktop optfeature prefix xdg
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/shutter-project/shutter"
-SRC_URI="https://github.com/shutter-project/shutter/tarball/416bba22746388a48b2ac6b99ac0ca5853789166 -> shutter-0.99.2-416bba2.tar.gz"
+SRC_URI="https://github.com/shutter-project/shutter/tarball/86aebae093cf5ab6d14821ba9dda187d6fa8a65c -> shutter-0.99.3-86aebae.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
