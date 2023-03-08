@@ -6,7 +6,7 @@ inherit cmake xdg-utils
 
 DESCRIPTION="Qt GUI Screenshot Utility"
 HOMEPAGE="https://lxqt.github.io/"
-SRC_URI="https://github.com/lxqt/screengrab/releases/download/2.5.0/screengrab-2.5.0.tar.xz -> screengrab-2.5.0.tar.xz"
+SRC_URI="https://github.com/lxqt/screengrab/releases/download/2.4.0/screengrab-2.4.0.tar.xz -> screengrab-2.4.0.tar.xz"
 
 LICENSE="GPL-2 GPL-2+ LGPL-2.1+"
 SLOT="0"
