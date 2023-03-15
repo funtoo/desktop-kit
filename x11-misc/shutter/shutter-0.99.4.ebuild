@@ -4,7 +4,7 @@ EAPI=7
 
 inherit desktop optfeature prefix xdg
 
-DESCRIPTION=""
+DESCRIPTION="Screenshot tool for Linux"
 HOMEPAGE="https://github.com/shutter-project/shutter"
 SRC_URI="https://github.com/shutter-project/shutter/tarball/c3dec93780e49a6df312bd7d3a4dd3269e633cbf -> shutter-0.99.4-c3dec93.tar.gz"
 
@@ -29,6 +29,7 @@ RDEPEND="
 	dev-perl/File-Copy-Recursive
 	dev-perl/File-MimeInfo
 	dev-perl/Locale-gettext
+	dev-perl/Moo
 	dev-perl/Net-DBus
 	dev-perl/Number-Bytes-Human
 	dev-perl/Pango
@@ -65,7 +66,7 @@ src_install() {
 	doins -r share/icons
 
 	insinto /usr/share/metainfo
-	doins share/appdata/shutter.appdata.xml
+	doins share/metainfo/shutter.metainfo.xml
 
 	# .po doesn't belong to installed system, only .mo
 	rm -r "${ED}"/usr/share/shutter/resources/po || die
