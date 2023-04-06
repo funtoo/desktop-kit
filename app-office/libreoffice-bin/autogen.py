@@ -5,6 +5,7 @@ import os
 import re
 from subprocess import getoutput
 
+
 async def get_archive_dir(hub, artifact):
 	await artifact.ensure_fetched()
 	out = getoutput(f"cat {artifact.final_path} | tar tzvf - | head -n 1")
@@ -162,6 +163,7 @@ async def autogen_libreoffice(hub, pkginfo, version="latest", gen={"main", "l10n
 		ebuild_bin.push()
 	if "l10n" in gen:
 		await add_l10n_ebuild(hub, version=version, dl_url=dl_url, **pkginfo)
+
 
 async def generate(hub, **pkginfo):
 	await autogen_libreoffice(hub, pkginfo)
