@@ -5,7 +5,6 @@ EAPI=7
 PYTHON_COMPAT=( python3_9+ )
 
 inherit python-single-r1 toolchain-funcs xdg go-module
-
 EGO_SUM=(
 	"github.com/!a!l!tree/bigfloat v0.0.0-20220102081255-38c8b72a9924"
 	"github.com/!a!l!tree/bigfloat v0.0.0-20220102081255-38c8b72a9924/go.mod"
@@ -56,13 +55,11 @@ EGO_SUM=(
 
 go-module_set_globals
 
-SRC_URI="
-	https://github.com/kovidgoyal/kitty/releases/download/v0.27.1/kitty-0.27.1.tar.xz -> kitty-0.27.1.tar.xz
-	${EGO_SUM_SRC_URI}
-"
+SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.27.1/kitty-0.27.1.tar.xz -> kitty-0.27.1.tar.xz
+https://direct.funtoo.org/20/c3/43/20c3432ae511a392c8521f805f4c71389c42066aa07c34b1884103be1c8fc81ae0648c41c3d75e478d400b500aa35ed00064eea38ab52ff3da4c8fa5e71ef537 -> kitty-0.27.1-funtoo-go-bundle-ada95a05944c1e2527f342be4d2fa53d991672d59717a0fa52523229e317e64050e914ded545a61ed47fbaab2a2732399fb754a94020c110ada7961669819a15.tar.gz"
 KEYWORDS="next"
 
-DESCRIPTION=""
+DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
 HOMEPAGE="https://github.com/kovidgoyal/kitty"
 
 LICENSE="GPL-3"

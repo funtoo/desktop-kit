@@ -2,14 +2,14 @@
 
 EAPI=7
 
-DESCRIPTION=""
+DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
 HOMEPAGE="https://sw.kovidgoyal.net/kitty/"
 SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.27.1/kitty-0.27.1.tar.xz -> kitty-0.27.1.tar.xz"
 S="${WORKDIR}/kitty-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="next"
+KEYWORDS=""
 RESTRICT="test" # intended to be ran on the full kitty package
 
 PATCHES=(
