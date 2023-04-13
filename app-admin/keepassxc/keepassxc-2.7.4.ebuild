@@ -55,6 +55,13 @@ src_prepare() {
 	cmake_src_prepare
 }
 
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv keepassxreboot-keepassxc-* "${S}" || die
+	fi
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_GUI_TESTS=OFF
