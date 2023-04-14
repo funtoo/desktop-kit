@@ -18,7 +18,7 @@ RDEPEND="
 	app-crypt/argon2:=
 	dev-libs/libgcrypt:=
 	>=dev-libs/libsodium-1.0.12:=
-	>=dev-libs/botan-2.19.1:=
+	dev-libs/botan:{{ botan }}=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
@@ -53,6 +53,13 @@ RESTRICT="!test? ( test )"
 src_prepare() {
 	use test || sed -e "/^find_package(Qt5Test/d" -i CMakeLists.txt || die
 	cmake_src_prepare
+}
+
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv {{ github_user }}-{{ github_repo }}-* "${S}" || die
+	fi
 }
 
 src_configure() {
