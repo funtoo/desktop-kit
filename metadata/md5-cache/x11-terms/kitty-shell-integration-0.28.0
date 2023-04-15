@@ -5,5 +5,5 @@ HOMEPAGE=https://sw.kovidgoyal.net/kitty/
 LICENSE=GPL-3
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.27.1/kitty-0.27.1.tar.xz -> kitty-0.27.1.tar.xz
-_md5_=fdb97fb6c0e7908f12e2831b8525e4a7
+SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.28.0/kitty-0.28.0.tar.xz -> kitty-0.28.0.tar.xz
+_md5_=ee1ff08ef89bfbb3e088a55f315e3a78
