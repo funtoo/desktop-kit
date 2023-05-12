@@ -16,8 +16,8 @@ DEPEND="
 	virtual/acl
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )
-	dev-python/cython[${PYTHON_USEDEP}]
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]"
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/cython[${PYTHON_USEDEP}]"
 RDEPEND="
 	${DEPEND}
 	dev-python/llfuse[${PYTHON_USEDEP}]
