@@ -7,7 +7,7 @@ inherit cmake xdg
 DESCRIPTION="KeePassXC - KeePass Cross-platform Community Edition"
 HOMEPAGE="https://keepassxc.org"
 
-SRC_URI="https://github.com/keepassxreboot/keepassxc/tarball/63b2394ed0598aea6b0f5ad16430ac93256c21bb -> keepassxc-2.7.4-63b2394.tar.gz"
+SRC_URI="https://github.com/keepassxreboot/keepassxc/tarball/9d0537bdab70c49b6e0f551e1cda30e01b3d413a -> keepassxc-2.7.5-9d0537b.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 GPL-2 GPL-3"
