@@ -19,3 +19,11 @@ DEPEND="${RDEPEND}
 	dev-util/intltool
 	sys-devel/gettext
 	virtual/pkgconfig"
+
+src_configure() {
+	if [ ${PV} == "1.4.2" ]; then
+		eapply "${FILESDIR}"/"${P}".patch
+	fi
+
+	default
+}

@@ -22,7 +22,6 @@ RDEPEND="
 	${DEPEND}
 	dev-python/llfuse[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]"
-
 IUSE="libressl"
 SLOT="0"
 LICENSE="BSD"
