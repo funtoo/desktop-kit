@@ -7,7 +7,7 @@ inherit cmake xdg
 DESCRIPTION="KeePassXC - KeePass Cross-platform Community Edition"
 HOMEPAGE="https://keepassxc.org"
 
-SRC_URI="https://github.com/keepassxreboot/keepassxc/tarball/9d0537bdab70c49b6e0f551e1cda30e01b3d413a -> keepassxc-2.7.5-9d0537b.tar.gz"
+SRC_URI="https://github.com/keepassxreboot/keepassxc/releases/download/2.7.5/keepassxc-2.7.5-src.tar.xz -> keepassxc-2.7.5-src.tar.xz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 GPL-2 GPL-3"
@@ -18,7 +18,7 @@ RDEPEND="
 	app-crypt/argon2:=
 	dev-libs/libgcrypt:=
 	>=dev-libs/libsodium-1.0.12:=
-	dev-libs/botan:2=
+	dev-libs/botan:3=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
