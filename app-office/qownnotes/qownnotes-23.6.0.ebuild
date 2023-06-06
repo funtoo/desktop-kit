@@ -6,7 +6,7 @@ inherit qmake-utils eutils desktop
 
 DESCRIPTION="A plain-text file markdown note taking with Nextcloud/ownCloud integration"
 HOMEPAGE="https://www.qownnotes.org/"
-SRC_URI="https://download.tuxfamily.org/qownnotes/src/qownnotes-23.5.3.tar.xz -> qownnotes-23.5.3.tar.xz"
+SRC_URI="https://download.tuxfamily.org/qownnotes/src/qownnotes-23.6.0.tar.xz -> qownnotes-23.6.0.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
