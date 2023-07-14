@@ -7,5 +7,5 @@ KEYWORDS=*
 LICENSE=GPL-2
 RDEPEND=x11-libs/libX11 x11-libs/libXft x11-libs/libXrandr x11-apps/xsetroot
 SLOT=0
-SRC_URI=https://api.github.com/repos/avahe-kellenberger/nimdow/tarball/v0.7.35 -> nimdow-0.7.35.tar.gz
-_md5_=cff8cae16a9534f960e68fd1c7f43e1a
+SRC_URI=https://api.github.com/repos/avahe-kellenberger/nimdow/tarball/v0.7.36 -> nimdow-0.7.36.tar.gz
+_md5_=61ce3449a8460b99b2f3e4ee7b469f2e
