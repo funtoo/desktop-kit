@@ -10,6 +10,6 @@ LICENSE=GPL-2
 RDEPEND=net-misc/curl x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXtst gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 net-dns/avahi[mdnsresponder-compat] ) dev-libs/openssl:0=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/debauchee/barrier/archive/v2.4.0.tar.gz -> barrier-2.4.0.tar.gz
+SRC_URI=https://github.com/debauchee/barrier/archive/653e4badeb88f61de901581667d4465d7b1e2d52.zip -> barrier-2.4.0-653e4ba.zip
 _eclasses_=cmake	ac7cb516f6a288b6a82bc0649ce49878	desktop	b1d22ac8bdd4679ab79c71aca235009d	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	virtualx	401b718cc14d43a5a7fbe062c4851ba5	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=875af438c9cf62a3825feb40db8d1883
+_md5_=2bddbd665cdad3a03c6d2dbd128ed2b7
