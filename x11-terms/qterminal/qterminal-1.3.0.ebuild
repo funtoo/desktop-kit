@@ -13,7 +13,8 @@ KEYWORDS="*"
 LICENSE="GPL-2 GPL-2+"
 SLOT="0"
 
-BDEPEND="dev-util/lxqt-build-tools"
+BDEPEND="dev-util/lxqt-build-tools
+	dev-qt/qttest"
 DEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
