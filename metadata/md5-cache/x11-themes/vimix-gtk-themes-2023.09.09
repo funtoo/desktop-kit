@@ -9,5 +9,5 @@ KEYWORDS=*
 LICENSE=GPL-3
 RDEPEND=x11-libs/gtk+:3 gtk2? ( x11-themes/gtk-engines x11-themes/gtk-engines-murrine )
 SLOT=0
-SRC_URI=https://github.com/vinceliuice/vimix-gtk-themes/tarball/0b1a97cc254bf623148424bb8b829c8a51d965e5 -> vimix-gtk-themes-2023.06.21-0b1a97c.tar.gz
-_md5_=70379bba31304e2e71d6ed6a36feff48
+SRC_URI=https://github.com/vinceliuice/vimix-gtk-themes/tarball/194b6ab4404a0b748e0c964c1f9ca8bb075934f8 -> vimix-gtk-themes-2023.09.09-194b6ab.tar.gz
+_md5_=da358774329ab331c510a714abd82885
