@@ -4,7 +4,7 @@ EAPI=7
 
 DESCRIPTION="A Minimal, Configurable, Single-User GTK3 LightDM Greeter"
 HOMEPAGE="https://github.com/prikhi/lightdm-mini-greeter"
-SRC_URI="https://github.com/prikhi/lightdm-mini-greeter/tarball/0f51aba27048d016fc79f782bffa24a09d248b4b -> lightdm-mini-greeter-0.5.1-0f51aba.tar.gz"
+SRC_URI="https://github.com/prikhi/lightdm-mini-greeter/tarball/f91ebe7bd0ca25c38bd37c9862134a85dbdab18c -> lightdm-mini-greeter-0.5.1-f91ebe7.tar.gz"
 KEYWORDS="*"
 
 LICENSE="GPL-2.0"

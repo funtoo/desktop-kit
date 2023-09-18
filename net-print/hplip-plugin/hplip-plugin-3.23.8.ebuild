@@ -7,7 +7,7 @@ inherit udev unpacker
 
 DESCRIPTION="Proprietary plugins and firmware for HPLIP"
 HOMEPAGE="https://developers.hp.com/hp-linux-imaging-and-printing/plugins"
-SRC_URI="https://developers.hp.com/sites/default/files/hplip-3.23.5-plugin.run -> hplip-3.23.5-plugin.run"
+SRC_URI="https://developers.hp.com/sites/default/files/hplip-3.23.8-plugin.run -> hplip-3.23.8-plugin.run"
 LICENSE="hplip-plugin"
 SLOT="0"
 KEYWORDS="*"
