@@ -7,7 +7,7 @@ inherit cmake desktop pax-utils
 
 DESCRIPTION="awesome window manager"
 HOMEPAGE="https://awesomewm.org/"
-SRC_URI="https://github.com/awesomeWM/awesome/tarball/5da5d36178250335f748eed43551daad9e5af694 -> awesome-4.3-5da5d36.tar.gz"
+SRC_URI="https://github.com/awesomeWM/awesome/tarball/30a42f529884053c674320beffe1e346983080f0 -> awesome-4.3-30a42f5.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

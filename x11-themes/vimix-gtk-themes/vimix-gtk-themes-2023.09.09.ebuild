@@ -5,7 +5,7 @@ EAPI=7
 DESCRIPTION="A flat Material Design theme for GTK"
 HOMEPAGE="https://github.com/vinceliuice/vimix-gtk-themes"
 
-SRC_URI="https://github.com/vinceliuice/vimix-gtk-themes/tarball/0b1a97cc254bf623148424bb8b829c8a51d965e5 -> vimix-gtk-themes-2023.06.21-0b1a97c.tar.gz"
+SRC_URI="https://github.com/vinceliuice/vimix-gtk-themes/tarball/194b6ab4404a0b748e0c964c1f9ca8bb075934f8 -> vimix-gtk-themes-2023.09.09-194b6ab.tar.gz"
 KEYWORDS="*"
 
 LICENSE="GPL-3"
