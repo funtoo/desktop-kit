@@ -6,7 +6,7 @@ GENTOO_DEPEND_ON_PERL=no
 
 inherit autotools perl-module flag-o-matic
 
-SRC_URI="https://github.com/OpenPrinting/cups-filters/releases/download/2.0.0/cups-filters-2.0.0.tar.xz -> cups-filters-2.0.0.tar.xz"
+SRC_URI="https://github.com/OpenPrinting/cups-filters/releases/download/1.28.17/cups-filters-1.28.17.tar.xz -> cups-filters-1.28.17.tar.xz"
 KEYWORDS="*"
 
 DESCRIPTION="Cups filters"
