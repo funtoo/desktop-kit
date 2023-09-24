@@ -6,7 +6,7 @@ inherit xdg-utils
 
 DESCRIPTION="A GUI to OpenSSL, RSA public keys, certificates, signing requests etc"
 HOMEPAGE="https://hohnstaedt.de/xca/"
-SRC_URI="https://github.com/chris2511/xca/releases/download/RELEASE.2.4.0/xca-2.4.0.tar.gz"
+SRC_URI="https://github.com/chris2511/xca/releases/download/RELEASE.2.5.0/xca-2.5.0.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
