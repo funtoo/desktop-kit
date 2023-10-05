@@ -163,7 +163,7 @@ signal-hook-registry-1.4.0
 slab-0.4.7
 slotmap-1.0.6
 smallvec-1.9.0
-smithay-client-toolkit-0.16.0
+smithay-client-toolkit-0.16.1
 smithay-clipboard-0.6.6
 spsc-buffer-0.1.1
 strict-num-0.1.0
@@ -223,7 +223,7 @@ windows_x86_64_gnu-0.42.1
 windows_x86_64_gnullvm-0.42.1
 windows_x86_64_msvc-0.36.1
 windows_x86_64_msvc-0.42.1
-winit-0.28.6
+winit-0.28.7
 winreg-0.10.1
 wio-0.2.2
 ws2_32-sys-0.2.1
@@ -243,7 +243,7 @@ inherit bash-completion-r1 cargo desktop python-any-r1
 
 DESCRIPTION="GPU-accelerated terminal emulator"
 HOMEPAGE="https://github.com/alacritty/alacritty"
-SRC_URI="https://api.github.com/repos/alacritty/alacritty/tarball/refs/tags/v0.12.2 -> alacritty-0.12.2.tar.gz
+SRC_URI="https://api.github.com/repos/alacritty/alacritty/tarball/refs/tags/v0.12.3 -> alacritty-0.12.3.tar.gz
 	$(cargo_crate_uris ${CRATES})"
 
 KEYWORDS="*"
