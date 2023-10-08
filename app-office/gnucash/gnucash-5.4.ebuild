@@ -8,7 +8,7 @@ inherit cmake gnome3 python-single-r1 toolchain-funcs
 DESCRIPTION="A personal and small business double entry accounting application"
 HOMEPAGE="https://github.com/Gnucash/gnucash"
 KEYWORDS="*"
-SRC_URI="https://github.com/Gnucash/gnucash/releases/download/5.4/gnucash-5.4.tar.gz -> gnucash-5.4.tar.gz"
+SRC_URI="https://github.com/Gnucash/gnucash/releases/download/5.4/gnucash-5.4-1.tar.gz -> gnucash-5.4.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
