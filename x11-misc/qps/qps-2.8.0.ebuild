@@ -4,41 +4,34 @@ EAPI=7
 
 inherit cmake xdg-utils
 
-DESCRIPTION="Qt Image Viewer"
+DESCRIPTION="Qt GUI Process Manager"
 HOMEPAGE="https://lxqt.github.io/"
+SRC_URI="https://github.com/lxqt/qps/releases/download/2.8.0/qps-2.8.0.tar.xz -> qps-2.8.0.tar.xz"
 
-SRC_URI="https://github.com/lxqt/lximage-qt/releases/download/1.3.0/lximage-qt-1.3.0.tar.xz -> lximage-qt-1.3.0.tar.xz"
-KEYWORDS="*"
-
-LICENSE="GPL-2 GPL-2+"
+LICENSE="GPL-2 GPL-2+ LGPL-2.1+ QPL-1.0"
 SLOT="0"
+KEYWORDS="*"
 
 BDEPEND="
 	dev-qt/linguist-tools:5
 	dev-util/lxqt-build-tools
-	virtual/pkgconfig
 "
 DEPEND="
-	dev-libs/glib:2
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
-	media-libs/libexif
-	x11-libs/libfm-qt
-	x11-libs/libX11
-	x11-libs/libXfixes
+	lxqt-base/liblxqt
 "
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
 	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
 	xdg_desktop_database_update
+	xdg_icon_cache_update
 }

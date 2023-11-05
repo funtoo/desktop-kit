@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="Qt GUI Pulseaudio Mixer"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/pavucontrol-qt/releases/download/1.3.0/pavucontrol-qt-1.3.0.tar.xz -> pavucontrol-qt-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/pavucontrol-qt/releases/download/1.4.0/pavucontrol-qt-1.4.0.tar.xz -> pavucontrol-qt-1.4.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="GPL-2 GPL-2+"
