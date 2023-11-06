@@ -8,7 +8,7 @@ inherit cmake python-single-r1
 
 DESCRIPTION="A fast and easy-to-use tool for creating status bars"
 HOMEPAGE="https://github.com/polybar/polybar"
-SRC_URI="https://github.com/polybar/polybar/releases/download/3.6.3/polybar-3.6.3.tar.gz -> polybar-3.6.3.tar.gz"
+SRC_URI="https://github.com/polybar/polybar/releases/download/3.7.0/polybar-3.7.0.tar.gz -> polybar-3.7.0.tar.gz"
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="MIT"
