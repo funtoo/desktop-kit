@@ -146,7 +146,6 @@ BDEPEND="
 "
 
 PATCHES=(
-		${REPODIR}/x11-terms/kitty/files/kitty-0.30.1-no-sudo.patch
 )
 
 QA_FLAGS_IGNORED="usr/bin/kitten" # written in Go
