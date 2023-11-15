@@ -9,7 +9,7 @@ HOMEPAGE="https://lxqt.github.io/"
 
 MY_PV="$(ver_cut 1-2)*"
 
-SRC_URI="https://github.com/lxqt/lxqt-session/releases/download/1.3.0/lxqt-session-1.3.0.tar.xz -> lxqt-session-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-session/releases/download/1.4.0/lxqt-session-1.4.0.tar.xz -> lxqt-session-1.4.0.tar.xz"
 KEYWORDS="*"
 
 IUSE="+udev"

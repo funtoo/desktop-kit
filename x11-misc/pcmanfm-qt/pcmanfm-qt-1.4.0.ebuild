@@ -7,7 +7,7 @@ inherit cmake xdg-utils
 DESCRIPTION="Qt GUI Tabbed Filemanager"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/pcmanfm-qt/releases/download/1.3.0/pcmanfm-qt-1.3.0.tar.xz -> pcmanfm-qt-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/pcmanfm-qt/releases/download/1.4.0/pcmanfm-qt-1.4.0.tar.xz -> pcmanfm-qt-1.4.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="GPL-2 GPL-2+ LGPL-2.1+"

@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="LXQt about dialog"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-about/releases/download/1.3.0/lxqt-about-1.3.0.tar.xz -> lxqt-about-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-about/releases/download/1.4.0/lxqt-about-1.4.0.tar.xz -> lxqt-about-1.4.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1+"

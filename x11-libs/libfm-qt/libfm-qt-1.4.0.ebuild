@@ -7,7 +7,7 @@ inherit cmake xdg-utils
 DESCRIPTION="Qt Library for Building File Managers"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/libfm-qt/releases/download/1.3.0/libfm-qt-1.3.0.tar.xz -> libfm-qt-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/libfm-qt/releases/download/1.4.0/libfm-qt-1.4.0.tar.xz -> libfm-qt-1.4.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="BSD GPL-2+ LGPL-2.1+"

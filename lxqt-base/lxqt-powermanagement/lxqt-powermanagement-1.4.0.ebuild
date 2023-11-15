@@ -9,7 +9,7 @@ HOMEPAGE="https://lxqt.github.io/"
 
 LXQTPV="$(ver_cut 1-2)*"
 
-SRC_URI="https://github.com/lxqt/lxqt-powermanagement/releases/download/1.3.0/lxqt-powermanagement-1.3.0.tar.xz -> lxqt-powermanagement-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-powermanagement/releases/download/1.4.0/lxqt-powermanagement-1.4.0.tar.xz -> lxqt-powermanagement-1.4.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 LGPL-2.1+"
