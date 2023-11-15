@@ -29,7 +29,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	media-libs/libexif
-	x11-libs/libfm-qt
+	=x11-libs/libfm-qt-${PV}
 	x11-libs/libX11
 	x11-libs/libXfixes
 "
