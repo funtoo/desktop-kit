@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="Qt terminal emulator widget"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/qtermwidget/tarball/75a682f846b8668af1036315edfd5e9596f308d1 -> qtermwidget-1.3.0-75a682f.tar.gz"
+SRC_URI="https://github.com/lxqt/qtermwidget/releases/download/1.3.0/qtermwidget-1.3.0.tar.xz -> qtermwidget-1.3.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="BSD GPL-2 LGPL-2+"
@@ -23,3 +23,9 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}"
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv "${WORKDIR}"/* "${S}" || die
+	fi
+}

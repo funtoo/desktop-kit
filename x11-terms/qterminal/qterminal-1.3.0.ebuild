@@ -7,7 +7,7 @@ inherit cmake xdg-utils
 DESCRIPTION="Qt-based multitab terminal emulator"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/qterminal/tarball/a2380fd5e92c461ec283c94c1699fbaf5de103bc -> qterminal-1.3.0-a2380fd.tar.gz"
+SRC_URI="https://github.com/lxqt/qterminal/releases/download/1.3.0/qterminal-1.3.0.tar.xz -> qterminal-1.3.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="GPL-2 GPL-2+"
@@ -32,4 +32,10 @@ pkg_postinst() {
 
 pkg_postrm() {
 	xdg_icon_cache_update
+}
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv "${WORKDIR}"/* "${S}" || die
+	fi
 }

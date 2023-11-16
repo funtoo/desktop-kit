@@ -6,7 +6,7 @@ inherit cmake xdg-utils
 
 DESCRIPTION="Qt GUI Process Manager"
 HOMEPAGE="https://lxqt.github.io/"
-SRC_URI="https://github.com/lxqt/qps/tarball/d987554d69b4886d1e28e547a93d41127353ed72 -> qps-2.7.0-d987554.tar.gz"
+SRC_URI="https://github.com/lxqt/qps/releases/download/2.7.0/qps-2.7.0.tar.xz -> qps-2.7.0.tar.xz"
 
 LICENSE="GPL-2 GPL-2+ LGPL-2.1+ QPL-1.0"
 SLOT="0"
@@ -34,4 +34,11 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_desktop_database_update
 	xdg_icon_cache_update
+}
+
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv "${WORKDIR}"/* "${S}" || die
+	fi
 }

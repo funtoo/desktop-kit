@@ -7,7 +7,7 @@ inherit cmake virtualx
 DESCRIPTION="Qt Implementation of XDG Standards"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/libqtxdg/tarball/cba7ec7cec1a836f598dee29d1a7b8cf851385ce -> libqtxdg-3.11.0-cba7ec7.tar.gz"
+SRC_URI="https://github.com/lxqt/libqtxdg/releases/download/3.11.0/libqtxdg-3.11.0.tar.xz -> libqtxdg-3.11.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1+ Nokia-Qt-LGPL-Exception-1.1"
@@ -43,4 +43,10 @@ src_configure() {
 src_test() {
 	# Tests don't work with C
 	LC_ALL=en_US.utf8 virtx cmake_src_test
+}
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv "${WORKDIR}"/* "${S}" || die
+	fi
 }

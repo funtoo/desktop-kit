@@ -7,7 +7,7 @@ inherit cmake xdg-utils
 DESCRIPTION="Qt Image Viewer"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lximage-qt/tarball/0672886f5d794dc1a82b13624b2e4114412e9cf7 -> lximage-qt-1.3.0-0672886.tar.gz"
+SRC_URI="https://github.com/lxqt/lximage-qt/releases/download/1.3.0/lximage-qt-1.3.0.tar.xz -> lximage-qt-1.3.0.tar.xz"
 KEYWORDS="*"
 
 LICENSE="GPL-2 GPL-2+"
@@ -41,4 +41,11 @@ pkg_postinst() {
 
 pkg_postrm() {
 	xdg_desktop_database_update
+}
+
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv "${WORKDIR}"/* "${S}" || die
+	fi
 }

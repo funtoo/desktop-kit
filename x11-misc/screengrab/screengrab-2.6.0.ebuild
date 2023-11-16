@@ -6,7 +6,7 @@ inherit cmake xdg-utils
 
 DESCRIPTION="Qt GUI Screenshot Utility"
 HOMEPAGE="https://lxqt.github.io/"
-SRC_URI="https://github.com/lxqt/screengrab/tarball/5d8b4d61a4f453c3efcaa94dcf4dcffa8615e209 -> screengrab-2.6.0-5d8b4d6.tar.gz"
+SRC_URI="https://github.com/lxqt/screengrab/releases/download/2.6.0/screengrab-2.6.0.tar.xz -> screengrab-2.6.0.tar.xz"
 
 LICENSE="GPL-2 GPL-2+ LGPL-2.1+"
 SLOT="0"
@@ -37,4 +37,10 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_desktop_database_update
 	xdg_icon_cache_update
+}
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv "${WORKDIR}"/* "${S}" || die
+	fi
 }

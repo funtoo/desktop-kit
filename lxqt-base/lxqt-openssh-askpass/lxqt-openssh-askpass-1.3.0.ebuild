@@ -32,3 +32,10 @@ src_install() {
 		SSH_ASKPASS='${EPREFIX}/usr/bin/lxqt-openssh-askpass'
 	_EOF_
 }
+
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv "${WORKDIR}"/* "${S}" || die
+	fi
+}
