@@ -9,7 +9,7 @@ HOMEPAGE="https://lxqt.github.io/"
 
 MY_PV="$(ver_cut 1-2)*"
 
-SRC_URI="https://github.com/lxqt/lxqt-runner/releases/download/1.3.0/lxqt-runner-1.3.0.tar.xz -> lxqt-runner-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-runner/tarball/593d8ae169cfa0113b95dcfc1fc8317beac70c89 -> lxqt-runner-1.3.0-593d8ae.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 LGPL-2.1+"

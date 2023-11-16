@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="LXQt PolKit authentication agent"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-policykit/releases/download/1.3.0/lxqt-policykit-1.3.0.tar.xz -> lxqt-policykit-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-policykit/tarball/a4e1f639037113343678721d8a670902a5e33409 -> lxqt-policykit-1.3.0-a4e1f63.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 LGPL-2.1+"

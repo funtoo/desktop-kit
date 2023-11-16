@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="User Tools from libqtxdg"
 HOMEPAGE="https://lxqt-project.org/"
 
-SRC_URI="https://github.com/lxqt/qtxdg-tools/releases/download/3.12.0/qtxdg-tools-3.12.0.tar.xz -> qtxdg-tools-3.12.0.tar.xz"
+SRC_URI="https://github.com/lxqt/qtxdg-tools/tarball/7d3c69c664fbdc1ca63cb48b4199fdfa88ce8c81 -> qtxdg-tools-3.11.0-7d3c69c.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1"

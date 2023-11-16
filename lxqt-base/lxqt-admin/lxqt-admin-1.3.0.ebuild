@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="LXQt system administration tool"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-admin/releases/download/1.3.0/lxqt-admin-1.3.0.tar.xz -> lxqt-admin-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-admin/tarball/3fc9070e51fe10496bc8b0da7dc0632fd5b1b18f -> lxqt-admin-1.3.0-3fc9070.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1+"

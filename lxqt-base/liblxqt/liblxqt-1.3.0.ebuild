@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="Common base library for the LXQt desktop environment"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/liblxqt/releases/download/1.4.0/liblxqt-1.4.0.tar.xz -> liblxqt-1.4.0.tar.xz"
+SRC_URI="https://github.com/lxqt/liblxqt/tarball/73a6629f558dc9a12e06b4abccf7141509aa684f -> liblxqt-1.3.0-73a6629.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1+ BSD"

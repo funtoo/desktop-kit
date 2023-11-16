@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="LXQt OpenSSH user password prompt tool"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-openssh-askpass/releases/download/1.3.0/lxqt-openssh-askpass-1.3.0.tar.xz -> lxqt-openssh-askpass-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-openssh-askpass/tarball/99aa2b3f65ba0eb1755ea201c1d64e8acdf351bc -> lxqt-openssh-askpass-1.3.0-99aa2b3.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 LGPL-2.1+"

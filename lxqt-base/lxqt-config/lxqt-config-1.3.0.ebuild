@@ -7,7 +7,7 @@ inherit cmake xdg-utils
 DESCRIPTION="LXQt system configuration control center"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-config/releases/download/1.3.0/lxqt-config-1.3.0.tar.xz -> lxqt-config-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-config/tarball/8d6c360d8f9f6ac9fb9b24bf01053a822799006b -> lxqt-config-1.3.0-8d6c360.tar.gz"
 KEYWORDS="*"
 
 LICENSE="GPL-2 GPL-2+ GPL-3 LGPL-2 LGPL-2+ LGPL-2.1+ WTFPL-2"

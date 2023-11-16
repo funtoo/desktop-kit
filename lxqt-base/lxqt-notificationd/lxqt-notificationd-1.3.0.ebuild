@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="LXQt notification daemon and library"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-notificationd/releases/download/1.3.0/lxqt-notificationd-1.3.0.tar.xz -> lxqt-notificationd-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-notificationd/tarball/83c2fb5c2f0d4a528d9e87d4c5000a14a6d13d0e -> lxqt-notificationd-1.3.0-83c2fb5.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 LGPL-2.1+"

@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="LXQt system integration plugin for Qt"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-qtplugin/releases/download/1.3.0/lxqt-qtplugin-1.3.0.tar.xz -> lxqt-qtplugin-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-qtplugin/tarball/ffe6ba9df6b28fc1edda22506a7460c1310eae4c -> lxqt-qtplugin-1.3.0-ffe6ba9.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1+"

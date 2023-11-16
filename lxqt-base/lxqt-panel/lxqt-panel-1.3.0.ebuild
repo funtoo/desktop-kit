@@ -9,7 +9,7 @@ HOMEPAGE="https://lxqt.github.io/"
 
 MY_PV="$(ver_cut 1-2)*"
 
-SRC_URI="https://github.com/lxqt/lxqt-panel/releases/download/1.3.0/lxqt-panel-1.3.0.tar.xz -> lxqt-panel-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-panel/tarball/a66a20263cd59e8bb26b1a9c389f059051c5c6ca -> lxqt-panel-1.3.0-a66a202.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 LGPL-2.1+"

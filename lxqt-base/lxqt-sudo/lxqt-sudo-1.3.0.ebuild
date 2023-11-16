@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="LXQt GUI frontend for sudo"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-sudo/releases/download/1.3.0/lxqt-sudo-1.3.0.tar.xz -> lxqt-sudo-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-sudo/tarball/324dd9c40267a7d7e99834ac948774f587a39bcc -> lxqt-sudo-1.3.0-324dd9c.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 LGPL-2.1+"

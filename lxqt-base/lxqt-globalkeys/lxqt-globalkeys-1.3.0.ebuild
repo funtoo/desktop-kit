@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="Daemon and library for global keyboard shortcuts registration"
 HOMEPAGE="https://lxqt.github.io/"
 
-SRC_URI="https://github.com/lxqt/lxqt-globalkeys/releases/download/1.3.0/lxqt-globalkeys-1.3.0.tar.xz -> lxqt-globalkeys-1.3.0.tar.xz"
+SRC_URI="https://github.com/lxqt/lxqt-globalkeys/tarball/3681455389a36eb806c074a6db583e74ceda2f99 -> lxqt-globalkeys-1.3.0-3681455.tar.gz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 LGPL-2.1+"
