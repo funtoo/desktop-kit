@@ -5,7 +5,7 @@ EAPI=7
 MY_PV2=$(ver_cut 1-2)
 MY_PV3=$(ver_cut 1-3)
 MY_PV4=$(ver_cut 4)
-SRC_URI="https://mirror1.cs-georgetown.net/tdf/libreoffice/stable/7.6.2/rpm/x86_64/LibreOffice_7.6.2_Linux_x86-64_rpm.tar.gz -> LibreOffice_7.6.2_Linux_x86-64_rpm.tar.gz"
+SRC_URI="https://mirror1.cs-georgetown.net/tdf/libreoffice/stable/7.6.3/rpm/x86_64/LibreOffice_7.6.3_Linux_x86-64_rpm.tar.gz -> LibreOffice_7.6.3_Linux_x86-64_rpm.tar.gz"
 
 inherit prefix rpm toolchain-funcs xdg-utils
 
