@@ -12,4 +12,4 @@ REQUIRED_USE=gdk-pixbuf? ( gtk ) gles? ( !glx opengl ) glx? ( opengl ) gtk? ( pn
 SLOT=0
 SRC_URI=https://jwz.org/xscreensaver/xscreensaver-6.08.tar.gz -> xscreensaver-6.08.tar.gz
 _eclasses_=autotools	5223f703a2e9c194fcda924f8c4b6baf	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	font	dd073b36fe3fd8b868c23bc23209db45	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	optfeature	8e0c2c8d30c10832f241f5e76ef3f0c7	pam	756a09f72c4cdbb55f2694c95f1e0860	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=35ba4b58f00843dcfed41311e77782d2
+_md5_=225cc21a0dd8fb5dc4688176a86ed38a
