@@ -1,4 +1,4 @@
-BDEPEND=dev-util/intltool sys-devel/bc sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=dev-util/intltool sys-devel/bc sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
 DEPEND=dev-libs/libxml2 x11-apps/appres x11-apps/xwininfo x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXt x11-libs/libXxf86vm sys-auth/elogind gdk-pixbuf? ( x11-libs/gdk-pixbuf ) gtk? ( x11-libs/gtk+:2 ) jpeg? ( media-libs/libjpeg-turbo:= ) locking? ( sys-libs/libxcrypt ) new-login? ( gdm? ( gnome-base/gdm ) !gdm? ( || ( x11-misc/lightdm lxde-base/lxdm ) ) ) opengl? ( virtual/glu virtual/opengl ) pam? ( sys-libs/pam ) png? ( media-libs/libpng:= ) xft? ( x11-libs/libXft ) xinerama? ( x11-libs/libXinerama ) x11-base/xorg-proto X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DESCRIPTION=Modular screen saver and locker for the X Window System
@@ -11,5 +11,5 @@ RDEPEND=dev-libs/libxml2 x11-apps/appres x11-apps/xwininfo x11-libs/libX11 x11-l
 REQUIRED_USE=gdk-pixbuf? ( gtk ) gles? ( !glx opengl ) glx? ( opengl ) gtk? ( png ) opengl? ( png )
 SLOT=0
 SRC_URI=https://jwz.org/xscreensaver/xscreensaver-6.08.tar.gz -> xscreensaver-6.08.tar.gz
-_eclasses_=autotools	5223f703a2e9c194fcda924f8c4b6baf	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	font	dd073b36fe3fd8b868c23bc23209db45	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	optfeature	8e0c2c8d30c10832f241f5e76ef3f0c7	pam	756a09f72c4cdbb55f2694c95f1e0860	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=autotools	e9ade2787b2f54643c7cdffbfa1cca9c	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	font	dd073b36fe3fd8b868c23bc23209db45	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	optfeature	8e0c2c8d30c10832f241f5e76ef3f0c7	pam	756a09f72c4cdbb55f2694c95f1e0860	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
 _md5_=225cc21a0dd8fb5dc4688176a86ed38a
