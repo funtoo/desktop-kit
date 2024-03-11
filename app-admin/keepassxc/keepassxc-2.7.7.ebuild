@@ -7,7 +7,7 @@ inherit cmake xdg
 DESCRIPTION="KeePassXC - KeePass Cross-platform Community Edition"
 HOMEPAGE="https://keepassxc.org"
 
-SRC_URI="https://github.com/keepassxreboot/keepassxc/releases/download/2.7.6/keepassxc-2.7.6-src.tar.xz -> keepassxc-2.7.6-src.tar.xz"
+SRC_URI="https://github.com/keepassxreboot/keepassxc/releases/download/2.7.7/keepassxc-2.7.7-src.tar.xz -> keepassxc-2.7.7-src.tar.xz"
 KEYWORDS="*"
 
 LICENSE="LGPL-2.1 GPL-2 GPL-3"
@@ -18,7 +18,7 @@ RDEPEND="
 	app-crypt/argon2:=
 	dev-libs/libgcrypt:=
 	>=dev-libs/libsodium-1.0.12:=
-	dev-libs/botan:3=
+	dev-libs/botan:=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
@@ -49,11 +49,6 @@ DEPEND="
 PDEPEND="x11-misc/xsel"
 
 RESTRICT="!test? ( test )"
-
-PATCHES=(
-	# https://bazaar.launchpad.net/~keepassxc-team/keepassxc/2.8/revision/2387
-	"${FILESDIR}/2387_2386.diff"
-)
 
 src_prepare() {
 	use test || sed -e "/^find_package(Qt5Test/d" -i CMakeLists.txt || die
