@@ -8,5 +8,5 @@ LICENSE=GPL-3
 RDEPEND=!<=x11-terms/kitty-0.25.0
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.32.2/kitty-0.32.2.tar.xz -> kitty-0.32.2.tar.xz
-_md5_=e1ae5e82f83ea50cad4d2c648006617d
+SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.33.0/kitty-0.33.0.tar.xz -> kitty-0.33.0.tar.xz
+_md5_=31c0cca62a476c7c9e239ecf6d5c3a31

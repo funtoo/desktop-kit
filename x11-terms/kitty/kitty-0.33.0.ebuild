@@ -21,8 +21,8 @@ EGO_SUM=(
 	"github.com/davecgh/go-spew v1.1.1/go.mod"
 	"github.com/disintegration/imaging v1.6.2"
 	"github.com/disintegration/imaging v1.6.2/go.mod"
-	"github.com/dlclark/regexp2 v1.10.0"
-	"github.com/dlclark/regexp2 v1.10.0/go.mod"
+	"github.com/dlclark/regexp2 v1.11.0"
+	"github.com/dlclark/regexp2 v1.11.0/go.mod"
 	"github.com/go-ole/go-ole v1.2.6"
 	"github.com/go-ole/go-ole v1.2.6/go.mod"
 	"github.com/google/go-cmp v0.5.6/go.mod"
@@ -48,8 +48,8 @@ EGO_SUM=(
 	"github.com/seancfoley/bintree v1.2.3/go.mod"
 	"github.com/seancfoley/ipaddress-go v1.5.5"
 	"github.com/seancfoley/ipaddress-go v1.5.5/go.mod"
-	"github.com/shirou/gopsutil/v3 v3.24.1"
-	"github.com/shirou/gopsutil/v3 v3.24.1/go.mod"
+	"github.com/shirou/gopsutil/v3 v3.24.2"
+	"github.com/shirou/gopsutil/v3 v3.24.2/go.mod"
 	"github.com/shoenig/go-m1cpu v0.1.6"
 	"github.com/shoenig/go-m1cpu v0.1.6/go.mod"
 	"github.com/shoenig/test v0.6.4"
@@ -65,8 +65,8 @@ EGO_SUM=(
 	"github.com/tklauser/go-sysconf v0.3.12/go.mod"
 	"github.com/tklauser/numcpus v0.6.1"
 	"github.com/tklauser/numcpus v0.6.1/go.mod"
-	"github.com/yusufpapurcu/wmi v1.2.3"
-	"github.com/yusufpapurcu/wmi v1.2.3/go.mod"
+	"github.com/yusufpapurcu/wmi v1.2.4"
+	"github.com/yusufpapurcu/wmi v1.2.4/go.mod"
 	"github.com/zeebo/assert v1.3.0"
 	"github.com/zeebo/assert v1.3.0/go.mod"
 	"github.com/zeebo/xxh3 v1.0.2"
@@ -81,9 +81,9 @@ EGO_SUM=(
 	"golang.org/x/sys v0.5.0/go.mod"
 	"golang.org/x/sys v0.8.0/go.mod"
 	"golang.org/x/sys v0.11.0/go.mod"
-	"golang.org/x/sys v0.16.0/go.mod"
-	"golang.org/x/sys v0.17.0"
 	"golang.org/x/sys v0.17.0/go.mod"
+	"golang.org/x/sys v0.18.0"
+	"golang.org/x/sys v0.18.0/go.mod"
 	"golang.org/x/text v0.3.0/go.mod"
 	"golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod"
 	"gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod"
@@ -97,8 +97,8 @@ EGO_SUM=(
 
 go-module_set_globals
 
-SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.32.2/kitty-0.32.2.tar.xz -> kitty-0.32.2.tar.xz
-https://direct.funtoo.org/77/35/25/7735251a649d6ac551c573a1fe6bcc98d437bd4dd468568c60c6535ec5b22bcffd2d4cca2e83dabddae2f40e8d03df82f78aa49e8619c14e4dda92f328c2ce04 -> kitty-0.32.2-funtoo-go-bundle-31522cd093b898e93a0f0fcd69d719e7e72578f8c56b384847b56cb0607df558df2d76b390be5a9ac899b924e5d2545126a81516e58a0b5d5ae64fb78aafce80.tar.gz"
+SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.33.0/kitty-0.33.0.tar.xz -> kitty-0.33.0.tar.xz
+https://direct.funtoo.org/27/6e/f9/276ef9d0e1e1368abd3811541f4760cabaf0a1201e810db903ae8456c22243e4512b42ec70551b16de2ecdb2adc57d5994823de50185549a42d74904c3d4c0e9 -> kitty-0.33.0-funtoo-go-bundle-ab45e339e46612d35f56beadd8fc2d69540ea454574fbce79b3fafc3f5b19fcabcc50c1af0a190a099e3afa7731b61f1fe6eef93bb26f0d3ff0f2bf804f2990e.tar.gz"
 KEYWORDS="next"
 
 DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
