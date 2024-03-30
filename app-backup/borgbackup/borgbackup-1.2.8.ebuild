@@ -7,7 +7,7 @@ inherit distutils-r1
 
 DESCRIPTION="Deduplicated, encrypted, authenticated and compressed backups"
 HOMEPAGE="https://borgbackup.readthedocs.io/ https://pypi.org/project/borgbackup/"
-SRC_URI="https://files.pythonhosted.org/packages/a6/19/f94be9fda92ea73cbf22b643a03a0b64559027ef5467765142d8242e712a/borgbackup-1.2.7.tar.gz -> borgbackup-1.2.7.tar.gz"
+SRC_URI="https://files.pythonhosted.org/packages/93/87/98299ebfe41687f77ea01bd0e9eba2f43baa30f1b9256345134fd77286d3/borgbackup-1.2.8.tar.gz -> borgbackup-1.2.8.tar.gz"
 
 DEPEND="
 	!!app-office/borg
@@ -25,7 +25,7 @@ IUSE="libressl"
 SLOT="0"
 LICENSE="BSD"
 KEYWORDS="*"
-S="${WORKDIR}/borgbackup-1.2.7"
+S="${WORKDIR}/borgbackup-1.2.8"
 
 python_prepare_all() {
 	# allow use of new (renamed) msgpack
