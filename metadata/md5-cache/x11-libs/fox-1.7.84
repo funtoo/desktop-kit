@@ -1,0 +1,14 @@
+BDEPEND=>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst unpack
+DEPEND=x11-libs/libXrandr x11-libs/libXcursor x11-libs/fox-wrapper >=sys-devel/autoconf-2.67 bzip2? ( app-arch/bzip2 ) jpeg? ( virtual/jpeg:= ) opengl? ( virtual/glu virtual/opengl ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:0= ) truetype? ( media-libs/freetype:2 x11-libs/libXft ) zlib? ( sys-libs/zlib ) x11-base/xorg-proto x11-libs/libXt doc? ( app-doc/doxygen ) dev-util/reswrap >=sys-apps/sed-4
+DESCRIPTION=C++ Toolkit for developing Graphical User Interfaces easily and effectively
+EAPI=7
+HOMEPAGE=http://www.fox-toolkit.org/
+IUSE=+bzip2 +jpeg +opengl +png tiff +truetype +zlib debug doc profile
+KEYWORDS=*
+LICENSE=LGPL-2.1
+RDEPEND=x11-libs/libXrandr x11-libs/libXcursor x11-libs/fox-wrapper >=sys-devel/autoconf-2.67 bzip2? ( app-arch/bzip2 ) jpeg? ( virtual/jpeg:= ) opengl? ( virtual/glu virtual/opengl ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:0= ) truetype? ( media-libs/freetype:2 x11-libs/libXft ) zlib? ( sys-libs/zlib )
+SLOT=1.7
+SRC_URI=ftp://ftp.fox-toolkit.org/pub/fox-1.7.84.tar.gz
+_eclasses_=autotools	e9ade2787b2f54643c7cdffbfa1cca9c	fox	0cb3dc657963973a9f0573859ab653d6	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=8dae395d4ea5eab846bb35adf7af0ad7
