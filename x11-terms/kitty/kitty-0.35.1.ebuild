@@ -8,10 +8,10 @@ inherit python-single-r1 toolchain-funcs xdg go-module
 EGO_SUM=(
 	"github.com/!a!l!tree/bigfloat v0.2.0"
 	"github.com/!a!l!tree/bigfloat v0.2.0/go.mod"
-	"github.com/alecthomas/assert/v2 v2.6.0"
-	"github.com/alecthomas/assert/v2 v2.6.0/go.mod"
-	"github.com/alecthomas/chroma/v2 v2.13.0"
-	"github.com/alecthomas/chroma/v2 v2.13.0/go.mod"
+	"github.com/alecthomas/assert/v2 v2.7.0"
+	"github.com/alecthomas/assert/v2 v2.7.0/go.mod"
+	"github.com/alecthomas/chroma/v2 v2.14.0"
+	"github.com/alecthomas/chroma/v2 v2.14.0/go.mod"
 	"github.com/alecthomas/repr v0.4.0"
 	"github.com/alecthomas/repr v0.4.0/go.mod"
 	"github.com/bmatcuk/doublestar/v4 v4.6.1"
@@ -105,8 +105,8 @@ EGO_SUM=(
 
 go-module_set_globals
 
-SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.35.0/kitty-0.35.0.tar.xz -> kitty-0.35.0.tar.xz
-https://direct.funtoo.org/c4/6b/e7/c46be71b495f2e6b3b5abf1db618e38b5b6f808ee58944d2cca79bceda354d9be61769e40d5c2a6679790faaa63b8b79252217e35e99e79242259e0caae771ff -> kitty-0.35.0-funtoo-go-bundle-69ce4acbc4658779de7d6a44bcd04237caa742e96bc0da130bd5430890c00d029a6fcbdddb25146dca5e5b11e89152af791870603b0830ed8c280015b3e3ab5f.tar.gz"
+SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v0.35.1/kitty-0.35.1.tar.xz -> kitty-0.35.1.tar.xz
+https://direct.funtoo.org/fa/a0/c4/faa0c467c1e8021194b73cf94ff6e03e3c7d8cedb74247846e9b048a9fc9239ba3c6f283353a20ec5050d2278b208cabd5dbe373b9c4379062ee883d7e5c35e1 -> kitty-0.35.1-funtoo-go-bundle-a91cacdf639a6850cb1843bfc761e9018bd6b1482d338472044753654346841c890a0aa5e7c45facb3a2f21ef69e6e11d230a69867aae9511f3a6eeb4ecdc1c6.tar.gz"
 KEYWORDS="next"
 
 DESCRIPTION="Cross-platform, fast, feature-rich, GPU based terminal"
