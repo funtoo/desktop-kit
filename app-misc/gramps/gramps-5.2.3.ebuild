@@ -11,7 +11,7 @@ inherit distutils-r1 xdg-utils
 
 DESCRIPTION="Community genealogy program aiming to be both intuitive and feature-complete"
 HOMEPAGE="https://gramps-project.org/"
-SRC_URI="https://github.com/gramps-project/gramps/tarball/9f62039a0d825e2e115674ed5043a70d59468e0d -> gramps-5.2.2-9f62039.tar.gz"
+SRC_URI="https://github.com/gramps-project/gramps/tarball/3d860ed41f274b79493483a1c6648ac3303cf066 -> gramps-5.2.3-3d860ed.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
