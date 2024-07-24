@@ -4,7 +4,7 @@ EAPI=7
 
 DESCRIPTION="A tiling window manager"
 HOMEPAGE="https://github.com/jcs/sdorfehs"
-SRC_URI="https://github.com/jcs/sdorfehs/tarball/8a50f09638020f84b7e6af816a27fb7184c68c87 -> sdorfehs-1.5-8a50f09.tar.gz"
+SRC_URI="https://github.com/jcs/sdorfehs/tarball/cf6164dff7622a0bea23c6dc398f3fa716e6f13c -> sdorfehs-1.6-cf6164d.tar.gz"
 
 LICENSE="GPL-2.0"
 SLOT="0"
