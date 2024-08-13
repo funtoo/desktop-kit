@@ -7,7 +7,7 @@ inherit xdg-utils
 DESCRIPTION="Gruvbox Material theme for GTK"
 HOMEPAGE="https://github.com/sainnhe/gruvbox-material-gtk"
 
-SRC_URI="https://github.com/sainnhe/gruvbox-material-gtk/archive/a1295d8bcd4dfbd0cd6793d7b1583b442438ed89.tar.gz -> gruvbox-material-gtk-theme-a1295d8bcd4dfbd0cd6793d7b1583b442438ed89.tar.gz"
+SRC_URI="https://github.com/sainnhe/gruvbox-material-gtk/archive/808959bcfe8b9409b49a7f92052198f0882ae8bc.tar.gz -> gruvbox-material-gtk-theme-808959bcfe8b9409b49a7f92052198f0882ae8bc.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 post_src_unpack() {
-	mv "${WORKDIR}"/gruvbox-material-gtk-a1295d8bcd4dfbd0cd6793d7b1583b442438ed89 "${S}"
+	mv "${WORKDIR}"/gruvbox-material-gtk-808959bcfe8b9409b49a7f92052198f0882ae8bc "${S}"
 }
 
 src_install() {

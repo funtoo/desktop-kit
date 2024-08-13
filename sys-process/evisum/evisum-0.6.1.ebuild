@@ -6,7 +6,7 @@ inherit meson xdg
 
 DESCRIPTION="System and process monitor written with EFL"
 HOMEPAGE="https://www.enlightenment.org/"
-SRC_URI="https://download.enlightenment.org/rel/apps/evisum/evisum-0.6.0.tar.xz -> evisum-0.6.0.tar.xz"
+SRC_URI="https://download.enlightenment.org/rel/apps/evisum/evisum-0.6.1.tar.xz -> evisum-0.6.1.tar.xz"
 
 LICENSE="GPL-2 ISC"
 SLOT="0"
