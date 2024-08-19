@@ -5,7 +5,7 @@ inherit fcaps meson
 
 DESCRIPTION="Generates status bar to use with i3bar, dzen2 or xmobar"
 HOMEPAGE="https://i3wm.org/i3status/"
-SRC_URI="https://github.com/i3/i3status/tarball/8fc0f6e53119964ce2e9b4ab1ceb971476f53a8a -> i3status-2.14-8fc0f6e.tar.gz"
+SRC_URI="https://github.com/i3/i3status/tarball/ccac36f45740e0c5bf2df9f20a05aed523efafac -> i3status-2.15-ccac36f.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
