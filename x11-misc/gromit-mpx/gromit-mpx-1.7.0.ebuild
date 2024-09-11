@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool"
 HOMEPAGE="https://github.com/bk138/${PN}"
 
-SRC_URI="https://github.com/bk138/gromit-mpx/archive/1.6.0.tar.gz -> gromit-mpx-1.6.0.tar.gz"
+SRC_URI="https://github.com/bk138/gromit-mpx/archive/1.7.0.tar.gz -> gromit-mpx-1.7.0.tar.gz"
 KEYWORDS="*"
 
 SLOT="0"
