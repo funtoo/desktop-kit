@@ -10,7 +10,7 @@ inherit desktop flag-o-matic wxwidgets cmake-utils
 MY_PV="${PV/_beta/BETA}"
 DESCRIPTION="Password manager with wxGTK based frontend"
 HOMEPAGE="https://pwsafe.org/ https://github.com/pwsafe/pwsafe/"
-SRC_URI="https://github.com/pwsafe/pwsafe/archive/1.12.0.tar.gz -> passwordsafe-1.12.0.tar.gz"
+SRC_URI="https://github.com/pwsafe/pwsafe/tarball/b0eae4277ad7cce23eeda1af5daff586b5fe8fa2 -> pwsafe-3.67.0-b0eae42.tar.gz"
 
 LICENSE="Artistic-2"
 SLOT="0"
@@ -41,6 +41,12 @@ S=${WORKDIR}/pwsafe-${MY_PV}
 pkg_pretend() {
 	einfo "Checking for -std=c++11 support in compiler"
 	test-flags-CXX -std=c++11 > /dev/null || die
+}
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv "${WORKDIR}"/* "${S}" || die
+	fi
 }
 
 src_prepare() {

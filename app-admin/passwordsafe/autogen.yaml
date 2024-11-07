@@ -1,0 +1,8 @@
+pwsafe:
+  generator: github-1
+  packages:
+    - passwordsafe:
+        github:
+          user: pwsafe
+          repo: pwsafe
+          query: releases
